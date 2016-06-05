@@ -20,10 +20,144 @@
     = yield :headers
 
   %body{:class => "#{controller_name_for_view} #{params[:action]}"}
+    %section#jm-top-bar
+      .container-fluid
+        .row-fluid
+          #jm-top-bar2.pull-right.span12
+            .jm-module-raw
+
+              -# the right menu is not shown in the home page
+              - if at_home?
+                %ul#navbar-right-links
+                  %li.last
+                    = link_to main_app.logout_path do
+                      = t('logout', :user => current_user.name)
+              - else
+                %ul#navbar-right-links
+                  - if user_signed_in?
+                    %li.dropdown.user-info-dropdown.last
+
+                      -# small user information in the navbar
+                      .user-info.dropdown-toggle{ :"data-toggle" => "dropdown" }
+                        .user-avatar
+                          = link_logo_image(current_user, :size => '32', :url => main_app.user_path(current_user), :title => current_user.name, :class => "logo-user")
+                        %a.user-name{ :href => '#' }= current_user.name
+                        %b.caret
+
+                      -# dropdown menu opened when clicking in the dropdown
+                      .dropdown-menu.arrow-right
+                        .user-info-big
+                          .user-avatar
+                            = link_logo_image(current_user, :size => '128', :url => main_app.user_path(current_user), :title => current_user.name, :class => "logo-user")
+                          .user-data
+                            = link_to(current_user.name, main_app.user_path(current_user))
+                            = link_to(current_user.email, "mailto: #{current_user.email}")
+                            %span= current_user.profile.organization unless current_user.profile.organization.nil?
+                        .user-links
+                          %ul
+                            %li= link_to t('logout', :user => current_user.name), main_app.logout_path
+                            %li= link_to t('account'), main_app.edit_user_path(current_user)
+                            %li
+                              = t('profile.one') + ":"
+                              %span
+                                = link_to t('view'), main_app.user_path(current_user)
+                                = "/ "
+                                = link_to t('edit'), main_app.edit_user_profile_path(current_user)
+
+                  - else
+                    - if current_site.local_auth_enabled? || current_site.ldap_enabled?
+                      %li.last= link_to t('.login'), main_app.login_path
+                    - if current_site.registration_enabled?
+                      %li= link_to t('.register'), main_app.register_path
+
+
+              / - if user_signed_in?
+              /   %form#login-form.form-inline{:action => "http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/registration-form", :method => "post"}
+              /     .userdata
+              /       #form-login-username.control-group
+              /         .controls
+              /           .input-prepend
+              /             %span.add-on
+              /               %span.icon-user.hasTooltip{"data-original-title" => "Username", :title => ""}
+              /               %label.element-invisible{:for => "modlgn-username"} Username
+              /             %input#modlgn-username.input-small{:name => "username", :placeholder => "Username", :size => "18", :tabindex => "0", :type => "text"}
+              /       #form-login-password.control-group
+              /         .controls
+              /           .input-prepend
+              /             %span.add-on
+              /               %span.icon-lock.hasTooltip{"data-original-title" => "Password", :title => ""}
+              /               %label.element-invisible{:for => "modlgn-passwd"} Password
+              /             %input#modlgn-passwd.input-small{:name => "password", :placeholder => "Password", :size => "18", :tabindex => "0", :type => "password"}
+              /       #form-login-remember.control-group.checkbox
+              /         %label.control-label{:for => "modlgn-remember"} Remember Me
+              /         %input#modlgn-remember.inputbox{:name => "remember", :type => "checkbox", :value => "yes"}
+              /       #form-login-submit.control-group
+              /         .controls
+              /           %button.btn.btn-primary{:name => "Submit", :tabindex => "0", :type => "submit"} Log in
+              /     %ul.unstyled
+              /       %li
+              /         %a{:href => "/stats/stats/index.php/pages/joomla-other-pages/registration-form"}
+              /           Create an account
+              /           %span.icon-arrow-right
+              /       %li
+              /         %a{:href => "/stats/stats/index.php/pages/joomla-other-pages/registration-form?view=remind"}
+              /           Forgot your username?
+              /       %li
+              /         %a{:href => "/stats/stats/index.php/pages/joomla-other-pages/registration-form?view=reset"}
+              /           Forgot your password?
+              /     %input{:name => "option", :type => "hidden", :value => "com_users"}
+              /       %input{:name => "task", :type => "hidden", :value => "user.login"}
+              /         %input{:name => "return", :type => "hidden", :value => "aHR0cDovL3d3dy5ha3JhdGVjaC5jb20vc3RhdHMvc3RhdHMvaW5kZXgucGhwL3BhZ2VzL2pvb21sYS1vdGhlci1wYWdlcy9yZWdpc3RyYXRpb24tZm9ybQ=="}
+              /           %input{:name => "a62a62c91d0af731491f5c9fe4002e45", :type => "hidden", :value => "1"}
+
+
+    %section#jm-header-wrapper
+      #jm-logo-nav.container-fluid
+        #jm-logo-sitedesc.pull-left
+          %h1#jm-logo
+            - url = user_signed_in? ? main_app.my_home_path : main_app.root_path
+            %a.title{:href => url}= current_site.name
+        %nav#jm-top-menu-nav.pull-right
+          .jm-module-raw
+            %ul#dj-main98.dj-main.allowHide.normal
+              - if user_signed_in?
+                %li.dj-up.itemid435.first
+                  = link_to main_app.my_home_path, class: "dj-up_a" do
+                    %span.dj-drop
+                      = t('home.my')
+                %li.dj-up.itemid435
+                  = link_to  main_app.spaces_path, class: "dj-up_a" do
+                    %span.dj-drop
+                      =t('space.all')
+                - if mod_enabled?("events")
+                  %li.dj-up.itemid435
+                    = link_to events_path, class: "dj-up_a" do
+                      %span.dj-drop
+                        =t('.events')
+                - if current_user.superuser?
+                  %li.dj-up.itemid50
+                    =link_to main_app.site_path, class: "dj-up_a" do
+                      %span.dj-drop
+                        =t('.manage')
+              - else
+                -# for anonymous users
+                %li
+                  =link_to main_app.spaces_path, class: "dj-up_a" do
+                    %span.dj-drop
+                      =t('space.all')
+                - if mod_enabled?("events")
+                  %li
+                    =link_to events_path, class: "dj-up_a" do
+                      %span.dj-drop
+                        =t('.events')
+
+
+            
+
     #site
-      #navbar-wrapper
-        #navbar
-          = render :partial => 'layouts/application_navbar'
+      / #navbar-wrapper
+      /   #navbar
+      /     = render :partial => 'layouts/application_navbar'
 
       #page-header-wrapper
         #page-header
@@ -45,7 +179,20 @@
 
       #footer-pusher
 
-    = render :partial => "layouts/footer"
+      / = render :partial => "layouts/footer"
+
+      %footer#jm-footer
+        .container-fluid
+          .row-fluid
+            #jm-copyrights.span6
+              .custom
+                %p JM Internet All Rights Reserved.
+            #jm-poweredby.span6.text-right.pull-right
+              %a{:href => "http://www.joomla-monster.com/", :onfocus => "blur()", :title => "Joomla Templates"} Joomla Templates
+              by Joomla-Monster.com
+            #jm-back-top{:style => "display: block;"}
+              %a{:href => "#top"}
+                %span &nbsp;
 
     = render :partial => "layouts/analytics"
     = render :partial => "layouts/notifications"

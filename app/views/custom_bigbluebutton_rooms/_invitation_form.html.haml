@@ -44,9 +44,13 @@
         %span= t(".at")
         #invite_ends_on_time
           = f.input :ends_on_time, :label => false, :as => :time, :minute_step => 5, :prompt => { :hour => "", :minute => "" }
-      #invite_duration.input
-        %span= t(".duration") + ":"
-        %span.duration= ""
+
+      #invite_clause
+        #invite_duration.input
+          %span= t(".duration") + ":"
+          %span.duration= ""
+        #invite_price
+          = f.input :invite_price, :label => :cost, :value => 1
 
       = f.input :title, :as => :string, :label => t('activerecord.attributes.invite.title')
       = f.input :message, :as => :text, :label => t('activerecord.attributes.invite.message'), :required => false

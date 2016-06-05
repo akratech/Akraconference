@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<!-- saved from url=(0036)http://www.akratech.com/stats/stats/ -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-gb" lang="en-gb" dir="ltr" slick-uniqueid="3">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <!-- viewport fix for devices -->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!-- load core head -->
+      <!--<base href="http://www.akratech.com/stats/stats/">-->
+      <base href=".">
+      <meta name="author" content="Super User">
+      <title>Home</title>
+      
+      <%= stylesheet_link_tag 'home_page.css' %>
+      <%= stylesheet_link_tag 'animate.min.css' %>
+      <%= stylesheet_link_tag 'animations.css' %>
+      <%= stylesheet_link_tag 'custom.css' %>
+      <%= stylesheet_link_tag 'jmthemecustomiser.css' %>
+      <%= stylesheet_link_tag 'jquery.minicolors.css' %>
+      <%= stylesheet_link_tag 'mod_dj_easy_contact.css' %>
+      <%= stylesheet_link_tag 'modal.css' %>
+      <%= stylesheet_link_tag 'style.css' %>
+
+      <%= javascript_include_tag 'jquery.min.js', 'data-turbolinks-track' => true %>
+      <%= javascript_include_tag 'jquery-noconflict.js', 'data-turbolinks-track' => true %>
+      <%= javascript_include_tag 'jquery-migrate.min.js', 'data-turbolinks-track' => true %>
+      <%= javascript_include_tag 'caption.js', 'data-turbolinks-track' => true %>
+      <%= javascript_include_tag 'bootstrap.min.js', 'data-turbolinks-track' => true %>
+      <%= javascript_include_tag 'mootools-core.js', 'data-turbolinks-track' => true %>
+      <%= javascript_include_tag 'core.js', 'data-turbolinks-track' => true %>
+      <%= javascript_include_tag 'mootools-more.js', 'data-turbolinks-track' => true %>
+      <%= javascript_include_tag 'modal.js', 'data-turbolinks-track' => true %>
+      <%= javascript_include_tag 'jquery.ui.core.min.js', 'data-turbolinks-track' => true %>
+      <%= javascript_include_tag 'jquery.ui.sortable.min.js', 'data-turbolinks-track' => true %>
+      <%= javascript_include_tag 'layout.js', 'data-turbolinks-track' => true %>
+      <%= javascript_include_tag 'html5fallback.js', 'data-turbolinks-track' => true %>
+      <%= javascript_include_tag 'jquery.minicolors.min.js', 'data-turbolinks-track' => true %>
+      <%= javascript_include_tag 'jquery.ui.draggable.js', 'data-turbolinks-track' => true %>
+      <%= javascript_include_tag 'jquery.ui.slider.js', 'data-turbolinks-track' => true %>
+      <%= javascript_include_tag 'jquery.ui.accordion.js', 'data-turbolinks-track' => true %>
+      <%= javascript_include_tag 'jmoptiongroups.js', 'data-turbolinks-track' => true %>
+      <%= javascript_include_tag 'jmgooglefont.js', 'data-turbolinks-track' => true %>
+      <%= javascript_include_tag 'scripts.js', 'data-turbolinks-track' => true %>
+      <%= javascript_include_tag 'powertools-1.2.0.js', 'data-turbolinks-track' => true %>
+      <%= javascript_include_tag 'slider.js', 'data-turbolinks-track' => true %>
+      <%= javascript_include_tag 'jquery.djselect.js', 'data-turbolinks-track' => true %>
+      <%= javascript_include_tag 'jquery.djmenu.js', 'data-turbolinks-track' => true %>
+
+      <script type="text/javascript">
+         jQuery(window).on('load',  function() {
+                 new JCaption('img.caption');
+               });
+             jQuery(function($) {
+               SqueezeBox.initialize({});
+               SqueezeBox.assign($('a.modal').get(), {
+                 parse: 'rel'
+               });
+             });
+             function jModalClose() {
+               SqueezeBox.close();
+             }
+         jQuery(function($) {
+                $('.hasTip').each(function() {
+                 var title = $(this).attr('title');
+                 if (title) {
+                   var parts = title.split('::', 2);
+                   var mtelement = document.id(this);
+                   mtelement.store('tip:title', parts[0]);
+                   mtelement.store('tip:text', parts[1]);
+                 }
+               });
+               var JTooltips = new Tips($('.hasTip').get(), {"maxTitleChars": 50,"fixed": false});
+             });
+                 jQuery(document).ready(function (){
+                   jQuery('.minicolors').each(function() {
+                     jQuery(this).minicolors({
+                       control: jQuery(this).attr('data-control') || 'hue',
+                       position: jQuery(this).attr('data-position') || 'right',
+                       theme: 'bootstrap'
+                     });
+                   });
+                 });
+               
+                                 jQuery(document).on('JMFrameworkInit', function(){
+                                     jQuery('.jmirispicker').each(function() {
+                                         jQuery(this).iris({
+                                             hide: true,
+                                             palettes: true
+                                         });
+                                     });
+                                     
+                                     jQuery('.minicolors').each(function() {
+                                         jQuery(this).minicolors({
+                                             control: jQuery(this).attr('data-control') || 'hue',
+                                             position: jQuery(this).attr('data-position') || 'right',
+                                             theme: 'bootstrap'
+                                         });
+                                     });
+                                     
+                                     jQuery(document).on('click',function(event){
+                                         jQuery('.jmirispicker').each(function() {
+                                             if (event.target != this && typeof jQuery(this).iris != 'undefined') {
+                                                 jQuery(this).iris('hide');
+                                             }
+                                         });
+                                     });
+                                     
+                                     var JMThemerGoogleFonts = new JMGoogleFontHelper('.google-font-url').initialise();
+                                     
+                                 });
+                         
+         (function($){ window.addEvent('domready',function(){this.Slider138 = new DJImageSliderModule({id: '138', slider_type: 0, slide_size: 400, visible_slides: 3, show_buttons: 0, show_arrows: 0, preload: 800},{auto: 0, transition: Fx.Transitions.Expo.easeInOut, duration: 1000, delay: 4000})}); })(document.id);
+         (function($){ window.addEvent('domready',function(){this.Slider186 = new DJImageSliderModule({id: '186', slider_type: 0, slide_size: 1903, visible_slides: 1, show_buttons: 0, show_arrows: 1, preload: 800},{auto: 1, transition: Fx.Transitions.Expo.easeInOut, duration: 1000, delay: 9000})}); })(document.id);
+         jQuery(document).ready(function(){jQuery('#dj-main98').addClass('allowHide')});
+         jQuery(document).ready( function(){ new DJMenu(jQuery('#dj-main98'), {wrap: '', animIn: 'fadeIn', animOut: 'fadeOut', animSpeed: 'normal', delay: 500 }); } );
+         window.setInterval(function(){var r;try{r=window.XMLHttpRequest?new XMLHttpRequest():new ActiveXObject("Microsoft.XMLHTTP")}catch(e){}if(r){r.open("GET","./",true);r.send(null)}},840000);
+         jQuery(document).ready(function(){
+           jQuery('.hasTooltip').tooltip({"html": true,"container": "body"});
+         });
+           
+      </script>
+      <!-- <script type="text/javascript">
+         less = {
+         env: "production",
+         mode: "browser",
+         async: false,
+         logLevel: 0,
+         fileAsync: false,
+         poll: 1000,
+         functions: {},
+         dumpLineNumbers: "",
+         relativeUrls: false,
+         rootpath: "/stats/stats/templates/jm-internet/less/",
+         globalVars: {"JMoffCanvasWidth":"300px","JMcolorVersion":"#008ed6","JMimagesDir":"scheme1","JMpageBackground":"#f4f4f4","JMcomponentBorder":"#e7e7e7","JMbaseFontColor":"#898989","JMarticleFontColor":"#2f2f2f","JMtopbarBackground":"#000000","JMtopbarFontColor":"#a5a5a5","JMtopmenuBackground":"#000000","JMtopmenuFontColor":"#ffffff","JMheaderBackground":"#000000","JMheaderFontColor":"#ffffff","JMtop2Background":"#ffffff","JMtop2FontColor":"#898989","JMmoduleBackground":"#ffffff","JMmoduleBorder":"#e7e7e7","JMmoduleFontColor":"#898989","JMmoduleTitleFontColor":"#323232","JMdarkmsModuleBackground":"#292929","JMdarkmsModuleFontColor":"#727272","JMdarkmsModuleTitleFontColor":"#ffffff","JMfooterBackground":"#292929","JMfooterFontColor":"#515151","JMfooterModuleTitle":"#ffffff","JMoffCanvasBackground":"#333333","JMoffCanvasFontColor":"#ffffff","JMsliderTitleFontColor":"#ffffff","JMsliderDescBackground":"#000000","JMsliderDescFontColor":"#ffffff","JMbaseFontSize":"16px","JMtopmenuFontSize":"16px","JMmoduleTitleFontSize":"20px","JMarticleTitleFontSize":"32px","JMfluidGridContainerLg":"1170px","JMbaseSpace":"30px","JMbaseFontFamily":"Roboto, sans-serif","JMmoduleTitleFontFamily":"Roboto, sans-serif","JMtopmenuFontFamily":"Roboto, sans-serif","JMarticleTitleFontFamily":"Roboto, sans-serif"}
+         };
+      </script>
+      
+      <script type="text/javascript">
+         jQuery.extend(JMThemeCustomiser, {
+             url: 'http://www.akratech.com/stats/stats/',
+             lang: {"LANG_PLEASE_WAIT":"Loading Theme Customizer. Please wait...","LANG_PLEASE_WAIT_APPLYING":"Applying changes. Please wait...","LANG_PLEASE_WAIT_SAVING":"Saving changes. Please wait...","LANG_PLEASE_WAIT_RELOADING":"Template's configuration has been modified in the back-end. The page will be be refreshed.","LANG_ERROR_FORBIDDEN":"You have to log-in as administrator to store the settings!","LANG_ERROR_UNAUTHORISED":"You do not have permissions to store settings!","LANG_ERROR_BAD_REQUEST":"Bad request!"},
+             lessVars: {"responsiveLayout":"1","offCanvas":"1","JMoffCanvasWidth":"300px","offCanvasPosition":"right","JMcolorVersion":"#008ed6","JMimagesDir":"scheme1","JMpageBackground":"#f4f4f4","JMcomponentBorder":"#e7e7e7","JMbaseFontColor":"#898989","JMarticleFontColor":"#2f2f2f","JMtopbarBackground":"#000000","JMtopbarFontColor":"#a5a5a5","JMtopmenuBackground":"#000000","JMtopmenuFontColor":"#ffffff","JMheaderBackground":"#000000","JMheaderFontColor":"#ffffff","JMtop2Background":"#ffffff","JMtop2FontColor":"#898989","JMmoduleBackground":"#ffffff","JMmoduleBorder":"#e7e7e7","JMmoduleFontColor":"#898989","JMmoduleTitleFontColor":"#323232","JMdarkmsModuleBackground":"#292929","JMdarkmsModuleFontColor":"#727272","JMdarkmsModuleTitleFontColor":"#ffffff","JMfooterBackground":"#292929","JMfooterFontColor":"#515151","JMfooterModuleTitle":"#ffffff","JMoffCanvasBackground":"#333333","JMoffCanvasFontColor":"#ffffff","JMsliderTitleFontColor":"#ffffff","JMsliderDescBackground":"#000000","JMsliderDescFontColor":"#ffffff","logo":"images\/logo.png","logoText":"","siteDescription":"","fontSizeSwitcher":"0","backToTop":"1","favIconImg":"","layout":"default","JMbaseFontSize":"16px","bodyFontType":"1;bodyGoogleWebFontUrl;bodyGoogleWebFontFamily","bodyFontFamily":"Arial, Helvetica, sans-serif","bodyGoogleWebFontUrl":"\/\/fonts.googleapis.com\/css?family=Roboto:400,300,400italic,500,700,900","bodyGoogleWebFontFamily":"Roboto, sans-serif","JMtopmenuFontSize":"16px","djmenuFontType":"1;djmenuGoogleWebFontUrl;djmenuGoogleWebFontFamily","djmenuFontFamily":"Arial, Helvetica, sans-serif","djmenuGoogleWebFontUrl":"\/\/fonts.googleapis.com\/css?family=Roboto:400,300,400italic,500,700,900","djmenuGoogleWebFontFamily":"Roboto, sans-serif","JMmoduleTitleFontSize":"20px","headingsFontType":"1;headingsGoogleWebFontUrl;headingsGoogleWebFontFamily","headingsFontFamily":"Arial, Helvetica, sans-serif","headingsGoogleWebFontUrl":"\/\/fonts.googleapis.com\/css?family=Roboto:400,300,400italic,500,700,900","headingsGoogleWebFontFamily":"Roboto, sans-serif","JMarticleTitleFontSize":"32px","articlesFontType":"1;articlesGoogleWebFontUrl;articlesGoogleWebFontFamily","articlesFontFamily":"Arial, Helvetica, sans-serif","articlesGoogleWebFontUrl":"\/\/fonts.googleapis.com\/css?family=Roboto:400,300,400italic,500,700,900","articlesGoogleWebFontFamily":"Roboto, sans-serif","advancedFontSize":"18px","advancedFontType":"0;advancedFontFamily","advancedFontFamily":"Arial, Helvetica, sans-serif","advancedGoogleWebFontUrl":"","advancedGoogleWebFontFamily":"","advancedSelectors":"","devmode":"0","themermode":"1","themerlogin":"0","codeInjection":"","cssCompress":"0","jsCompress":"0","skipCompress":"","facebookOpenGraph":"0","facebookOpenGraphAppID":"","config":"","JMfluidGridContainerLg":"1170px","JMbaseSpace":"30px","JMbaseFontFamily":"Roboto, sans-serif","JMmoduleTitleFontFamily":"Roboto, sans-serif","JMtopmenuFontFamily":"Roboto, sans-serif","JMarticleTitleFontFamily":"Roboto, sans-serif"},
+             cookie: {path: '/stats/stats', domain: 'www.akratech.com'},
+             styleId : 17,
+             login_form : 0
+         });
+         
+         JMThemeCustomiser.init("jm-internet");
+                     
+         jQuery(document).ready(function(){
+             JMThemeCustomiser.render();
+             jQuery(document).trigger('JMFrameworkInit');
+         });
+      </script> -->
+      <!--[if IE 9]>
+      <link href="/stats/stats/templates/jm-internet/css/ie9.css" rel="stylesheet" type="text/css" />
+      <![endif]-->
+      <link href="http://www.akratech.com/stats/stats/templates/jm-internet/images/favicon.ico" rel="Shortcut Icon">
+   </head>
+   <body class=" off-canvas-right topbar headerbg" cz-shortcut-listen="true">
+      <div id="jm-allpage">
+        <div id="jm-offcanvas">
+             <div id="jm-offcanvas-toolbar">
+                <a class="toggle-nav close-menu"><span class="icon-remove"></span></a>
+             </div>
+             <div id="jm-offcanvas-content">
+                <div class="jm-module  blank-ms">
+                   <div class="jm-module-in">
+                      <div class="jm-module-content clearfix notitle">
+                         <div class="custom blank-ms">
+                            <p>Assign modules on offcanvas module position to make them visible in the sidebar.</p>
+                         </div>
+                      </div>
+                   </div>
+                </div>
+                <div class="jm-module  blank-ms">
+                   <div class="jm-module-in">
+                      <h3 class="jm-title "><span>Main</span> Menu</h3>
+                      <div class="jm-module-content clearfix ">
+                         <ul class="nav menu">
+                            <li class="item-435 current active parent"><a href="/stats/stats/index.php">Home</a></li>
+                            <li class="item-502 parent"><a href="http://www.joomla-monster.com/knowledge-base-area/templates-documentation/general-info-ef4-framework-for-joomla-3-x/settings">Features</a></li>
+                            <li class="item-479 parent"><a href="/stats/stats/index.php/pages">Pages</a></li>
+                            <li class="item-499 parent"><a href="/stats/stats/">Languages</a></li>
+                            <li class="item-514 parent"><a href="/stats/stats/index.php/homepage/home1">Style</a></li>
+                            <li class="item-516"><a href="/stats/stats/index.php/contact">Contact Us</a></li>
+                         </ul>
+                      </div>
+                   </div>
+                </div>
+                <div class="jm-module  blank-ms">
+                   <div class="jm-module-in">
+                      <h3 class="jm-title "><span>Tags</span></h3>
+                      <div class="jm-module-content clearfix ">
+                         <div class="tagspopular blank-ms tagscloud blank-ms">
+                            <span class="tag">
+                            <a class="tag-name" style="font-size: 1em" href="/stats/stats/index.php/component/tags/tag/10-amet">
+                            amet              </a>
+                            </span>
+                            <span class="tag">
+                            <a class="tag-name" style="font-size: 1em" href="/stats/stats/index.php/component/tags/tag/9-sit">
+                            sit             </a>
+                            </span>
+                            <span class="tag">
+                            <a class="tag-name" style="font-size: 1em" href="/stats/stats/index.php/component/tags/tag/8-dolor">
+                            dolor             </a>
+                            </span>
+                            <span class="tag">
+                            <a class="tag-name" style="font-size: 1em" href="/stats/stats/index.php/component/tags/tag/7-ipsum">
+                            ipsum             </a>
+                            </span>
+                            <span class="tag">
+                            <a class="tag-name" style="font-size: 1em" href="/stats/stats/index.php/component/tags/tag/11-nec">
+                            nec             </a>
+                            </span>
+                            <span class="tag">
+                            <a class="tag-name" style="font-size: 1em" href="/stats/stats/index.php/component/tags/tag/12-quis">
+                            quis              </a>
+                            </span>
+                         </div>
+                      </div>
+                   </div>
+                </div>
+             </div>
+          </div>
+
+         <div id="jm-mainpage">
+            <section id="jm-top-bar" class="">
+               <div class="container-fluid">
+                  <div class="row-fluid">
+                     <div id="jm-top-bar1" class="pull-left span6">
+                        <div class="jm-module-raw ">
+                           <div class="custom">
+                              <ul class="jm-contact-icons">
+                                 <li class="jm-direction"><%= image_tag "direction.png" %><a title="Contact" href="http://www.akratech.com/stats/stats/index.php/contact">Peterborough, UK</a></li>
+                                 <li class="jm-email"><%= image_tag "email.png" %><a title="Contact" href="http://www.akratech.com/stats/stats/index.php/contact">hello@services.com</a></li>
+                                 <li class="jm-phone"><%= image_tag "phone.png" %><a title="Contact" href="http://www.akratech.com/stats/stats/index.php/contact">+44 7837 383 484</a></li>
+                              </ul>
+                           </div>
+                        </div>
+                     </div>
+                     <div id="jm-top-bar2" class="pull-right span6">
+                        <div class="jm-module-raw  nomargin-ms">
+                           <div class="custom nomargin-ms">
+                              <p><a class="toggle-nav menu"><span class="icon-align-justify"></span></a></p>
+                           </div>
+                        </div>
+                        <div class="jm-module-raw ">
+                        <%= form_for(resource, :as => resource_name, :url => user_session_path, html: {id: "login-form", class: "form-inline"}) do |f| %>
+
+                              <div class="userdata">
+                                 <div id="form-login-username" class="control-group">
+                                    <div class="controls">
+                                       <div class="input-prepend">
+                                          <span class="add-on">
+                                          <span class="icon-user hasTooltip" title="" data-original-title="Username"></span>
+                                          <label for="modlgn-username" class="element-invisible">Username</label>
+                                          </span>
+                                          <%= f.text_field :login, { id: "modlgn-username", type: "text", class: "input-small" ,tabindex: "0", size: "18", placeholder: "Username"} %>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div id="form-login-password" class="control-group">
+                                    <div class="controls">
+                                       <div class="input-prepend">
+                                          <span class="add-on">
+                                          <span class="icon-lock hasTooltip" title="" data-original-title="Password">
+                                          </span>
+                                          <label for="modlgn-passwd" class="element-invisible">Password             </label>
+                                          </span>
+                                          <%= f.text_field :password, {id: "modlgn-passwd", type: "text", class: "input-small" ,tabindex: "0", size: "18", placeholder: "Password"} %>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div id="form-login-remember" class="control-group checkbox">
+                                    <label for="modlgn-remember" class="control-label">Remember Me</label> <input id="modlgn-remember" type="checkbox" name="remember" class="inputbox" value="yes">
+                                 </div>
+                                 <div id="form-login-submit" class="control-group">
+                                    <div class="controls">
+                                       <button type="submit" tabindex="0" name="Submit" class="btn btn-primary">Log in</button>
+                                    </div>
+                                 </div>
+                              <% end %>   
+                                 <ul class="unstyled">
+                                    <li>
+                                       <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/registration-form">
+                                       Create an account <span class="icon-arrow-right"></span></a>
+                                    </li>
+                                    <li>
+                                       <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/registration-form?view=remind">
+                                       Forgot your username?</a>
+                                    </li>
+                                    <li>
+                                       <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/registration-form?view=reset">
+                                       Forgot your password?</a>
+                                    </li>
+                                 </ul>
+                              </div>
+                           </form>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </section>
+            <section id="jm-header-wrapper">
+               <div id="jm-logo-nav" class="container-fluid">
+                  <div id="jm-logo-sitedesc" class="pull-left">
+                     <h1 id="jm-logo">
+                        <a href="http://www.akratech.com/stats/stats/" onfocus="blur()">
+                        <%= image_tag "logo.png" %>
+                        </a>
+                     </h1>
+                  </div>
+                  <nav id="jm-top-menu-nav" class="pull-right">
+                     <div class="jm-module-raw ">
+                        <ul id="dj-main98" class="dj-main allowHide normal">
+                           <li class="dj-up itemid435 first active">
+                              <a href="http://www.akratech.com/stats/stats/index.php" class="dj-up_a active"><span class="dj-drop">Home</span></a>
+                              <ul class="dj-submenu">
+                                 <li class="submenu_top" style="display: none"> </li>
+                                 <li class="itemid789 first"><a href="http://www.akratech.com/stats/stats/index.php/homepage/home1" class="">Home 1 - Slider Background</a></li>
+                                 <li class="itemid790 last"><a href="http://www.akratech.com/stats/stats/index.php/homepage/home2" class="">Home 2 - Custom Image Background</a></li>
+                                 <li class="submenu_bot" style="display: none"> </li>
+                              </ul>
+                           </li>
+                           <li class="dj-up itemid502">
+                              <a href="http://www.joomla-monster.com/knowledge-base-area/templates-documentation/general-info-ef4-framework-for-joomla-3-x/settings" class="dj-up_a"><span class="dj-drop">Features</span></a>
+                              <ul class="dj-submenu">
+                                 <li class="submenu_top" style="display: none"> </li>
+                                 <li class="itemid562 first"><a href="http://www.joomla-monster.com/knowledge-base-area/templates-documentation/general-info-ef4-framework-for-joomla-3-x/settings" class="">Template Parameters</a></li>
+                                 <li class="itemid563"><a href="http://www.akratech.com/stats/stats/index.php/features/all-templates-positions" class="">All Template's Positions</a></li>
+                                 <li class="itemid564"><a href="http://www.akratech.com/stats/stats/index.php/features/module-suffixes" class="">Module Suffixes</a></li>
+                                 <li class="itemid503"><a href="http://www.akratech.com/stats/stats/index.php/features/typography" class="">Typography</a></li>
+                                 <li class="itemid566"><a href="http://www.joomla-monster.com/knowledge-base-area/general-questions/about-our-store/what-is-a-quickstart" class="">Install Demo Copy</a></li>
+                                 <li class="itemid567 last"><a href="http://www.joomla-monster.com/all-templates" class="">Joomla Templates</a></li>
+                                 <li class="submenu_bot" style="display: none"> </li>
+                              </ul>
+                           </li>
+                           <li class="dj-up itemid479">
+                              <a href="http://www.akratech.com/stats/stats/index.php/pages" class="dj-up_a"><span class="dj-drop">Pages</span></a>
+                              <ul class="dj-submenu">
+                                 <li class="submenu_top" style="display: none"> </li>
+                                 <li class="itemid519 first separator">
+                                    <a class="dj-more">Scheme Layouts</a>
+                                    <ul>
+                                       <li class="submenu_top" style="display: none"> </li>
+                                       <li class="itemid520 first"><a href="http://www.akratech.com/stats/stats/index.php/pages/scheme-layouts/left-content-right" class="">Left-Content-Right</a></li>
+                                       <li class="itemid521"><a href="http://www.akratech.com/stats/stats/index.php/pages/scheme-layouts/left-right-content" class="">Left-Right-Content</a></li>
+                                       <li class="itemid522"><a href="http://www.akratech.com/stats/stats/index.php/pages/scheme-layouts/content-left-right" class="">Content-Left-Right</a></li>
+                                       <li class="itemid523"><a href="http://www.akratech.com/stats/stats/index.php/pages/scheme-layouts/left-content" class="">Left-Content</a></li>
+                                       <li class="itemid524"><a href="http://www.akratech.com/stats/stats/index.php/pages/scheme-layouts/content-right" class="">Content-Right</a></li>
+                                       <li class="itemid525 last"><a href="http://www.akratech.com/stats/stats/index.php/pages/scheme-layouts/content" class="">Content</a></li>
+                                       <li class="submenu_bot" style="display: none"> </li>
+                                    </ul>
+                                 </li>
+                                 <li class="itemid526 separator">
+                                    <a class="dj-more">J! Content</a>
+                                    <ul>
+                                       <li class="submenu_top" style="display: none"> </li>
+                                       <li class="itemid527 first"><a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-content/single-article" class="">Single Article</a></li>
+                                       <li class="itemid528"><a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-content/blog-2-columns" class="">Blog - 2 columns</a></li>
+                                       <li class="itemid529"><a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-content/blog-1-column" class="">Blog - 1 column </a></li>
+                                       <li class="itemid530"><a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-content/category-list" class="">Category List</a></li>
+                                       <li class="itemid532"><a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-content/tabs" class="">Tabs</a></li>
+                                       <li class="itemid542"><a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/single-contact" class="">Accordion</a></li>
+                                       <li class="itemid788 last"><a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-content/news-feed" class="">News Feed</a></li>
+                                       <li class="submenu_bot" style="display: none"> </li>
+                                    </ul>
+                                 </li>
+                                 <li class="itemid533 last separator">
+                                    <a class="dj-more">J! Other Pages</a>
+                                    <ul>
+                                       <li class="submenu_top" style="display: none"> </li>
+                                       <li class="itemid534 first"><a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/registration-form" class="">Registration Form</a></li>
+                                       <li class="itemid535"><a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/login-form" class="">Login Form</a></li>
+                                       <li class="itemid538"><a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/search-form" class="">Search Form</a></li>
+                                       <li class="itemid539"><a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/smart-search" class="">Smart Search</a></li>
+                                       <li class="itemid541"><a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/single-contact" class="">Single Contact</a></li>
+                                       <li class="itemid657"><a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/error-404" class="">Error 404</a></li>
+                                       <li class="itemid658"><a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/offline-page" class="">Offline Page</a></li>
+                                       <li class="itemid795 last"><a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" class="">Pricing Tables</a></li>
+                                       <li class="submenu_bot" style="display: none"> </li>
+                                    </ul>
+                                 </li>
+                                 <li class="submenu_bot" style="display: none"> </li>
+                              </ul>
+                           </li>
+                           <li class="dj-up itemid499">
+                              <a href="http://www.akratech.com/stats/stats/" class="dj-up_a"><span class="dj-drop">Languages</span></a>
+                              <ul class="dj-submenu fadeOut">
+                                 <li class="submenu_top" style="display: none"> </li>
+                                 <li class="itemid500 first"><a href="http://www.akratech.com/stats/stats/?direction=ltr" class="">LTR Languages</a></li>
+                                 <li class="itemid501 last"><a href="http://www.akratech.com/stats/stats/?direction=rtl" class="">RTL Languages</a></li>
+                                 <li class="submenu_bot" style="display: none"> </li>
+                              </ul>
+                           </li>
+                           <li class="dj-up itemid514">
+                              <a href="http://www.akratech.com/stats/stats/index.php/homepage/home1" class="dj-up_a"><span class="dj-drop">Style</span></a>
+                              <ul class="dj-submenu fadeOut" style="margin-left: -29.7812px;">
+                                 <li class="submenu_top" style="display: none"> </li>
+                                 <li class="itemid799 first"><a href="http://www.akratech.com/stats/stats/index.php/homepage/home1" class="">Style 1 - Blue</a></li>
+                                 <li class="itemid800"><a href="http://www.akratech.com/stats/stats/index.php/style/style-2-orange" class="">Style 2 - Orange</a></li>
+                                 <li class="itemid802"><a href="http://www.akratech.com/stats/stats/index.php/style/style-3-yellow" class="">Style 3 - Yellow</a></li>
+                                 <li class="itemid801 last"><a href="http://www.akratech.com/stats/stats/index.php/style/style-4-red" class="">Style 4 - Red</a></li>
+                                 <li class="submenu_bot" style="display: none"> </li>
+                              </ul>
+                           </li>
+                           <li class="dj-up itemid516 last"><a href="http://www.akratech.com/stats/stats/index.php/contact" class="dj-up_a"><span>Contact Us</span></a></li>
+                        </ul>
+                     </div>
+                  </nav>
+               </div>
+               <div id="jm-header-bg">
+                  <div class="jm-module-raw  header-ms">
+                     <div style="border: 0px !important;">
+                        <div id="djslider-loader186" class="djslider-loader" style="padding-top: 0px; padding-bottom: 0px; background: none;">
+                           <div id="djslider186" class="djslider" style="opacity: 1; visibility: visible; width: 1280px; height: 441px;">
+                              <div id="slider-container186" class="slider-container">
+                                 <ul id="slider186" style="position: relative; left: 0px; width: 2562px;">
+                                    <li style="width: 1280px; height: 441px;">
+                                      <%= image_tag "header1.jpg",alt: "Get the Best Solution for You" %>
+                                       <!-- Slide description area: START -->
+                                       <div class="slide-desc">
+                                          <div class="slide-desc-in">
+                                             <div class="slide-desc-bg"></div>
+                                             <div class="slide-desc-text">
+                                                <div class="slide-title">
+                                                   Get the Best Solution for You                                 
+                                                </div>
+                                                <div class="slide-text">
+                                                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi consectetur dui vel ligula tincidunt egestas. Aenean vitae adipiscing massa. Donec luctus libero vel metus ornare consequat.</p>
+                                                </div>
+                                                <a href="/register" target="_self" class="readmore">Register</a>
+                                                <div style="clear: both"></div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <!-- Slide description area: END -->
+                                    </li>
+                                    <li style="width: 1280px; height: 441px;">
+
+                                       <%= image_tag "header2.jpg",alt: "Solutions for a small planet" %>
+                                       <!-- Slide description area: START -->
+                                       <div class="slide-desc">
+                                          <div class="slide-desc-in">
+                                             <div class="slide-desc-bg"></div>
+                                             <div class="slide-desc-text">
+                                                <div class="slide-title">
+                                                   Solutions for a small planet                                  
+                                                </div>
+                                                <div class="slide-text">
+                                                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi consectetur dui vel ligula tincidunt egestas. Aenean vitae adipiscing massa. Donec luctus libero vel metus ornare consequat.</p>
+                                                </div>
+                                                <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" target="_self" class="readmore">Check an offer</a>
+                                                <div style="clear: both"></div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <!-- Slide description area: END -->
+                                    </li>
+                                 </ul>
+                              </div>
+                              <div id="navigation186" class="navigation-container">
+                                 <%= image_tag "prev.png",{id: "prev186", class: "prev-button",  alt: "Previous", style: "opacity: 0"} %>
+                                 <%= image_tag "next.png",{id: "next186", class: "next-button",  alt: "Next", style: "opacity: 0"} %>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div style="clear: both"></div>
+                  </div>
+               </div>
+            </section>
+            <section id="jm-top1" class="">
+               <div class="container-fluid">
+                  <div class="row-fluid jm-flexiblock jm-top1">
+                     <div class="span6 exp narrow">
+                        <div class="row-fluid">
+                           <div class="span0 exp narrow">
+                              <div class="jm-module  expand1-ms">
+                                 <div class="jm-module-in">
+                                    <div class="jm-module-content clearfix notitle">
+                                       <div class="custom expand1-ms">
+                                          <div class="jm-box">
+                                             <div class="jm-box-in">
+                                                <div class="jm-icon"><%= image_tag "icon1.png" %></div>
+                                                <div class="jm-column"><span class="title">Residential Solutions</span> <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" class="link">www.jm-internet.com</a> <span class="description">Lorem lean startup ipsum product market fit customer development acquihire technical cofounder. User engagement.</span> <span class="contact">call 888-777-888</span> <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" class="readmore">read more</a></div>
+                                                <div class="jm-expand">
+                                                   <div class="expand-in">
+                                                      <span class="subtitle">Services Include</span>
+                                                      <ul>
+                                                         <li>Lorem ipsum</li>
+                                                         <li>Dolor sit amet</li>
+                                                         <li>Vestibulum venenatis</li>
+                                                         <li>Suscipit libero</li>
+                                                      </ul>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="span6 exp wide">
+                        <div class="row-fluid">
+                           <div class="span0 exp wide">
+                              <div class="jm-module  expand2-ms">
+                                 <div class="jm-module-in">
+                                    <div class="jm-module-content clearfix notitle">
+                                       <div class="custom expand2-ms">
+                                          <div class="jm-box">
+                                             <div class="jm-box-in">
+                                                <div class="jm-icon"><%= image_tag "icon2.png" %></div>
+                                                <div class="jm-column">
+                                                   <div class="column-in"><span class="title">Business Solutions</span> <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" class="link">www.jm-internet.com</a> <span class="description">Lorem lean startup ipsum product market fit customer development acquihire technical cofounder. User engagement.</span> <span class="contact">call 888-777-888</span> <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" class="readmore">read more</a></div>
+                                                </div>
+                                                <div class="jm-expand">
+                                                   <div class="expand-in">
+                                                      <span class="subtitle">Services Include</span>
+                                                      <ul>
+                                                         <li>Lorem ipsum</li>
+                                                         <li>Dolor sit amet</li>
+                                                         <li>Vestibulum venenatis</li>
+                                                         <li>Suscipit libero</li>
+                                                      </ul>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </section>
+            <section id="jm-top2" class="">
+               <div class="container-fluid">
+                  <div class="row-fluid jm-flexiblock jm-top2">
+                     <div class="span12">
+                        <div class="row-fluid">
+                           <div class="span0">
+                              <div class="jm-module  title-border-ms blank-ms">
+                                 <div class="jm-module-in">
+                                    <h3 class="jm-title "> Spaces</h3>
+                                    <div class="jm-module-content clearfix ">
+                                       <div style="border: 0px !important;">
+                                          <div id="djslider-loader138" class="djslider-loader" style="background: none;">
+                                             <div id="djslider138" class="djslider" style="opacity: 1; visibility: visible; width: 1170px; height: 245px;">
+                                                <div id="slider-container138" class="slider-container">
+                                                   <ul id="slider138" style="position: relative; left: 0px; width: 2406px;">
+                                                      <li style="width: 370px; height: 245px;">
+                                                         <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" target="_self">
+                                                         <%= image_tag "project1.jpg" %>
+                                                         </a>
+                                                         <!-- Slide description area: START -->
+                                                         <div class="slide-desc">
+                                                            <div class="slide-desc-in">
+                                                               <div class="slide-desc-bg"></div>
+                                                               <div class="slide-desc-text">
+                                                                  <div class="slide-title">
+                                                                     <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" target="_self">                    Project 1                 </a>                
+                                                                  </div>
+                                                                  <div class="slide-text">
+                                                                     <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" target="_self">
+                                                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.                  </a>
+                                                                  </div>
+                                                                  <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" target="_self" class="readmore">Read more</a>
+                                                                  <div style="clear: both"></div>
+                                                               </div>
+                                                            </div>
+                                                         </div>
+                                                         <!-- Slide description area: END -->
+                                                      </li>
+                                                      <li style="width: 370px; height: 245px;">
+                                                         <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" target="_self">
+                                                         <%= image_tag "project2.jpg" %>
+                                                         </a>
+                                                         <!-- Slide description area: START -->
+                                                         <div class="slide-desc">
+                                                            <div class="slide-desc-in">
+                                                               <div class="slide-desc-bg"></div>
+                                                               <div class="slide-desc-text">
+                                                                  <div class="slide-title">
+                                                                     <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" target="_self">                    Project 2                 </a>                
+                                                                  </div>
+                                                                  <div class="slide-text">
+                                                                     <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" target="_self">
+                                                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.                  </a>
+                                                                  </div>
+                                                                  <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" target="_self" class="readmore">Read more</a>
+                                                                  <div style="clear: both"></div>
+                                                               </div>
+                                                            </div>
+                                                         </div>
+                                                         <!-- Slide description area: END -->
+                                                      </li>
+                                                      <li style="width: 370px; height: 245px;">
+                                                         <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" target="_self">
+                                                         <%= image_tag "project3.jpg" %>
+                                                         </a>
+                                                         <!-- Slide description area: START -->
+                                                         <div class="slide-desc">
+                                                            <div class="slide-desc-in">
+                                                               <div class="slide-desc-bg"></div>
+                                                               <div class="slide-desc-text">
+                                                                  <div class="slide-title">
+                                                                     <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" target="_self">                    Project 3                 </a>                
+                                                                  </div>
+                                                                  <div class="slide-text">
+                                                                     <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" target="_self">
+                                                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.                  </a>
+                                                                  </div>
+                                                                  <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" target="_self" class="readmore">Read more</a>
+                                                                  <div style="clear: both"></div>
+                                                               </div>
+                                                            </div>
+                                                         </div>
+                                                         <!-- Slide description area: END -->
+                                                      </li>
+                                                      <li style="width: 370px; height: 245px;">
+                                                         <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" target="_self">
+                                                         <%= image_tag "project4.jpg" %>
+                                                         </a>
+                                                         <!-- Slide description area: START -->
+                                                         <div class="slide-desc">
+                                                            <div class="slide-desc-in">
+                                                               <div class="slide-desc-bg"></div>
+                                                               <div class="slide-desc-text">
+                                                                  <div class="slide-title">
+                                                                     <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" target="_self">                    Project 4                 </a>                
+                                                                  </div>
+                                                                  <div class="slide-text">
+                                                                     <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" target="_self">
+                                                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.                  </a>
+                                                                  </div>
+                                                                  <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" target="_self" class="readmore">Read more</a>
+                                                                  <div style="clear: both"></div>
+                                                               </div>
+                                                            </div>
+                                                         </div>
+                                                         <!-- Slide description area: END -->
+                                                      </li>
+                                                      <li style="width: 370px; height: 245px;">
+                                                         <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" target="_self">
+                                                         <%= image_tag "project5.jpg" %>
+                                                         </a>
+                                                         <!-- Slide description area: START -->
+                                                         <div class="slide-desc">
+                                                            <div class="slide-desc-in">
+                                                               <div class="slide-desc-bg"></div>
+                                                               <div class="slide-desc-text">
+                                                                  <div class="slide-title">
+                                                                     <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" target="_self">                    Project 5                 </a>                
+                                                                  </div>
+                                                                  <div class="slide-text">
+                                                                     <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" target="_self">
+                                                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.                  </a>
+                                                                  </div>
+                                                                  <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" target="_self" class="readmore">Read more</a>
+                                                                  <div style="clear: both"></div>
+                                                               </div>
+                                                            </div>
+                                                         </div>
+                                                         <!-- Slide description area: END -->
+                                                      </li>
+                                                      <li style="width: 370px; height: 245px;">
+                                                         <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" target="_self">
+                                                         <%= image_tag "project6.jpg" %>
+                                                         </a>
+                                                         <!-- Slide description area: START -->
+                                                         <div class="slide-desc">
+                                                            <div class="slide-desc-in">
+                                                               <div class="slide-desc-bg"></div>
+                                                               <div class="slide-desc-text">
+                                                                  <div class="slide-title">
+                                                                     <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" target="_self">                    Project6                  </a>                
+                                                                  </div>
+                                                                  <div class="slide-text">
+                                                                     <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" target="_self">
+                                                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.                  </a>
+                                                                  </div>
+                                                                  <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" target="_self" class="readmore">Read more</a>
+                                                                  <div style="clear: both"></div>
+                                                               </div>
+                                                            </div>
+                                                         </div>
+                                                         <!-- Slide description area: END -->
+                                                      </li>
+                                                   </ul>
+                                                </div>
+                                                <div id="cust-navigation138" class="navigation-container-custom">
+                                                   <span class="load-button load-button-active"></span><span class="load-button"></span><span class="load-button"></span><span class="load-button"></span>        
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div style="clear: both"></div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </section>
+            <section id="jm-main">
+               <div class="container-fluid">
+                  <div class="row-fluid">
+                     <div id="jm-content" class="span8">
+                        <div id="jm-maincontent">
+                           <div class="item-page" itemscope="" itemtype="http://schema.org/Article">
+                              <meta itemprop="inLanguage" content="en-GB">
+                              <div class="icons">
+                              </div>
+                              <div itemprop="articleBody">
+                                 <div class="jm-custom-content clearfix">
+                                    <div class="jm-icon">
+                                       <div class="jm-icon-in"><span class="up">Up to</span> <span class="middle">250</span> <span class="down">Mbps</span></div>
+                                    </div>
+                                    <div class="jm-description">
+                                       <span class="title">High speed internet</span>
+                                       <p>Proin iaculis purus consequat sem cure digni ssim donec porttitora.<br>In facilisis at augue imperdiet dignissim.</p>
+                                       <p class="custom-icon1"><span>Lorem ipsum dolor</span>Proin iaculis purus consequat sem cure digni ssim.</p>
+                                       <p class="custom-icon2"><span>Adipiscing elit</span>Proin iaculis purus consequat sem cure.</p>
+                                       <p>Proin iaculis purus consequat sem cure digni ssim donec porttitora.<br>In facilisis at augue imperdiet dignissim.</p>
+                                       <a href="http://www.akratech.com/stats/stats/index.php/pages" class="readmore">Read more</a>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <aside id="jm-right" class="span4">
+                        <div class="row-fluid">
+                           <div class="span0">
+                              <div class="jm-module  dark-ms badge-ms">
+                                 <div class="jm-module-in">
+                                    <h3 class="jm-title "><span>We</span> will call you back</h3>
+                                    <div class="jm-module-content clearfix ">
+                                       <div class="dj-simple-contact-form  dark-ms badge-ms">
+                                          <form action="http://www.akratech.com/stats/stats/" method="post">
+                                             <span class="dj-simple-contact-form-introtext"></span>
+                                             <div class="dj-simple-contact-form">
+                                                <div class="dj-simple-contact-form-row name"><input placeholder="Name" class="dj-simple-contact-form inputbox  dark-ms badge-ms" type="text" name="dj_name" value=""></div>
+                                                <div class="dj-simple-contact-form-row message"><input placeholder="Phone number" class="dj-simple-contact-form inputbox  dark-ms badge-ms" type="text" name="dj_message" value=""></div>
+                                                <div><input class="dj-simple-contact-form button  dark-ms badge-ms" type="submit" value="Send"></div>
+                                             </div>
+                                          </form>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </aside>
+                  </div>
+               </div>
+            </section>
+            <section id="jm-footer-mod" class="">
+               <div class="container-fluid">
+                  <div id="jm-footer-mod-in">
+                     <div class="row-fluid jm-flexiblock jm-footer-mod">
+                        <div class="span3">
+                           <div class="row-fluid">
+                              <div class="span0">
+                                 <div class="jm-module  blank-ms">
+                                    <div class="jm-module-in">
+                                       <h3 class="jm-title "><span>Popular</span> Articles</h3>
+                                       <div class="jm-module-content clearfix ">
+                                          <ul class="mostread blank-ms">
+                                             <li>
+                                                <a href="http://www.akratech.com/stats/stats/index.php/pages">
+                                                Subpage</a>
+                                             </li>
+                                             <li>
+                                                <a href="http://www.akratech.com/stats/stats/index.php">
+                                                Home</a>
+                                             </li>
+                                             <li>
+                                                <a href="http://www.akratech.com/stats/stats/index.php/features/typography">
+                                                Typography</a>
+                                             </li>
+                                             <li>
+                                                <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/error-404">
+                                                Error 404</a>
+                                             </li>
+                                             <li>
+                                                <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-content/single-article">
+                                                Single Article</a>
+                                             </li>
+                                          </ul>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="span3">
+                           <div class="row-fluid">
+                              <div class="span0">
+                                 <div class="jm-module  blank-ms">
+                                    <div class="jm-module-in">
+                                       <h3 class="jm-title "><span>Tags</span></h3>
+                                       <div class="jm-module-content clearfix ">
+                                          <div class="tagspopular blank-ms tagscloud blank-ms">
+                                             <span class="tag">
+                                             <a class="tag-name" style="font-size: 1em" href="http://www.akratech.com/stats/stats/index.php/component/tags/tag/10-amet">
+                                             amet              </a>
+                                             </span>
+                                             <span class="tag">
+                                             <a class="tag-name" style="font-size: 1em" href="http://www.akratech.com/stats/stats/index.php/component/tags/tag/9-sit">
+                                             sit             </a>
+                                             </span>
+                                             <span class="tag">
+                                             <a class="tag-name" style="font-size: 1em" href="http://www.akratech.com/stats/stats/index.php/component/tags/tag/8-dolor">
+                                             dolor             </a>
+                                             </span>
+                                             <span class="tag">
+                                             <a class="tag-name" style="font-size: 1em" href="http://www.akratech.com/stats/stats/index.php/component/tags/tag/7-ipsum">
+                                             ipsum             </a>
+                                             </span>
+                                             <span class="tag">
+                                             <a class="tag-name" style="font-size: 1em" href="http://www.akratech.com/stats/stats/index.php/component/tags/tag/11-nec">
+                                             nec             </a>
+                                             </span>
+                                             <span class="tag">
+                                             <a class="tag-name" style="font-size: 1em" href="http://www.akratech.com/stats/stats/index.php/component/tags/tag/12-quis">
+                                             quis              </a>
+                                             </span>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="span3">
+                           <div class="row-fluid">
+                              <div class="span0">
+                                 <div class="jm-module  blank-ms">
+                                    <div class="jm-module-in">
+                                       <h3 class="jm-title "><span>Latest</span> News</h3>
+                                       <div class="jm-module-content clearfix ">
+                                          <div class="newsflash blank-ms">
+                                             <h4 class="newsflash-title blank-ms">
+                                                <a href="http://www.akratech.com/stats/stats/index.php/newsflash/109-lorem-ipsum">
+                                                Lorem Ipsum   </a>
+                                             </h4>
+                                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
+                                             <h4 class="newsflash-title blank-ms">
+                                                <a href="http://www.akratech.com/stats/stats/index.php/newsflash/110-praesent-vehicula">
+                                                Praesent Vehicula   </a>
+                                             </h4>
+                                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="span3">
+                           <div class="row-fluid">
+                              <div class="span0">
+                                 <div class="jm-module  blank-ms">
+                                    <div class="jm-module-in">
+                                       <h3 class="jm-title "><span>Stay</span> Connected</h3>
+                                       <div class="jm-module-content clearfix ">
+                                          <div class="custom blank-ms">
+                                             <div class="jm-socials"><a class="facebook" href="http://www.akratech.com/stats/stats/#">&nbsp;</a> <a class="googleplus" href="http://www.akratech.com/stats/stats/#">&nbsp;</a> <a class="twitter" href="http://www.akratech.com/stats/stats/#">&nbsp;</a> <a class="linkedin" href="http://www.akratech.com/stats/stats/#">&nbsp;</a> <a class="skype" href="http://www.akratech.com/stats/stats/#">&nbsp;</a> <a class="vimeo" href="http://www.akratech.com/stats/stats/#">&nbsp;</a></div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </section>
+            <footer id="jm-footer">
+               <div class="container-fluid">
+                  <div class="row-fluid">
+                     <div id="jm-copyrights" class="span6">
+                        <div class="custom">
+                           <p>JM Internet All Rights Reserved.</p>
+                        </div>
+                     </div>
+                     <div id="jm-poweredby" class="span6 text-right pull-right">
+                        <a href="http://www.joomla-monster.com/" onfocus="blur()" title="Joomla Templates">Joomla Templates</a> by Joomla-Monster.com
+                     </div>
+                     <div id="jm-back-top" style="display: none;">
+                        <a href="http://www.akratech.com/stats/stats/#top"><span>&nbsp;</span></a>
+                     </div>
+                  </div>
+               </div>
+            </footer>
+         </div>
+      </div>
+      <div id="sbox-overlay" aria-hidden="true" tabindex="-1" style="z-index: 65555; opacity: 0;"></div>
+      <div id="sbox-window" role="dialog" aria-hidden="true" class="shadow" style="z-index: 65557;">
+         <div id="sbox-content" style="opacity: 0;"></div>
+         <a id="sbox-btn-close" href="http://www.akratech.com/stats/stats/#" role="button" aria-controls="sbox-window"></a>
+      </div>
+      
+   </body>
+</html>

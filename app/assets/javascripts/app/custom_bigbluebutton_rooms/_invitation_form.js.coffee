@@ -127,6 +127,11 @@ class mconf.CustomBigbluebuttonRooms.Invitation
       text = "#{Math.floor(duration.as("hours"))}h"
       text = text + " #{duration.minutes()}m" unless duration.minutes() is 0
       $(durationSelector).text("#{text}")
+      duration_time = "#{Math.floor(duration.as("hours"))}"
+      if duration_time == "1"
+        $('#invite_invite_price').val(8);
+      else
+        $('#invite_invite_price').val(duration_time * 7);
       $(durationSelector).removeClass("error")
     else
       $(durationSelector).text("?")

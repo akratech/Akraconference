@@ -1,4 +1,4 @@
-# This file is part of Mconf-Web, a web application that provides access
+  # This file is part of Mconf-Web, a web application that provides access
 # to the Mconf webconferencing system. Copyright (C) 2010-2015 Mconf.
 #
 # This file is licensed under the Affero General Public License version
@@ -90,6 +90,7 @@ class CustomBigbluebuttonRoomsController < Bigbluebutton::RoomsController
         title: params[:invite][:title],
         url: join_webconf_url(@room),
         description: params[:invite][:message],
+        invite_price: params[:invite][:invite_price],
         ready: true
 
       # we do a check just to give a better response to the user, since the invitations will
