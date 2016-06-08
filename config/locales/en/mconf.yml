@@ -2,9 +2,9 @@
 en:
   activities:
     attachment:
-      create_html: uploaded the attachment %{name} in the space
-      destroy_html: removed the attachment %{name} from the space
-      update_html: updated the attachment %{name} in the space
+      create_html: uploaded the attachment %{name} in the event
+      destroy_html: removed the attachment %{name} from the event
+      update_html: updated the attachment %{name} in the event
       deleted: "an attachment that was removed"
       deleted_tooltip: "This attachment doesn't exist anymore"
     bigbluebutton_meeting:
@@ -12,37 +12,37 @@ en:
       user:
         create_html: "A meeting was started on the room of the user %{owner} at %{time}"
       space:
-        create_html: "A meeting was started on the space %{owner} at %{time}"
+        create_html: "A meeting was started on the event %{owner} at %{time}"
     event:
       deleted_tooltip: "This event is not available anymore"
     join_request:
-      accept_html: has joined the space
-      decline_html: had their invitation/request declined in the space
+      accept_html: has joined the event
+      decline_html: had their invitation/request declined in the event
       deleted: "a request that was removed"
       deleted_tooltip: "This request doesn't exist anymore"
-      invite_html: "was invited to join the space"
+      invite_html: "was invited to join the event"
       invite_with_introducer_1_html: "was invited by"
-      invite_with_introducer_2_html: "to join the space"
+      invite_with_introducer_2_html: "to join the event"
       no_accept_1_html: "was added by"
-      no_accept_2_html: "to the space"
-      request_html: "has requested to join the space"
+      no_accept_2_html: "to the event"
+      request_html: "has requested to join the event"
     other:
       admin_html: "An administrator"
       someone_html: "Someone"
     post:
-      create_html: posted %{name} in the space
-      update_html: updated %{name} in the space
-      reply_html: replied to %{name} in the space
+      create_html: posted %{name} in the event
+      update_html: updated %{name} in the event
+      reply_html: replied to %{name} in the event
       deleted: "a post that was removed"
       deleted_tooltip: "This post doesn't exist anymore"
     resource:
       deleted_tooltip: "This resource doesn't exist anymore"
     space:
-      approved_html: approved the space
-      create_html: created a new space
-      deleted: "a space that doesn't exist anymore"
-      deleted_tooltip: "This space doesn't exist anymore"
-      leave_html: has left the space
+      approved_html: approved the event
+      create_html: created a new event
+      deleted: "a event that doesn't exist anymore"
+      deleted_tooltip: "This event doesn't exist anymore"
+      leave_html: has left the event
       update_html: updated info on space
     user:
       deleted_tooltip: "This user is not registered anymore"
@@ -88,7 +88,7 @@ en:
     send: "Send"
     not_approved:
       text: 'Waiting approval'
-      tooltip: 'Waiting approval, users are not able to view nor access this space yet'
+      tooltip: 'Waiting approval, users are not able to view nor access this event yet'
     unpublish: "Unpublish"
     update: "Update"
     updated_time_ago: "%{time} ago"
@@ -158,7 +158,7 @@ en:
         exception_notifications_prefix: "Exception notifications subject prefix"
         external_help: "External help/FAQ page"
         feedback_url: "Feedback URL"
-        forbid_user_space_creation: "Forbid users from creating spaces"
+        forbid_user_space_creation: "Forbid users from creating events"
         ldap_enabled: "LDAP: Enable authentication"
         ldap_filter: "LDAP: Filter for the user search"
         ldap_host: "LDAP: Server IP or domain"
@@ -175,7 +175,7 @@ en:
         name: "Name"
         registration_enabled: "Allow users to create new accounts"
         require_registration_approval: "Moderate users"
-        require_space_approval: "Moderate spaces"
+        require_space_approval: "Moderate events"
         room_dial_number_pattern: 'Room dial number pattern'
         signature: "Signature"
         shib_always_new_account: "Shibboleth: Always create new account"
@@ -253,7 +253,7 @@ en:
       disable:
         notice: "User disabled successfully"
       enable:
-        notice: "User successfully enabled. The user currently belongs to no space, and will have to join spaces again."
+        notice: "User successfully enabled. The user currently belongs to no space, and will have to join events again."
         failure: "User %{name} is already enabled"
 
   address: Address
@@ -286,7 +286,7 @@ en:
     file: "File: "
     filename: "%{size} files from %{name}.zip"
     home: 
-      one: "File in space %{space}"
+      one: "File in event %{space}"
     info: "Document info"
     more: 
       one: "and one more attachment..."
@@ -637,12 +637,12 @@ en:
       inbox: "<b>%{sender_name}</b> has sent you a message:"
       message: "Latest activities in your spaces:"
       posted: "<b>%{author_name}</b> has posted in <b>%{space_name}</b> the message:"
-      title: "%{type} digest with the activity in your spaces"
+      title: "%{type} digest with the activity in your events"
       type: 
         daily: Daily
         weekly: Weekly
     invitation_result: 
-      admin_side: "%{name} has %{action} the invitation to space %{spacename}"
+      admin_side: "%{name} has %{action} the invitation to event %{spacename}"
       user_side: "The administrator of %{spacename} has %{action} your join request"
     kind_regards: "Kind regards,"
     notifications: "email notifications"
@@ -713,8 +713,8 @@ en:
     activity: "Recent activity"
     invite_url: "Invite URL"
     my: "My Home"
-    my_spaces: "My spaces"
-    no_spaces: "You do not belong to any spaces. You can see the spaces available <a href=\"%{link}\">here</a>."
+    my_spaces: "My events"
+    no_spaces: "You do not belong to any events. You can see the events available <a href=\"%{link}\">here</a>."
     one: home
     view_invite_url: "View Invite URL"
   icons: 
@@ -729,9 +729,9 @@ en:
       other: "You have %{count} unread messages!"
   information: 
     expand: "Expand List.."
-    information1: "These are the spaces you belong to"
+    information1: "These are the events you belong to"
     information3: "These are the latest messages or events that you have created"
-    information5: "These are the upcoming events of other spaces."
+    information5: "These are the upcoming events of other events."
     reduce: "Reduce List.."
   internet: 
     on_the: "On the Internet"
@@ -742,10 +742,10 @@ en:
     deselect_all_users: "Deselect all users"
     discard: "Discard invitation"
     email: E-mail
-    full_message: "<b>%{username} invites you to space %{space}.</b><br/><br/>%{comment}<br/><br/> To accept my invitation please visit <a href=\"%{url}\">%{url}</a><br/> You can find more information about this space in <a href=\"%{space_url}\">%{space_url}</a><br/><br/> Kind regards,<br/><br/>%{user_name}<br/>%{user_email}<br/>%{user_organization}<br/><br/> If you believe this message is a spam, please <a href=\"mailto:%{contact}\"> contact us </a> or send us <a href=\"%{feedback}\"> feedback.</a>"
+    full_message: "<b>%{username} invites you to event %{space}.</b><br/><br/>%{comment}<br/><br/> To accept my invitation please visit <a href=\"%{url}\">%{url}</a><br/> You can find more information about this event in <a href=\"%{space_url}\">%{space_url}</a><br/><br/> Kind regards,<br/><br/>%{user_name}<br/>%{user_email}<br/>%{user_organization}<br/><br/> If you believe this message is a spam, please <a href=\"mailto:%{contact}\"> contact us </a> or send us <a href=\"%{feedback}\"> feedback.</a>"
     hide_all_users: "Hide all users"
-    info_space: "You can find more information about this space in <a href=\"%{space_url}\"> %{space_url} </a>"
-    info_users: "You can see the current list of users of the space in <a href=\"%{users_url}\"> %{users_url} </a>"
+    info_space: "You can find more information about this event in <a href=\"%{space_url}\"> %{space_url} </a>"
+    info_users: "You can see the current list of users of the event in <a href=\"%{users_url}\"> %{users_url} </a>"
     introducer: Introducer
     label: "Customise your invitation message"
     legend: 
@@ -753,9 +753,9 @@ en:
       name: "'Name' will be replaced in the message by the receiver's name."
     logout_and_reload: "You are not the user that received this invitation, please logout and try again"
     message_with_start_date: 
-      in_person: "<p>I would like to invite you to <b>event 'event_name' in space %{space}</b> on 'event_date'.</p><p>To accept my invitation please visit %{url} </p><p>You can find more information about this event in <a href=\"event_url\">event_url</a></p><p>Kind regards,<br/><br/>%{username}<br/>%{useremail}<br/>%{userorg}</p>"
+      in_person: "<p>I would like to invite you to <b>event 'event_name' in event %{space}</b> on 'event_date'.</p><p>To accept my invitation please visit %{url} </p><p>You can find more information about this event in <a href=\"event_url\">event_url</a></p><p>Kind regards,<br/><br/>%{username}<br/>%{useremail}<br/>%{userorg}</p>"
     message_without_start_date: 
-      in_person: "<p>I would like to invite you to <b>event 'event_name' in space %{space}</b>.</p><p>To accept my invitation please visit %{url} </p><p>You can find more information about this event in <a href=\"event_url\">event_url</a></p><p>Kind regards,<br/><br/>%{username}<br/>%{useremail}<br/>%{userorg}</p>"
+      in_person: "<p>I would like to invite you to <b>event 'event_name' in event %{space}</b>.</p><p>To accept my invitation please visit %{url} </p><p>You can find more information about this event in <a href=\"event_url\">event_url</a></p><p>Kind regards,<br/><br/>%{username}<br/>%{useremail}<br/>%{userorg}</p>"
     not_accepted: "not accepted"
     not_pending: 
       other: "There are no pending invitations"
@@ -770,7 +770,7 @@ en:
     title: "Invite people"
     title2: "Space Invitation"
     to_accept_space: "To accept my invitation please visit 'URL'"
-    to_event: "%{username} invites you to event %{eventname} in space %{space}"
+    to_event: "%{username} invites you to event %{eventname} in event %{space}"
     will_invite: "People you will invite"
     yes_accepted: accepted
   invite: 
@@ -786,13 +786,13 @@ en:
     create:
       already_invited: "The following users already have an invitation pending: %{users}"
       already_a_member: "%{name} is already a member"
-      created: "Your join request has been sent to the administrators of the space"
-      duplicated: "You already have a pending join request in this space"
+      created: "Your join request has been sent to the administrators of the event"
+      duplicated: "You already have a pending join request in this event"
       error: "Something went wrong when processing your request, please try again. (details: %{errors})"
       sent: "Your invitation was successfully sent to: %{users}"
       user_not_found: "User not found: %{id}"
-      users_added: "You have successfully added the user(s) %{users} to this space"
-      you_are_already_a_member: "You are already a member of this space"
+      users_added: "You have successfully added the user(s) %{users} to this event"
+      you_are_already_a_member: "You are already a member of this event"
     decline:
       declined: "Join request declined"
       invitation_destroyed: "Invitation successfully cancelled"
@@ -814,42 +814,42 @@ en:
     invite:
       candidates: "Search users to invite"
       role_label: "Role for the users invited"
-      title: "Invite people to join this space"
+      title: "Invite people to join this event"
       type_add: "Add users directly"
-      type_add_tooltip: "The users will be added to the space without being asked for confirmation. A notification is sent to the users to inform them they were added."
+      type_add_tooltip: "The users will be added to the event without being asked for confirmation. A notification is sent to the users to inform them they were added."
       type_invite: "Invite"
       users:
         hint: "Type to start searching"
         no_results: "No results found"
         searching: "Searching..."
     new:
-      already_invited: "You already have an invitation to join this space! Go to the space's home page to see it"
+      already_invited: "You already have an invitation to join this space! Go to the event's home page to see it"
       already_requested: "You already requested to join this space! Please wait for an administrator to accept it."
-      message_title: "Send a join request to the administrators of the space"
+      message_title: "Send a join request to the administrators of the event"
     request:
       decline_confirmation: "Are you sure you want to decline this join request?"
     show:
       accept: "Accept"
-      already_accepted: "... but you're already a member of this space."
+      already_accepted: "... but you're already a member of this event."
       cancel_invite: "Cancel this invitation"
       cancel_invite_confirmation: "Are you sure you want to cancel this invitation?"
       cancel_request: "Cancel this request"
-      cancel_request_confirmation: "Are you sure you want to cancel the request to join this space?"
+      cancel_request_confirmation: "Are you sure you want to cancel the request to join this event?"
       decline: "Decline"
-      decline_invite_confirmation: "Are you sure you want to decline the invitation to join this space?"
-      decline_request_confirmation: "Are you sure you want to decline the request to join this space?"
+      decline_invite_confirmation: "Are you sure you want to decline the invitation to join this event?"
+      decline_request_confirmation: "Are you sure you want to decline the request to join this event?"
       is_candidate:
         comment_invitation: "This is the comment written by %{name}:"
-        comment_request: "This request was already sent to the admins of the space, please wait for a response. This is the comment you wrote:"
-        title_invitation: "You were invited by \"%{introducer}\" on %{date} to join the space \"%{space}\""
-        title_request: "You requested to join the space \"%{space}\" on %{date}"
+        comment_request: "This request was already sent to the admins of the event, please wait for a response. This is the comment you wrote:"
+        title_invitation: "You were invited by \"%{introducer}\" on %{date} to join the event \"%{space}\""
+        title_request: "You requested to join the event \"%{space}\" on %{date}"
       is_introducer:
         comment_invitation: "This is the comment you wrote:"
-        title_invitation: "You invited \"%{candidate}\" on %{date} to join the space \"%{space}\""
+        title_invitation: "You invited \"%{candidate}\" on %{date} to join the event \"%{space}\""
       is_other:
         comment_request: "This is the comment written by \"%{name}\":"
-        title_invitation: "\"%{introducer}\" invited \"%{candidate}\" on %{date} to join the space \"%{space}\""
-        title_request: "\"%{candidate}\" requested on %{date} to join the space \"%{space}\""
+        title_invitation: "\"%{introducer}\" invited \"%{candidate}\" on %{date} to join the event \"%{space}\""
+        title_request: "\"%{candidate}\" requested on %{date} to join the event \"%{space}\""
   keywords: "Keywords (*)"
   language: Language
   last_week: "Last week"
@@ -886,10 +886,10 @@ en:
       translate:
         change: "Switch language"
     spaces_page_title:
-      is_member: "You are a member of this space"
+      is_member: "You are a member of this event"
       manage_to_approve: "manage"
-      private: "Private space"
-      public: "Public space"
+      private: "Private event"
+      public: "Public event"
   less: "less..."
   locales:
     error: "Locale not registered"
@@ -897,7 +897,7 @@ en:
   login_request: "You need to be logged in to "
   logo:
     created: "Logo uploaded successfully"
-    crop: "Crop space logo"
+    crop: "Crop event logo"
     empty: "The logo is empty"
     error: "Error on uploading the logo"
     no_image: "No image selected"
@@ -910,19 +910,19 @@ en:
   logout: Logout
   manage:
     disabled_space:
-      enable: "Enable space"
-      enable_confirm: "Are you sure you want to enable this space?"
+      enable: "Enable event"
+      enable_confirm: "Are you sure you want to enable this event?"
     disabled_user:
       enable: "Enable user"
       enable_confirm: "Are you sure you want to enable this user?"
     enabled_space:
-      approve: "Approve: unlock the access to this space"
-      approve_confirm: "Are you sure you want to unlock the access to this space?"
-      disable: "Disable space"
-      disable_confirm: "Are you sure you want to disable this space?"
-      disapprove: "Disapprove: block the access to this space"
-      disapprove_confirm: "Are you sure you want to block the access to this space?"
-      edit: "Edit space"
+      approve: "Approve: unlock the access to this event"
+      approve_confirm: "Are you sure you want to unlock the access to this event?"
+      disable: "Disable event"
+      disable_confirm: "Are you sure you want to disable this event?"
+      disapprove: "Disapprove: block the access to this event"
+      disapprove_confirm: "Are you sure you want to block the access to this event?"
+      edit: "Edit event"
     enabled_user:
       approve: "Approve: allow this user to access the website"
       approve_confirm: "Are you sure you want to allow this user to access the website?"
@@ -935,23 +935,23 @@ en:
       edit: "Edit user"
     menu:
       general: "General"
-      spaces: "Spaces"
+      spaces: "Events"
       title: "Site Management"
       users: "Users"
       webconf: "Web Conference"
     spaces:
-      filter_name: "Filter spaces by name"
-      new_space: "Create space"
+      filter_name: "Filter events by name"
+      new_space: "Create event"
     destroy_space:
       destroy: Delete space
-      destroy_confirm: Are you sure you want to delete this space and all content associated with it? Unlike disabling the space this operation is irreversible!
+      destroy_confirm: Are you sure you want to delete this event and all content associated with it? Unlike disabling the event this operation is irreversible!
     destroy_user:
       destroy: Delete user
       destroy_confirm: Are you sure you want to delete this user and all content associated with it? Unlike disabling the user this operation is irreversible!
     spaces_list:
-      filter_count_with_text: "Found %{count} spaces for filter \"%{value}\""
-      filter_count_empty: "Found %{count} spaces"
-      no_space_found: "No space found"
+      filter_count_with_text: "Found %{count} events for filter \"%{value}\""
+      filter_count_empty: "Found %{count} events"
+      no_space_found: "No event found"
     users:
       filter_name_or_username: "Filter users by name, username or email"
       new_user: "Create user"
@@ -978,11 +978,11 @@ en:
       description: You have registered succesfully and your account was submitted to the approval of an administrator. You will be contacted when you account is approved.
       interesting_links: "Meanwhile you can browse these open sections of the website:"
       events_list: list of events
-      spaces_list: list of spaces
+      spaces_list: list of events
     page_header:
       activity_list: "Activity list"
     home:
-      create_space: "Create a new space"
+      create_space: "Create a new event"
       events:
         other: "Other"
         today: "Today"
@@ -990,9 +990,9 @@ en:
       pending_join_requests:
         one: "%{count} pending join request"
         other: "%{count} pending join requests"
-      pending_join_requests_tooltip: "These are the invitations you received to join spaces or the join requests you sent."
+      pending_join_requests_tooltip: "These are the invitations you received to join events or the join requests you sent."
       view_all_activity: "View all your activity"
-      view_all_spaces: "View all spaces"
+      view_all_spaces: "View all events"
     edit_recording:
       title: "Edit your recording"
     edit_room:
@@ -1050,11 +1050,11 @@ en:
     notification:
       default: "%{username} has change your role in %{stage} to %{role}. "
       event: "%{username} has change your role in event %{event} to %{role}. "
-      space: "%{username} has change your role in space %{space} to %{role}. "
+      space: "%{username} has change your role in event %{space} to %{role}. "
       subject: 
         default: "%{username} has change your role in %{stage} "
         event: "%{username} has change your role in event %{event} "
-        space: "%{username} has change your role in space %{space} "
+        space: "%{username} has change your role in event %{space} "
     updated: "User perfomance has been updated successfully"
     other: "Access rights"
     update:
@@ -1073,7 +1073,7 @@ en:
     deleted: "Comment %{postname} has been deleted"
     reply: "in reply to"
     home: 
-      one: "Message in space %{space}"
+      one: "Message in event %{space}"
     latest: "Latest messages"
     more: 
       one: "and one more message..."
@@ -1082,7 +1082,7 @@ en:
     none_recent: "There are no recent messages"
     one: Message
     other: Messages
-    other_in_space: "Messages in space %{space}"
+    other_in_space: "Messages in event %{space}"
     posted: "posted"
     show_expanded_pref: "How would you like to see your messages?"
     title: "Messages (%{count})"
@@ -1107,7 +1107,7 @@ en:
       exist: "Your profile already exists"
     header_title: "User profile"
     must_create: "Please create your profile first"
-    no_spaces: "%{user} does not belong to any spaces."
+    no_spaces: "%{user} does not belong to any events."
     one: Profile
     private: "Private profile"
     public: "Public profile"
@@ -1127,8 +1127,8 @@ en:
       visibility_everybody: "Everyone can see your private profile."
       visibility_members: "Only registered members can see your private profile."
       visibility_nobody: "Nobody can see your private profile."
-      visibility_private_fellows: "Only your partners in a private space can see your private profile."
-      visibility_public_fellows: "Only your partners in a public or private space can see your private profile."
+      visibility_private_fellows: "Only your partners in a private event can see your private profile."
+      visibility_public_fellows: "Only your partners in a public or private event can see your private profile."
     show:
       vcard:
         export: "Export vCard"
@@ -1138,8 +1138,8 @@ en:
   recent: 
     activity: "Recent activity"
   recent_activity: 
-    empty: "You still have no recent activity to be shown. Join spaces and start interacting to have this area filled."
-    tooltip: "Here you can find the newest events and messages of the spaces you belong to"
+    empty: "You still have no recent activity to be shown. Join events and start interacting to have this area filled."
+    tooltip: "Here you can find the newest events and messages of the events you belong to"
   recording: 
     automatic: Automatic
     box_title: Recording
@@ -1176,7 +1176,7 @@ en:
     remove: Remove
     search: "Document Search:"
   request: 
-    info: "Your request to join the space has been successfully sent to the space admins. An admin will take care of it as soon as possible"
+    info: "Your request to join the event has been successfully sent to the event admins. An admin will take care of it as soon as possible"
     sent: "Request sent!"
   rnp: RNP
   role: 
@@ -1295,50 +1295,50 @@ en:
   skype: Skype
   space: 
     about: About
-    access_forbidden: "This operation is only available to members of the space"
+    access_forbidden: "This operation is only available to members of the event"
     add_user: 
-      other: "Add users to the space"
+      other: "Add users to the event"
     add_user_other: ""
-    all: "Spaces"
+    all: "Events"
     allow_public_access: "Allow public access?"
     attendeePW: "edit attendee password"
     clic: "Click to edit..."
     clic_logo: "Click to change your logo"
     configuration: "Space configuration"
-    confirm: "Are you sure you want to leave this space?"
+    confirm: "Are you sure you want to leave this event?"
     created: "Space created successfully"
-    created_waiting_moderation: "Space created successfully! Please wait for an admin to approve your space before other users can access it."
+    created_waiting_moderation: "Space created successfully! Please wait for an admin to approve your event before other users can access it."
     delete: "Delete Space"
     deleted: "Space removed successfully"
     description: "Space Description"
-    description_none: "A space description must be given to create a new space"
-    disable: "Disable space"
+    description_none: "A event description must be given to create a new events"
+    disable: "Disable event"
     edit: 
       webconference_passwords: "Webconference room passwords"
     edit_description: "edit description"
     edit_name: "edit name"
-    enable: "Enable space"
+    enable: "Enable event"
     event_count: "%{count} events"
     index: 
       filters: 
-        all: "All spaces"
-        my_spaces: "My spaces"
+        all: "All events"
+        my_spaces: "My events"
       order:
         alphabetic: "Name"
         order_by: "Order by"
         relevance: "Relevance"
-        relevance_tip: "Shows the spaces with the most recent activities at the top"
-      select_at_left: "Select a space in the list to see it's description here"
+        relevance_tip: "Shows the events with the most recent activities at the top"
+      select_at_left: "Select a event in the list to see it's description here"
       user_is_member: "You are a member!"
-    is_private: "is a private space. Send a join request to the administrator of this space to let you in"
-    is_private_html: "%{name} is a private space. To access it, sign in and send a <a href=\"%{path}\">join request</a> to the administrators of this space."
-    join: "Join this space"
+    is_private: "is a private event. Send a join request to the administrator of this event to let you in"
+    is_private_html: "%{name} is a private event. To access it, sign in and send a <a href=\"%{path}\">join request</a> to the administrators of this event."
+    join: "Join this event"
     join_invitation: 
-      clarify_registered: "Please introduce password in order to join this space."
-      clarify_unregistered: "Please introduce your full name and a password in order to register onto the Mconf and join this space."
+      clarify_registered: "Please introduce password in order to join this event."
+      clarify_unregistered: "Please introduce your full name and a password in order to register onto the Mconf and join this event."
     leave: 
-      leave_this_space: "Leave this space"
-      success: "You left the space %{space_name}"
+      leave_this_space: "Leave this event"
+      success: "You left the event %{space_name}"
     logo: "Space Logo"
     logo_selected: 
       default_message: "Space logo"
@@ -1351,12 +1351,12 @@ en:
       upload_text: Upload
       use_date: "Use event date"
     member_count: "%{count} members"
-    member_of: "Member of the spaces"
+    member_of: "Member of the events"
     moderatorPW: "edit moderator password"
-    my_spaces: "My Spaces"
-    name_none: "A space name must be given to create a new space"
+    my_spaces: "My Events"
+    name_none: "A event name must be given to create a new events"
     one: Space
-    other: Spaces
+    other: Events
     people_in_conference: 
       one: "%{count} participant in the room."
       other: "%{count} participant in the room."
@@ -1364,21 +1364,21 @@ en:
       admin: Administrator
       invited: Invited
       user: Member
-    possesion: "My Spaces"
+    possesion: "My Events"
     post_count: "%{count} posts"
-    private: "Private spaces"
+    private: "Private events"
     public: 
-      one: "Public space"
-      other: "Public spaces"
+      one: "Public event"
+      other: "Public events"
     remove_user:
-      confirm: "Are you sure you want to remove this user from the space?"
+      confirm: "Are you sure you want to remove this user from the event?"
       remove: "Remove user"
-    select: Spaces
+    select: Events
     show: "Show spaces:"
-    show_all: "Show all spaces"
+    show_all: "Show all events"
     statistics:
       views: "views"
-    subscribed_to_none: "You are not subscribed to any space"
+    subscribed_to_none: "You are not subscribed to any event"
     update_logo: "Update logo"
   space_events:
     all_events:
@@ -1403,10 +1403,10 @@ en:
       title: "Past events"
       today: "No events for yesterday nor today"
     sidebar_events_simple:
-      no_events: "No events in this space yet"
+      no_events: "No events in this event yet"
     unified_event:
       ends_at: "Ends at"
-      event_in_the_space: "Event in the space %{space}"
+      event_in_the_space: "Event in the event %{space}"
       organizers: "Organizers"
       starts_at: "Starts at"
       where: "Where"
@@ -1425,38 +1425,38 @@ en:
       webconf_options: "Webconference options"
       add_member: "Add members"
     approve:
-      approved: "The space %{name} was approved"
+      approved: "The event %{name} was approved"
     disapprove:
-      disapproved: "The space %{name} was disapproved"
-      not_enabled: "Moderation of spaces is not enabled"
+      disapproved: "The event %{name} was disapproved"
+      not_enabled: "Moderation of events is not enabled"
     edit:
       change_logo: "Change picture"
-      delete_confirmation: "Are you sure? This space will be inaccessible to you and to all the other users!"
-      delete_space: "Disable this space?"
+      delete_confirmation: "Are you sure? This event will be inaccessible to you and to all the other users!"
+      delete_space: "Disable this event?"
       other_options: "Other options"
-      public: "Make this a public space"
-      yes_delete: "Yes, I want to disable this space"
+      public: "Make this a public event"
+      yes_delete: "Yes, I want to disable this event"
     edit_recording:
       title: "Edit your recording"
     error:
       already_invited: "You were already invited to join this space, please accept or decline the invitation"
-      creation_forbidden: "You are not allowed to create spaces"
-      need_join_to_access: "You need to join this space to access it. Send a join request to the administrators."
-      not_found: "The space \"%{permalink}\" was not found. <br> Would you like to search for it in <a href=\"%{path}\">all spaces</a>?"
-      unapproved: "This space was not yet approved by an administrator."
+      creation_forbidden: "You are not allowed to create events"
+      need_join_to_access: "You need to join this event to access it. Send a join request to the administrators."
+      not_found: "The event \"%{permalink}\" was not found. <br> Would you like to search for it in <a href=\"%{path}\">all spaces</a>?"
+      unapproved: "This event was not yet approved by an administrator."
     index: 
-      create_new_space: "Create a new space"
+      create_new_space: "Create a new event"
       list_format: 
         list: "List"
         thumbnails: "Thumbnails"
       search:
         by_name:
-          no_matches: "No spaces found for \"%{term}\""
-          placeholder: "Search spaces..."
+          no_matches: "No events found for \"%{term}\""
+          placeholder: "Search events..."
       subtitle: "Search for communities of users that share the same interests"
-      title: "Spaces"
+      title: "Events"
     list_view:
-      no_spaces: "There are no spaces created yet!"
+      no_spaces: "There are no events created yet!"
     menu:
       admin: "Admin"
       events: "Events"
@@ -1470,9 +1470,9 @@ en:
       public: "Public"
       spaces_examples:
         title: "Examples of spaces:"
-      title: "Create a new space"
+      title: "Create a new event"
     recordings:
-      title: "Recordings in this space"
+      title: "Recordings in this event"
       update_recordings:
         error: "Error updating your recording list, plase try again later"
         success: "Recording list updated!"
@@ -1492,8 +1492,8 @@ en:
       webconference_start: "Start it"
     sidebar_notifications:
       pending_join_requests:
-        one: "This space has %{count} pending join request!"
-        other: "This space has %{count} pending join requests!"
+        one: "This event has %{count} pending join request!"
+        other: "This event has %{count} pending join requests!"
     sidebar_webconf_buttons:
       end: "Stop it"
       end_tooltip: "This action will end the current conference!"
@@ -1509,28 +1509,28 @@ en:
       already_requested_alert: "You already requested to join this space, please wait for a moderator to accept you."
       cancel_request: "Cancel request"
       invitation_alert: "You have been invited to join this space, click the button above to accept or decline the invitation"
-      join: "Join this space"
+      join: "Join this event"
     space_thumbnail:
       private: "Private"
       public: "Public"
       reply_invitation: "Reply to the invitation"
       view_join_request: "View the request you sent"
     thumbnail_view:
-      no_spaces: "There are no spaces created yet!"
+      no_spaces: "There are no events created yet!"
     unified_space:
-      private: "Private space"
-      public: "Public space"
+      private: "Private event"
+      public: "Public event"
       reply_invitation: "Reply to the invitation"
-      user_is_member: "You are a member of this space"
+      user_is_member: "You are a member of this event"
       view_join_request: "View the request you sent"
       with_members: "with %{count} members"
     user_permissions:
-      confirm_leave_space: "Are you sure you want to leave this space?"
-      confirm_remove_user: "Are you sure you want to remove this user from the space?"
-      leave_space: "Leave this space"
-      remove_user: "Remove the user from the space"
+      confirm_leave_space: "Are you sure you want to leave this event?"
+      confirm_remove_user: "Are you sure you want to remove this user from the event?"
+      leave_space: "Leave this event"
+      remove_user: "Remove the user from the event"
       tooltip_last_admin: "This user is the last administrator of this space, therefore he can't leave not have its role changed"
-    users: "Users in this space"
+    users: "Users in this event"
     webconference:
       end: "Stop the meeting"
       end_tooltip: "This action will end the current conference!"
@@ -1543,7 +1543,7 @@ en:
           registered_users: "Registered users"
         description:
           header: "Webconference access"
-          text: "The webconference room associated with this space is currently: <em>%{status}</em> <br/> Use the buttons in the sidebar at the right to join the webconference."
+          text: "The webconference room associated with this event is currently: <em>%{status}</em> <br/> Use the buttons in the sidebar at the right to join the webconference."
         share:
           description: "You can invite people to this webconference by sharing the link below:"
           header: Share
@@ -1565,7 +1565,7 @@ en:
         events: "Events"
         how_many: "How many?"
         posts: "Messages posted"
-        spaces: "Spaces"
+        spaces: "Events"
         users: "Users"
         webconf_rooms: "Available webconference rooms"
         what: "What?"
@@ -1604,19 +1604,19 @@ en:
   to: to
   today: Today
   tooltip: 
-    admin: "This section shows the people that have administrator rights in this space"
+    admin: "This section shows the people that have administrator rights in this event"
     advanced_editor: "This editor allows you to: view source html; change the font style, font size, text color and alignment of the text; insert/edit links; add attachments and tags"
     doc_search: "Use the fields in this side to filter and update the docs table with your search results"
     event_logo: "You can update your own logo, create a text logo or select an image from the gallery"
     insert: "Use this code to insert this video in your blog or web page."
     invite_people: "Invite people to this Webconference."
-    leave_space: "This link will allow you to abandon this space definitely"
+    leave_space: "This link will allow you to abandon this event definitely"
     num_views: "This number represents the unique views for this page"
     private_profile: "This information is visible only to the people you choose when you edit your profile"
     public_profile: "Anyone can access this information"
-    public_space: "Collaborative spaces can be public, for anybody to watch what happens in them, or private, where only members have access to the activities of the space"
+    public_space: "Collaborative events can be public, for anybody to watch what happens in them, or private, where only members have access to the activities of the event"
     share: "This is the url to share this video with your colleagues"
-    upcoming: "This section shows the next events in this space"
+    upcoming: "This section shows the next events in this event"
     update_logo: "You can update your own logo, create a text logo or select an image from the gallery"
     vclass: "The virtual class type is the perfect way to organise classes, conferences and seminars, where the teacher assumes a prominent role."
     vcongress: "The  Virtual congress type is very similar to the virtual meeting but geared for larger events, both in size and complexity. Usually, this type requires the support of an onsite operator."
@@ -1634,13 +1634,13 @@ en:
   user: 
     add: 
       instruction: "To add new users enter one or several email addresses separated by \" \", \",\" or \";\" and register them"
-      note: "For example: \"John Silver \"<\"jsilver@example.com\">\", jct@dit.es; Aaron aaron@example.net and click on 'Register as User' will register those 3 email addresses as members of the space and will send a validation email to them."
+      note: "For example: \"John Silver \"<\"jsilver@example.com\">\", jct@dit.es; Aaron aaron@example.net and click on 'Register as User' will register those 3 email addresses as members of the event and will send a validation email to them."
     admin: Admin
     administrators: Administrators
     assist: Attending
     category: Category
     confirm_password: "Confirm password"
-    delete_from_space: "Delete user from space"
+    delete_from_space: "Delete user from event"
     deleted: "User deleted"
     disable: "Disable user"
     email_used_to_create_account: "Enter the email address you used to create your account"
