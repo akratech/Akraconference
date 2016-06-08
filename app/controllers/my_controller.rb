@@ -12,7 +12,7 @@ class MyController < ApplicationController
   respond_to :json, :only => [:rooms]
   respond_to :html, :except => [:rooms]
 
-  before_filter :prepare_user_room, :only => [:home, :activity, :recordings]
+  before_filter :prepare_user_room, :only => [:home, :activity, :recordings,:web_conferencing]
 
   after_filter :load_events, :only => :home, :if => lambda { Mconf::Modules.mod_enabled?('events') }
 
@@ -52,6 +52,14 @@ class MyController < ApplicationController
     @user_pending_spaces = current_user.pending_spaces
     @contents_per_page = 15
     @all_contents = RecentActivity.user_activity(current_user).limit(@contents_per_page).order('created_at DESC')
+  end
+
+  def web_conferencing
+    respond_to do |format|
+      format.html {
+        render layout: false if request.xhr?
+      }
+    end
   end
 
   def approval_pending

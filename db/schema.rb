@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160605114910) do
+ActiveRecord::Schema.define(version: 20160606134931) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -240,6 +240,14 @@ ActiveRecord::Schema.define(version: 20160605114910) do
 
   add_index "ldap_tokens", ["identifier"], name: "index_ldap_tokens_on_identifier", unique: true, using: :btree
   add_index "ldap_tokens", ["user_id"], name: "index_ldap_tokens_on_user_id", unique: true, using: :btree
+
+  create_table "orders", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "invitation_id"
+    t.float    "price",         limit: 24
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "participant_confirmations", force: true do |t|
     t.string   "token"

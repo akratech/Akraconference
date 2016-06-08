@@ -66,6 +66,12 @@ Mconf::Application.routes.draw do
   # to crop images
   get "logo_images/crop", to: 'logo_images#crop'
 
+  resources :order do
+    collection do
+      get :express_checkout
+    end
+  end
+
   resources :spaces do
 
     collection do
@@ -135,6 +141,7 @@ Mconf::Application.routes.draw do
 
   # Routes specific for the current user
   get '/home', to: 'my#home', as: 'my_home'
+  get '/web_conferencing', to: 'my#web_conferencing', as: 'webconf'
   get '/activity', to: 'my#activity', as: 'my_activity'
   get '/rooms', to: 'my#rooms', as: 'my_rooms'
   get '/room/edit', to: 'my#edit_room', as: 'edit_my_room'

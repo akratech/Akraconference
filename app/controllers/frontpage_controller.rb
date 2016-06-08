@@ -9,14 +9,9 @@ class FrontpageController < ApplicationController
 
   layout false
 
+
   def show
-   respond_to do |format|
-      if user_signed_in?
-        format.html { redirect_to my_home_path }
-      else
-        format.html
-      end
-    end
+    @spaces = Space.all.order('name ASC').limit 6
   end
 
   # Helper methods for devise

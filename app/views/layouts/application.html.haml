@@ -115,7 +115,7 @@
       #jm-logo-nav.container-fluid
         #jm-logo-sitedesc.pull-left
           %h1#jm-logo
-            - url = user_signed_in? ? main_app.my_home_path : main_app.root_path
+            - url = main_app.root_path
             %a.title{:href => url}= current_site.name
         %nav#jm-top-menu-nav.pull-right
           .jm-module-raw

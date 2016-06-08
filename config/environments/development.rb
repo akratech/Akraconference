@@ -38,4 +38,14 @@ Mconf::Application.configure do
   config.assets.debug = true # Expands the lines which load the assets
 
   config.eager_load = false
+
+  config.after_initialize do
+    ActiveMerchant::Billing::Base.mode = :test
+    paypal_options = {
+      login: "jb-us-seller_api1.paypal.com",
+      password: "WX4WTU3S8MY44S7F",
+      signature: "AFcWxV21C7fd0v3bYYYRCpSSRl31A7yDhhsPUU2XhtMoZXsWHFxu-RWy"
+    }
+    ::EXPRESS_GATEWAY = ActiveMerchant::Billing::PaypalExpressGateway.new(paypal_options)
+  end
 end

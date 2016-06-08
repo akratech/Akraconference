@@ -205,10 +205,10 @@
   -o-transition: all 1s ease 0s;
   transition: all 1s ease 0s;
   width: 50px;
-  background: url("/stats/stats/templates/jm-internet/images/backtotop.png") no-repeat center center rgba(0, 0, 0, 0.2);
+
 }
 #jm-back-top span:hover {
-  background: url("/stats/stats/templates/jm-internet/images/backtotop.png") no-repeat center center rgba(0, 0, 0, 0.3);
+  
 }
 .texttoggler {
   font-family: Arial, Helvetica, sans-serif;
@@ -625,10 +625,10 @@
   transition: all 0.2s ease-out;
 }
 [class*='span'].wide {
-  width: 60%;
+  width: 50%;
 }
 [class*='span'].narrow {
-  width: 40%;
+  width: 50%;
 }
 .span0.wide,
 .span0.narrow {

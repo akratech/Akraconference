@@ -245,9 +245,22 @@
                               <p><a class="toggle-nav menu"><span class="icon-align-justify"></span></a></p>
                            </div>
                         </div>
-                        <div class="jm-module-raw ">
-                        <%= form_for(resource, :as => resource_name, :url => user_session_path, html: {id: "login-form", class: "form-inline"}) do |f| %>
-
+                        <% if user_signed_in? %>
+                          <div class="jm-module-raw ">
+                            <ul id="navbar-right-links">
+                              <li style="float:right">
+                                <%= link_to main_app.logout_path do %>
+                                  <%= t('logout', :user => current_user.name) %>
+                                <% end %>
+                              </li>
+                              <li style="float:right;padding-top:1px;">
+                                <%= current_user.name.try(:capitalize) %>
+                              </li>
+                            </ul>  
+                          </div>
+                        <% else %>  
+                          <div class="jm-module-raw ">
+                            <%= form_for(resource, :as => resource_name, :url => user_session_path, html: {id: "login-form", class: "form-inline"}) do |f| %>
                               <div class="userdata">
                                  <div id="form-login-username" class="control-group">
                                     <div class="controls">
@@ -280,24 +293,10 @@
                                        <button type="submit" tabindex="0" name="Submit" class="btn btn-primary">Log in</button>
                                     </div>
                                  </div>
-                              <% end %>   
-                                 <ul class="unstyled">
-                                    <li>
-                                       <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/registration-form">
-                                       Create an account <span class="icon-arrow-right"></span></a>
-                                    </li>
-                                    <li>
-                                       <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/registration-form?view=remind">
-                                       Forgot your username?</a>
-                                    </li>
-                                    <li>
-                                       <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/registration-form?view=reset">
-                                       Forgot your password?</a>
-                                    </li>
-                                 </ul>
+                              <% end %>
                               </div>
-                           </form>
-                        </div>
+                         <% end %>   
+                      </div>
                      </div>
                   </div>
                </div>
@@ -316,94 +315,19 @@
                         <ul id="dj-main98" class="dj-main allowHide normal">
                            <li class="dj-up itemid435 first active">
                               <a href="http://www.akratech.com/stats/stats/index.php" class="dj-up_a active"><span class="dj-drop">Home</span></a>
-                              <ul class="dj-submenu">
-                                 <li class="submenu_top" style="display: none"> </li>
-                                 <li class="itemid789 first"><a href="http://www.akratech.com/stats/stats/index.php/homepage/home1" class="">Home 1 - Slider Background</a></li>
-                                 <li class="itemid790 last"><a href="http://www.akratech.com/stats/stats/index.php/homepage/home2" class="">Home 2 - Custom Image Background</a></li>
-                                 <li class="submenu_bot" style="display: none"> </li>
-                              </ul>
+                              
                            </li>
                            <li class="dj-up itemid502">
                               <a href="http://www.joomla-monster.com/knowledge-base-area/templates-documentation/general-info-ef4-framework-for-joomla-3-x/settings" class="dj-up_a"><span class="dj-drop">Features</span></a>
-                              <ul class="dj-submenu">
-                                 <li class="submenu_top" style="display: none"> </li>
-                                 <li class="itemid562 first"><a href="http://www.joomla-monster.com/knowledge-base-area/templates-documentation/general-info-ef4-framework-for-joomla-3-x/settings" class="">Template Parameters</a></li>
-                                 <li class="itemid563"><a href="http://www.akratech.com/stats/stats/index.php/features/all-templates-positions" class="">All Template's Positions</a></li>
-                                 <li class="itemid564"><a href="http://www.akratech.com/stats/stats/index.php/features/module-suffixes" class="">Module Suffixes</a></li>
-                                 <li class="itemid503"><a href="http://www.akratech.com/stats/stats/index.php/features/typography" class="">Typography</a></li>
-                                 <li class="itemid566"><a href="http://www.joomla-monster.com/knowledge-base-area/general-questions/about-our-store/what-is-a-quickstart" class="">Install Demo Copy</a></li>
-                                 <li class="itemid567 last"><a href="http://www.joomla-monster.com/all-templates" class="">Joomla Templates</a></li>
-                                 <li class="submenu_bot" style="display: none"> </li>
-                              </ul>
+                              
                            </li>
                            <li class="dj-up itemid479">
-                              <a href="http://www.akratech.com/stats/stats/index.php/pages" class="dj-up_a"><span class="dj-drop">Pages</span></a>
-                              <ul class="dj-submenu">
-                                 <li class="submenu_top" style="display: none"> </li>
-                                 <li class="itemid519 first separator">
-                                    <a class="dj-more">Scheme Layouts</a>
-                                    <ul>
-                                       <li class="submenu_top" style="display: none"> </li>
-                                       <li class="itemid520 first"><a href="http://www.akratech.com/stats/stats/index.php/pages/scheme-layouts/left-content-right" class="">Left-Content-Right</a></li>
-                                       <li class="itemid521"><a href="http://www.akratech.com/stats/stats/index.php/pages/scheme-layouts/left-right-content" class="">Left-Right-Content</a></li>
-                                       <li class="itemid522"><a href="http://www.akratech.com/stats/stats/index.php/pages/scheme-layouts/content-left-right" class="">Content-Left-Right</a></li>
-                                       <li class="itemid523"><a href="http://www.akratech.com/stats/stats/index.php/pages/scheme-layouts/left-content" class="">Left-Content</a></li>
-                                       <li class="itemid524"><a href="http://www.akratech.com/stats/stats/index.php/pages/scheme-layouts/content-right" class="">Content-Right</a></li>
-                                       <li class="itemid525 last"><a href="http://www.akratech.com/stats/stats/index.php/pages/scheme-layouts/content" class="">Content</a></li>
-                                       <li class="submenu_bot" style="display: none"> </li>
-                                    </ul>
-                                 </li>
-                                 <li class="itemid526 separator">
-                                    <a class="dj-more">J! Content</a>
-                                    <ul>
-                                       <li class="submenu_top" style="display: none"> </li>
-                                       <li class="itemid527 first"><a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-content/single-article" class="">Single Article</a></li>
-                                       <li class="itemid528"><a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-content/blog-2-columns" class="">Blog - 2 columns</a></li>
-                                       <li class="itemid529"><a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-content/blog-1-column" class="">Blog - 1 column </a></li>
-                                       <li class="itemid530"><a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-content/category-list" class="">Category List</a></li>
-                                       <li class="itemid532"><a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-content/tabs" class="">Tabs</a></li>
-                                       <li class="itemid542"><a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/single-contact" class="">Accordion</a></li>
-                                       <li class="itemid788 last"><a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-content/news-feed" class="">News Feed</a></li>
-                                       <li class="submenu_bot" style="display: none"> </li>
-                                    </ul>
-                                 </li>
-                                 <li class="itemid533 last separator">
-                                    <a class="dj-more">J! Other Pages</a>
-                                    <ul>
-                                       <li class="submenu_top" style="display: none"> </li>
-                                       <li class="itemid534 first"><a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/registration-form" class="">Registration Form</a></li>
-                                       <li class="itemid535"><a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/login-form" class="">Login Form</a></li>
-                                       <li class="itemid538"><a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/search-form" class="">Search Form</a></li>
-                                       <li class="itemid539"><a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/smart-search" class="">Smart Search</a></li>
-                                       <li class="itemid541"><a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/single-contact" class="">Single Contact</a></li>
-                                       <li class="itemid657"><a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/error-404" class="">Error 404</a></li>
-                                       <li class="itemid658"><a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/offline-page" class="">Offline Page</a></li>
-                                       <li class="itemid795 last"><a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" class="">Pricing Tables</a></li>
-                                       <li class="submenu_bot" style="display: none"> </li>
-                                    </ul>
-                                 </li>
-                                 <li class="submenu_bot" style="display: none"> </li>
-                              </ul>
+                              <a href="http://www.akratech.com/stats/stats/index.php/pages" class="dj-up_a"><span class="dj-drop">Events</span></a>
+                              
                            </li>
                            <li class="dj-up itemid499">
-                              <a href="http://www.akratech.com/stats/stats/" class="dj-up_a"><span class="dj-drop">Languages</span></a>
-                              <ul class="dj-submenu fadeOut">
-                                 <li class="submenu_top" style="display: none"> </li>
-                                 <li class="itemid500 first"><a href="http://www.akratech.com/stats/stats/?direction=ltr" class="">LTR Languages</a></li>
-                                 <li class="itemid501 last"><a href="http://www.akratech.com/stats/stats/?direction=rtl" class="">RTL Languages</a></li>
-                                 <li class="submenu_bot" style="display: none"> </li>
-                              </ul>
-                           </li>
-                           <li class="dj-up itemid514">
-                              <a href="http://www.akratech.com/stats/stats/index.php/homepage/home1" class="dj-up_a"><span class="dj-drop">Style</span></a>
-                              <ul class="dj-submenu fadeOut" style="margin-left: -29.7812px;">
-                                 <li class="submenu_top" style="display: none"> </li>
-                                 <li class="itemid799 first"><a href="http://www.akratech.com/stats/stats/index.php/homepage/home1" class="">Style 1 - Blue</a></li>
-                                 <li class="itemid800"><a href="http://www.akratech.com/stats/stats/index.php/style/style-2-orange" class="">Style 2 - Orange</a></li>
-                                 <li class="itemid802"><a href="http://www.akratech.com/stats/stats/index.php/style/style-3-yellow" class="">Style 3 - Yellow</a></li>
-                                 <li class="itemid801 last"><a href="http://www.akratech.com/stats/stats/index.php/style/style-4-red" class="">Style 4 - Red</a></li>
-                                 <li class="submenu_bot" style="display: none"> </li>
-                              </ul>
+                              <a href="http://www.akratech.com/stats/stats/" class="dj-up_a"><span class="dj-drop">Pricing</span></a>
+                              
                            </li>
                            <li class="dj-up itemid516 last"><a href="http://www.akratech.com/stats/stats/index.php/contact" class="dj-up_a"><span>Contact Us</span></a></li>
                         </ul>
@@ -425,10 +349,10 @@
                                              <div class="slide-desc-bg"></div>
                                              <div class="slide-desc-text">
                                                 <div class="slide-title">
-                                                   Get the Best Solution for You                                 
+                                                   AKRA CONFERENCING                                
                                                 </div>
-                                                <div class="slide-text">
-                                                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi consectetur dui vel ligula tincidunt egestas. Aenean vitae adipiscing massa. Donec luctus libero vel metus ornare consequat.</p>
+                                                <div class="slide-text" style="padding-left:15%;padding-right:15%;" >
+                                                   <p>By registering through us you can perform a role of a Presenter (Teacher) or a Viewer (Student) by either teaching online or learning online on subject of your choice.</p>
                                                 </div>
                                                 <a href="/register" target="_self" class="readmore">Register</a>
                                                 <div style="clear: both"></div>
@@ -446,12 +370,12 @@
                                              <div class="slide-desc-bg"></div>
                                              <div class="slide-desc-text">
                                                 <div class="slide-title">
-                                                   Solutions for a small planet                                  
+                                                   AKRA CONFERENCING                              
                                                 </div>
-                                                <div class="slide-text">
-                                                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi consectetur dui vel ligula tincidunt egestas. Aenean vitae adipiscing massa. Donec luctus libero vel metus ornare consequat.</p>
+                                                <div class="slide-text" style="padding-left:15%;padding-right:15%;" >
+                                                   <p>Be part of our e-learning community where we build Collaborative and Learning environment (CLE) with a goal to share , contribute , learn and achieve sustainability!</p>
                                                 </div>
-                                                <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" target="_self" class="readmore">Check an offer</a>
+                                                <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" target="_self" class="readmore">Pricing</a>
                                                 <div style="clear: both"></div>
                                              </div>
                                           </div>
@@ -477,25 +401,15 @@
                      <div class="span6 exp narrow">
                         <div class="row-fluid">
                            <div class="span0 exp narrow">
-                              <div class="jm-module  expand1-ms">
+                              <div class="jm-module">
                                  <div class="jm-module-in">
                                     <div class="jm-module-content clearfix notitle">
-                                       <div class="custom expand1-ms">
+                                       <div class="">
                                           <div class="jm-box">
                                              <div class="jm-box-in">
                                                 <div class="jm-icon"><%= image_tag "icon1.png" %></div>
-                                                <div class="jm-column"><span class="title">Residential Solutions</span> <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" class="link">www.jm-internet.com</a> <span class="description">Lorem lean startup ipsum product market fit customer development acquihire technical cofounder. User engagement.</span> <span class="contact">call 888-777-888</span> <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" class="readmore">read more</a></div>
-                                                <div class="jm-expand">
-                                                   <div class="expand-in">
-                                                      <span class="subtitle">Services Include</span>
-                                                      <ul>
-                                                         <li>Lorem ipsum</li>
-                                                         <li>Dolor sit amet</li>
-                                                         <li>Vestibulum venenatis</li>
-                                                         <li>Suscipit libero</li>
-                                                      </ul>
-                                                   </div>
-                                                </div>
+                                                <div class="jm-column"><span class="title">WebConferencing</span> <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" class="link">www.jm-internet.com</a> <span class="description">We help nurture effective use of enterprise scale web conferencing tools to enhance collaboration, research and teaching.</span> <span class="contact">call 888-777-888</span> <a href="/spaces" class="readmore">read more</a></div>
+                                                
                                              </div>
                                           </div>
                                        </div>
@@ -508,7 +422,7 @@
                      <div class="span6 exp wide">
                         <div class="row-fluid">
                            <div class="span0 exp wide">
-                              <div class="jm-module  expand2-ms">
+                              <div class="jm-module">
                                  <div class="jm-module-in">
                                     <div class="jm-module-content clearfix notitle">
                                        <div class="custom expand2-ms">
@@ -516,18 +430,7 @@
                                              <div class="jm-box-in">
                                                 <div class="jm-icon"><%= image_tag "icon2.png" %></div>
                                                 <div class="jm-column">
-                                                   <div class="column-in"><span class="title">Business Solutions</span> <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" class="link">www.jm-internet.com</a> <span class="description">Lorem lean startup ipsum product market fit customer development acquihire technical cofounder. User engagement.</span> <span class="contact">call 888-777-888</span> <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" class="readmore">read more</a></div>
-                                                </div>
-                                                <div class="jm-expand">
-                                                   <div class="expand-in">
-                                                      <span class="subtitle">Services Include</span>
-                                                      <ul>
-                                                         <li>Lorem ipsum</li>
-                                                         <li>Dolor sit amet</li>
-                                                         <li>Vestibulum venenatis</li>
-                                                         <li>Suscipit libero</li>
-                                                      </ul>
-                                                   </div>
+                                                   <div class="column-in"><span class="title">On Demand Sessions</span> <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" class="link">www.jm-internet.com</a> <span class="description">Join scheduled events to share, adopt, contribute , build and secure a rich knowledge gaining experience! </span> <span class="contact">call 888-777-888</span> <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" class="readmore">read more</a></div>
                                                 </div>
                                              </div>
                                           </div>
@@ -549,150 +452,49 @@
                            <div class="span0">
                               <div class="jm-module  title-border-ms blank-ms">
                                  <div class="jm-module-in">
-                                    <h3 class="jm-title "> Spaces</h3>
+                                    <h3 class="jm-title ">LATEST EVENTS</h3>
+                                    <p style="text-align: center;">View list of  knowledge sharing sessions and trainings spread across individuals and institutions. Involve with other participants and indulge in various web conferencing activities</p>
                                     <div class="jm-module-content clearfix ">
                                        <div style="border: 0px !important;">
                                           <div id="djslider-loader138" class="djslider-loader" style="background: none;">
                                              <div id="djslider138" class="djslider" style="opacity: 1; visibility: visible; width: 1170px; height: 245px;">
                                                 <div id="slider-container138" class="slider-container">
-                                                   <ul id="slider138" style="position: relative; left: 0px; width: 2406px;">
-                                                      <li style="width: 370px; height: 245px;">
-                                                         <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" target="_self">
-                                                         <%= image_tag "project1.jpg" %>
-                                                         </a>
-                                                         <!-- Slide description area: START -->
-                                                         <div class="slide-desc">
-                                                            <div class="slide-desc-in">
-                                                               <div class="slide-desc-bg"></div>
-                                                               <div class="slide-desc-text">
-                                                                  <div class="slide-title">
-                                                                     <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" target="_self">                    Project 1                 </a>                
-                                                                  </div>
-                                                                  <div class="slide-text">
-                                                                     <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" target="_self">
-                                                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.                  </a>
-                                                                  </div>
-                                                                  <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" target="_self" class="readmore">Read more</a>
-                                                                  <div style="clear: both"></div>
-                                                               </div>
-                                                            </div>
-                                                         </div>
-                                                         <!-- Slide description area: END -->
-                                                      </li>
-                                                      <li style="width: 370px; height: 245px;">
-                                                         <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" target="_self">
-                                                         <%= image_tag "project2.jpg" %>
-                                                         </a>
-                                                         <!-- Slide description area: START -->
-                                                         <div class="slide-desc">
-                                                            <div class="slide-desc-in">
-                                                               <div class="slide-desc-bg"></div>
-                                                               <div class="slide-desc-text">
-                                                                  <div class="slide-title">
-                                                                     <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" target="_self">                    Project 2                 </a>                
-                                                                  </div>
-                                                                  <div class="slide-text">
-                                                                     <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" target="_self">
-                                                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.                  </a>
-                                                                  </div>
-                                                                  <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" target="_self" class="readmore">Read more</a>
-                                                                  <div style="clear: both"></div>
-                                                               </div>
-                                                            </div>
-                                                         </div>
-                                                         <!-- Slide description area: END -->
-                                                      </li>
-                                                      <li style="width: 370px; height: 245px;">
-                                                         <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" target="_self">
-                                                         <%= image_tag "project3.jpg" %>
-                                                         </a>
-                                                         <!-- Slide description area: START -->
-                                                         <div class="slide-desc">
-                                                            <div class="slide-desc-in">
-                                                               <div class="slide-desc-bg"></div>
-                                                               <div class="slide-desc-text">
-                                                                  <div class="slide-title">
-                                                                     <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" target="_self">                    Project 3                 </a>                
-                                                                  </div>
-                                                                  <div class="slide-text">
-                                                                     <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" target="_self">
-                                                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.                  </a>
-                                                                  </div>
-                                                                  <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" target="_self" class="readmore">Read more</a>
-                                                                  <div style="clear: both"></div>
-                                                               </div>
-                                                            </div>
-                                                         </div>
-                                                         <!-- Slide description area: END -->
-                                                      </li>
-                                                      <li style="width: 370px; height: 245px;">
-                                                         <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" target="_self">
-                                                         <%= image_tag "project4.jpg" %>
-                                                         </a>
-                                                         <!-- Slide description area: START -->
-                                                         <div class="slide-desc">
-                                                            <div class="slide-desc-in">
-                                                               <div class="slide-desc-bg"></div>
-                                                               <div class="slide-desc-text">
-                                                                  <div class="slide-title">
-                                                                     <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" target="_self">                    Project 4                 </a>                
-                                                                  </div>
-                                                                  <div class="slide-text">
-                                                                     <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" target="_self">
-                                                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.                  </a>
-                                                                  </div>
-                                                                  <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" target="_self" class="readmore">Read more</a>
-                                                                  <div style="clear: both"></div>
-                                                               </div>
-                                                            </div>
-                                                         </div>
-                                                         <!-- Slide description area: END -->
-                                                      </li>
-                                                      <li style="width: 370px; height: 245px;">
-                                                         <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" target="_self">
-                                                         <%= image_tag "project5.jpg" %>
-                                                         </a>
-                                                         <!-- Slide description area: START -->
-                                                         <div class="slide-desc">
-                                                            <div class="slide-desc-in">
-                                                               <div class="slide-desc-bg"></div>
-                                                               <div class="slide-desc-text">
-                                                                  <div class="slide-title">
-                                                                     <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" target="_self">                    Project 5                 </a>                
-                                                                  </div>
-                                                                  <div class="slide-text">
-                                                                     <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" target="_self">
-                                                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.                  </a>
-                                                                  </div>
-                                                                  <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" target="_self" class="readmore">Read more</a>
-                                                                  <div style="clear: both"></div>
-                                                               </div>
-                                                            </div>
-                                                         </div>
-                                                         <!-- Slide description area: END -->
-                                                      </li>
-                                                      <li style="width: 370px; height: 245px;">
-                                                         <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" target="_self">
-                                                         <%= image_tag "project6.jpg" %>
-                                                         </a>
-                                                         <!-- Slide description area: START -->
-                                                         <div class="slide-desc">
-                                                            <div class="slide-desc-in">
-                                                               <div class="slide-desc-bg"></div>
-                                                               <div class="slide-desc-text">
-                                                                  <div class="slide-title">
-                                                                     <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" target="_self">                    Project6                  </a>                
-                                                                  </div>
-                                                                  <div class="slide-text">
-                                                                     <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" target="_self">
-                                                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.                  </a>
-                                                                  </div>
-                                                                  <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" target="_self" class="readmore">Read more</a>
-                                                                  <div style="clear: both"></div>
-                                                               </div>
-                                                            </div>
-                                                         </div>
-                                                         <!-- Slide description area: END -->
+                                                   <% if @spaces.exists? %>
+                                                    <% @spaces.each do |space| %>
+                                                       <ul id="slider138" style="position: relative; left: 0px; width: 2406px;">
+                                                          <li style="width: 370px; height: 245px;">
+                                                             <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" target="_self">
+                                                             <%= image_tag "project1.jpg" %>
+                                                             </a>
+                                                             <!-- Slide description area: START -->
+                                                             <div class="slide-desc">
+                                                                <div class="slide-desc-in">
+                                                                   <div class="slide-desc-bg"></div>
+                                                                   <div class="slide-desc-text">
+                                                                      <div class="slide-title">
+                                                                       <%= link_to first_words(space.name, 30), space_path(space), :title => space.name, :class => "list-title" %>        
+                                                                      </div>
+                                                                      <div class="slide-text">
+                                                                          <% if space.public? %>
+                                                                            <div class="resource-visibility small public">
+                                                                              <%= icon_space_public %>
+                                                                              <%= t(".public") %>
+                                                                            </div>
+                                                                          <% else %>
+                                                                            <div class="resource-visibility small private">
+                                                                              <%= icon_space_private %>
+                                                                              <%= t(".private") %>
+                                                                            </div>
+                                                                          <% end %>
+                                                                        </div>
+                                                                      <%= t('_other.members', :count => space.users.size) %>
+                                                                      <div style="clear: both"></div>
+                                                                   </div>
+                                                                </div>
+                                                             </div>
+                                                            </li>
+                                                          <% end %>
+                                                        <% end %>
                                                       </li>
                                                    </ul>
                                                 </div>
@@ -726,14 +528,23 @@
                                     <div class="jm-icon">
                                        <div class="jm-icon-in"><span class="up">Up to</span> <span class="middle">250</span> <span class="down">Mbps</span></div>
                                     </div>
-                                    <div class="jm-description">
-                                       <span class="title">High speed internet</span>
-                                       <p>Proin iaculis purus consequat sem cure digni ssim donec porttitora.<br>In facilisis at augue imperdiet dignissim.</p>
-                                       <p class="custom-icon1"><span>Lorem ipsum dolor</span>Proin iaculis purus consequat sem cure digni ssim.</p>
-                                       <p class="custom-icon2"><span>Adipiscing elit</span>Proin iaculis purus consequat sem cure.</p>
-                                       <p>Proin iaculis purus consequat sem cure digni ssim donec porttitora.<br>In facilisis at augue imperdiet dignissim.</p>
-                                       <a href="http://www.akratech.com/stats/stats/index.php/pages" class="readmore">Read more</a>
-                                    </div>
+                                    <div style="height:520px;width:560px;overflow:auto;">
+                                      <div class="jm-description">
+                                         <span class="title">Features</span>
+                                         <p>We help nurture effective use of webconferencing features to enhance collaboration and research. Our aim is to build an e-learning community and share knowledge and experience spanning across individuals and institutions.</p>
+                                         <p class="custom-icon1"><span>Record and Playback</span>Recorded sessions for later playback.</p>
+                                         <p class="custom-icon2"><span>Whiteboard</span>During the session will annotate key parts of the presentation.</p>
+                                         <p class="custom-icon1"><span>Desktop Sharing</span>Will broadcast desktop for participants to see.</p>
+                                         <p class="custom-icon2"><span>Presentation</span>Upload any PDF presentation or MS office document. </p>
+                                         <p class="custom-icon1"><span>Web Cam</span>Participants can interact and share their webcam at the same time.</p>
+                                         <p class="custom-icon2"><span>Emoji</span>Participants can raise hand and use emoji icons for feedback.</p>
+                                         <p class="custom-icon1"><span>Polling</span>Will Poll participants during the session to increase engagement.</p>
+                                         <p class="custom-icon2"><span>Chat</span>Interact with participants through public and private chat.</p>
+
+                                         
+                                         <a href="http://www.akratech.com/stats/stats/index.php/pages" class="readmore">Read more</a>
+                                      </div>
+                                    </div>  
                                  </div>
                               </div>
                            </div>
@@ -750,8 +561,15 @@
                                           <form action="http://www.akratech.com/stats/stats/" method="post">
                                              <span class="dj-simple-contact-form-introtext"></span>
                                              <div class="dj-simple-contact-form">
-                                                <div class="dj-simple-contact-form-row name"><input placeholder="Name" class="dj-simple-contact-form inputbox  dark-ms badge-ms" type="text" name="dj_name" value=""></div>
-                                                <div class="dj-simple-contact-form-row message"><input placeholder="Phone number" class="dj-simple-contact-form inputbox  dark-ms badge-ms" type="text" name="dj_message" value=""></div>
+                                                <div class="dj-simple-contact-form-row name">
+                                                  <input placeholder="Name" class="dj-simple-contact-form inputbox  dark-ms badge-ms" type="text" name="dj_name" value="">
+                                                </div>
+                                                <div class="dj-simple-contact-form-row message">
+                                                  <input placeholder="Email" class="dj-simple-contact-form inputbox  dark-ms badge-ms" type="text" name="dj_message" value="">
+                                                </div>
+                                                 <div class="dj-simple-contact-form-row message">
+                                                  <input placeholder="Phone" class="dj-simple-contact-form inputbox  dark-ms badge-ms" type="text" name="dj_message" value="">
+                                                </div>
                                                 <div><input class="dj-simple-contact-form button  dark-ms badge-ms" type="submit" value="Send"></div>
                                              </div>
                                           </form>
@@ -777,25 +595,22 @@
                                        <h3 class="jm-title "><span>Popular</span> Articles</h3>
                                        <div class="jm-module-content clearfix ">
                                           <ul class="mostread blank-ms">
-                                             <li>
-                                                <a href="http://www.akratech.com/stats/stats/index.php/pages">
-                                                Subpage</a>
-                                             </li>
+                                             
                                              <li>
                                                 <a href="http://www.akratech.com/stats/stats/index.php">
                                                 Home</a>
                                              </li>
                                              <li>
                                                 <a href="http://www.akratech.com/stats/stats/index.php/features/typography">
-                                                Typography</a>
+                                                Forums</a>
                                              </li>
                                              <li>
                                                 <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/error-404">
-                                                Error 404</a>
+                                                Blogs</a>
                                              </li>
                                              <li>
                                                 <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-content/single-article">
-                                                Single Article</a>
+                                                Article</a>
                                              </li>
                                           </ul>
                                        </div>
@@ -876,7 +691,10 @@
                                        <h3 class="jm-title "><span>Stay</span> Connected</h3>
                                        <div class="jm-module-content clearfix ">
                                           <div class="custom blank-ms">
-                                             <div class="jm-socials"><a class="facebook" href="http://www.akratech.com/stats/stats/#">&nbsp;</a> <a class="googleplus" href="http://www.akratech.com/stats/stats/#">&nbsp;</a> <a class="twitter" href="http://www.akratech.com/stats/stats/#">&nbsp;</a> <a class="linkedin" href="http://www.akratech.com/stats/stats/#">&nbsp;</a> <a class="skype" href="http://www.akratech.com/stats/stats/#">&nbsp;</a> <a class="vimeo" href="http://www.akratech.com/stats/stats/#">&nbsp;</a></div>
+                                             <div class="jm-socials">
+                                                <a class="facebook" href="http://www.akratech.com/stats/stats/#">&nbsp;</a> 
+                                                <a class="googleplus" href="http://www.akratech.com/stats/stats/#">&nbsp;</a>
+                                                <a class="skype" href="http://www.akratech.com/stats/stats/#">&nbsp;</a> </div>
                                           </div>
                                        </div>
                                     </div>
