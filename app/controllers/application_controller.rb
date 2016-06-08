@@ -74,7 +74,10 @@ class ApplicationController < ActionController::Base
     if !external_or_blank_referer?
       previous = stored_location_for(resource)
     end
-
+    spaces = stored_location_for(resource)
+    if spaces != "/"
+      previous = spaces
+    end
     return_to = previous || my_home_path
 
     clear_stored_location
