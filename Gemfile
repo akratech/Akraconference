@@ -36,6 +36,7 @@ gem 'rabl'
 gem 'yajl-ruby' # json parser for rabl
 gem 'valid_email', '~> 0.0.10'#, :git => 'https://github.com/Fire-Dragon-DoL/valid_email.git'
 gem 'public_activity', '~> 1.4.1'
+gem 'activemerchant'
 
 # For queues
 gem 'resque', '~> 1.25.2', :require => 'resque/server'
@@ -120,6 +121,7 @@ group :development do
   gem 'librarian-chef'
   gem 'mailcatcher'
   gem 'xray-rails'
+  gem 'byebug'
 
   # to show better error pages, with more information
   gem 'better_errors'
@@ -144,7 +146,6 @@ group :development, :test do
   gem 'turn', '0.8.2', :require => false # TODO: why 0.8.2?
   gem 'simplecov', :require => false
   gem 'fooldap'
-  gem 'spring'
   gem 'zonebie'
   gem 'timecop'
 end

@@ -373,7 +373,7 @@
                                                    AKRA CONFERENCING                              
                                                 </div>
                                                 <div class="slide-text" style="padding-left:15%;padding-right:15%;" >
-                                                   <p>Be part of our e-learning community where we build Collaborative and Learning environment (CLE) with a goal to share , contribute , learn and achieve sustainability!</p>
+                                                   <p>Be part of our e-learning community where we build Collaborative and Learning environment (CLE) with a goal to share, contribute , learn and achieve sustainability!</p>
                                                 </div>
                                                 <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" target="_self" class="readmore">Pricing</a>
                                                 <div style="clear: both"></div>
@@ -430,7 +430,7 @@
                                              <div class="jm-box-in">
                                                 <div class="jm-icon"><%= image_tag "icon2.png" %></div>
                                                 <div class="jm-column">
-                                                   <div class="column-in"><span class="title">On Demand Sessions</span> <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" class="link">www.jm-internet.com</a> <span class="description">Join scheduled events to share, adopt, contribute , build and secure a rich knowledge gaining experience! </span> <span class="contact">call 888-777-888</span> <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" class="readmore">read more</a></div>
+                                                   <div class="column-in"><span class="title">On Demand Sessions</span> <a href="/web_conferencing" class="link">www.jm-internet.com</a> <span class="description">Join scheduled events to share, adopt, contribute , build and secure a rich knowledge gaining experience! </span> <span class="contact">call 888-777-888</span> <a href="/web_conferencing" class="readmore">read more</a></div>
                                                 </div>
                                              </div>
                                           </div>
@@ -463,9 +463,7 @@
                                                     <% @spaces.each do |space| %>
                                                        <ul id="slider138" style="position: relative; left: 0px; width: 2406px;">
                                                           <li style="width: 370px; height: 245px;">
-                                                             <a href="http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/pricing" target="_self">
-                                                             <%= image_tag "project1.jpg" %>
-                                                             </a>
+                                                            <%= link_to (image_tag "header-image.png"), space_path(space), :title => space.name, :class => "list-title" %>
                                                              <!-- Slide description area: START -->
                                                              <div class="slide-desc">
                                                                 <div class="slide-desc-in">
@@ -526,7 +524,7 @@
                               <div itemprop="articleBody">
                                  <div class="jm-custom-content clearfix">
                                     <div class="jm-icon">
-                                       <div class="jm-icon-in"><span class="up">Up to</span> <span class="middle">250</span> <span class="down">Mbps</span></div>
+                                       <div class="jm-icon-in"></div>
                                     </div>
                                     <div style="height:520px;width:560px;overflow:auto;">
                                       <div class="jm-description">
@@ -558,17 +556,18 @@
                                     <h3 class="jm-title "><span>We</span> will call you back</h3>
                                     <div class="jm-module-content clearfix ">
                                        <div class="dj-simple-contact-form  dark-ms badge-ms">
-                                          <form action="http://www.akratech.com/stats/stats/" method="post">
+                                          <form action="/get_in_touch" method="post">
+                                            <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
                                              <span class="dj-simple-contact-form-introtext"></span>
                                              <div class="dj-simple-contact-form">
                                                 <div class="dj-simple-contact-form-row name">
-                                                  <input placeholder="Name" class="dj-simple-contact-form inputbox  dark-ms badge-ms" type="text" name="dj_name" value="">
+                                                  <input placeholder="Name" class="dj-simple-contact-form inputbox  dark-ms badge-ms" type="text" name="name" value="">
                                                 </div>
                                                 <div class="dj-simple-contact-form-row message">
-                                                  <input placeholder="Email" class="dj-simple-contact-form inputbox  dark-ms badge-ms" type="text" name="dj_message" value="">
+                                                  <input placeholder="Email" class="dj-simple-contact-form inputbox  dark-ms badge-ms" type="text" name="email" value="">
                                                 </div>
                                                  <div class="dj-simple-contact-form-row message">
-                                                  <input placeholder="Phone" class="dj-simple-contact-form inputbox  dark-ms badge-ms" type="text" name="dj_message" value="">
+                                                  <input placeholder="Phone" class="dj-simple-contact-form inputbox  dark-ms badge-ms" type="text" name="number" value="">
                                                 </div>
                                                 <div><input class="dj-simple-contact-form button  dark-ms badge-ms" type="submit" value="Send"></div>
                                              </div>

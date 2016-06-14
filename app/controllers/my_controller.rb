@@ -14,7 +14,7 @@ class MyController < ApplicationController
 
   before_filter :prepare_user_room, :only => [:home, :activity, :recordings,:web_conferencing]
 
-  after_filter :load_events, :only => :home, :if => lambda { Mconf::Modules.mod_enabled?('events') }
+  after_filter :load_events, :only => [:home,:web_conferencing], :if => lambda { Mconf::Modules.mod_enabled?('events') }
 
   layout :determine_layout
 
@@ -55,6 +55,10 @@ class MyController < ApplicationController
   end
 
   def web_conferencing
+    @user_spaces = current_user.spaces.limit(15)
+    @user_pending_spaces = current_user.pending_spaces
+    @contents_per_page = 15
+    @all_contents = RecentActivity.user_activity(current_user).limit(@contents_per_page).order('created_at DESC')
     respond_to do |format|
       format.html {
         render layout: false if request.xhr?

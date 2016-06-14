@@ -62,13 +62,16 @@ Mconf::Application.routes.draw do
   get '/secure', to: 'shibboleth#login', as: "shibboleth"
   get '/secure/info', to: 'shibboleth#info', as: "shibboleth_info"
   post '/secure/associate', to: 'shibboleth#create_association', as: "shibboleth_create_association"
+  post '/get_in_touch', to: 'frontpage#get_in_touch', as: :get_in_touch
 
   # to crop images
   get "logo_images/crop", to: 'logo_images#crop'
 
-  resources :order do
+  resources :orders do
     collection do
       get :express_checkout
+      get :success_url
+      get :error_url
     end
   end
 

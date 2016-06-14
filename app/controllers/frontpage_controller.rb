@@ -28,4 +28,13 @@ class FrontpageController < ApplicationController
     @devise_mapping ||= Devise.mappings[:user]
   end
 
+  def get_in_touch
+    if ApplicationMailer.get_in_touch(params["name"],params["email"],params["number"]).deliver
+      redirect_to root_path
+    else
+      redirect_to root_path
+    end
+  end
+
+
 end

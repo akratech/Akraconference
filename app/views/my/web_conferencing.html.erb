@@ -1,0 +1,47 @@
+<% running = @room.is_running? %>
+<% active_cls = running ? "active" : "" %>
+<%= content_for :page_header do %>
+  <div class="right-column">
+    <div id="webconference-invitation">
+      <div class="<%= active_cls %>" id="webconference-room">
+        <div class="header">
+          <h3>
+            <% if running %>
+              <% if @room.participant_count == 0 %>
+              <!--   <% status = t('.running_with.no_participants') %> -->
+              <% else %>
+                <% status = t('.running_with.participants', :count => @room.participant_count) %>
+              <% end %>
+            <% else %>
+              <% status = "Your webconference is not in progress." %>
+            <% end %>
+            <%= status %>
+          </h3>
+        </div>
+        <div class="invite-url">
+          <%= copyable_field 'invite-url-text', join_webconf_url(@room), :label => t('.your_url'), :readonly => true %>
+        </div>
+       
+            <div class="btn-group">
+              <div class="btn-group webconf-join-group">
+                 <%= link_to t('.invite'), invitation_bigbluebutton_room_path(@room), :class => 'open-modal btn btn-small btn-primary ' %>
+              </div>
+                 
+              <div class="btn-group webconf-join-group">
+                    <%= link_to t('.preferences'), edit_my_room_path, :class => 'open-modal btn btn-small btn-primary ', :'data-modal-width' => 'small',style: "float:left" %>
+              </div>
+            </div>  
+        </ul>
+      </div>
+    </div>
+  </div>
+<% end %>
+<style type="text/css">
+  #invite-url-text {
+    float: left
+  }
+  #page-header {
+    padding-left: 500px;
+  }
+</style>
+
