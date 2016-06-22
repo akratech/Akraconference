@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160606134931) do
+ActiveRecord::Schema.define(version: 20160620160822) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -290,6 +290,16 @@ ActiveRecord::Schema.define(version: 20160606134931) do
     t.integer  "parent_id"
   end
 
+  create_table "products", force: true do |t|
+    t.string  "name"
+    t.float   "price",          limit: 24
+    t.integer "total_sessions"
+    t.float   "storage",        limit: 24
+    t.string  "total_usage"
+    t.integer "total_persons"
+    t.integer "duration"
+  end
+
   create_table "profiles", force: true do |t|
     t.string  "organization"
     t.string  "phone"
@@ -402,6 +412,18 @@ ActiveRecord::Schema.define(version: 20160606134931) do
 
   add_index "spaces", ["last_activity"], name: "index_spaces_on_last_activity", using: :btree
   add_index "spaces", ["last_activity_count"], name: "index_spaces_on_last_activity_count", using: :btree
+
+  create_table "subscriptions", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "product_id"
+    t.float    "price",           limit: 24
+    t.string   "paypal_token"
+    t.string   "paypal_payer_id"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "username"

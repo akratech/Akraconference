@@ -1,11 +1,23 @@
+<%= stylesheet_link_tag "application_print", :media => "print" %>
+<%= stylesheet_link_tag "application", :media => "screen, projection" %>
+<%= stylesheet_link_tag_for_controller :media => "screen, projection" %>
+<%= stylesheet_link_tag "_development" unless Rails.env == "production" %>
+<%= yield :stylesheets %>
+
+<%= javascript_include_tag "application" %>
+<%= render :partial => 'layouts/javascript_locales' %>
+<%= javascript_include_tag_for_controller %>
+<%= yield :javascripts %>
+
 <% running = @room.is_running? %>
 <% active_cls = running ? "active" : "" %>
 <%= content_for :page_header do %>
+
   <div class="right-column">
     <div id="webconference-invitation">
       <div class="<%= active_cls %>" id="webconference-room">
         <div class="header">
-          <h3>
+          <h1>
             <% if running %>
               <% if @room.participant_count == 0 %>
               <!--   <% status = t('.running_with.no_participants') %> -->
@@ -16,32 +28,59 @@
               <% status = "Your webconference is not in progress." %>
             <% end %>
             <%= status %>
-          </h3>
+          </h1>
         </div>
         <div class="invite-url">
           <%= copyable_field 'invite-url-text', join_webconf_url(@room), :label => t('.your_url'), :readonly => true %>
         </div>
        
-            <div class="btn-group">
-              <div class="btn-group webconf-join-group">
-                 <%= link_to t('.invite'), invitation_bigbluebutton_room_path(@room), :class => 'open-modal btn btn-small btn-primary ' %>
-              </div>
-                 
-              <div class="btn-group webconf-join-group">
-                    <%= link_to t('.preferences'), edit_my_room_path, :class => 'open-modal btn btn-small btn-primary ', :'data-modal-width' => 'small',style: "float:left" %>
-              </div>
-            </div>  
-        </ul>
+        <div class="btn-group">
+          <div class="btn-group webconf-join-group">
+             <%= link_to t('.invite'), invitation_bigbluebutton_room_path(@room), :class => 'open-modal btn btn-primary ' %>
+          </div>
+             
+          <div class="btn-group webconf-join-group">
+                <%= link_to t('.preferences'), edit_my_room_path, :class => 'open-modal btn btn-primary ', :'data-modal-width' => 'small',style: "float:left" %>
+          </div>
+        </div>
+
+        <div class="btn-group webconf-join-group">
+          <% if running %>
+            <%= link_to t('.join'), join_bigbluebutton_room_path(@room), :class => "btn webconf-join-link btn-success" %>
+            <% if can?(:end, @room) %>
+              <%= link_to t('.end'), end_bigbluebutton_room_path(@room, :redir_url => my_home_path), options_for_tooltip(t('.end_tooltip'), :data => { :confirm => t('are_you_sure') }, :class => 'btn btn-small btn-danger') %>
+            <% end %>
+          <% else %>
+            <%= link_to "Start a new meeting", join_bigbluebutton_room_path(@room), :class => "btn btn-primary webconf-join-link" %>
+          <% end %>
+        </div>
+          <% if running %>
+            <li><%= icon_in_progress %></li>
+          <% end %>
+        </div>  
       </div>
     </div>
   </div>
 <% end %>
 <style type="text/css">
   #invite-url-text {
-    float: left
+    float: left;
+    font-size: 16px !important;
+    padding: 10px;
+    /*size: 100;*/  
+    width: 260px !important;
+    height: 20px !important;
   }
   #page-header {
-    padding-left: 500px;
+    padding-left: 350px;
+    width: 900px !important;
   }
+  .copyable-field .icon-awesome {
+ 
+    font-size: 16px !important;
+    padding: 10px;
+  }
+  .btn .btn-primary .webconf-join-group {
+    font-size: 15px;
+}
 </style>
-

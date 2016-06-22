@@ -45,7 +45,7 @@
         #invite_ends_on_time
           = f.input :ends_on_time, :label => false, :as => :time, :minute_step => 5, :prompt => { :hour => "", :minute => "" }
 
-      #invite_clause
+      .invitation-dates
         #invite_duration.input
           %span= t(".duration") + ":"
           %span.duration= ""

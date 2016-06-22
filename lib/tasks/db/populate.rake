@@ -109,6 +109,39 @@ namespace :db do
       end
     end
 
+    puts "* Create Product (1)"
+    Product.populate 1 do |product|
+      product.name = "Basic"
+      product.price = 175
+      product.total_sessions = 5
+      product.storage = 10
+      product.total_usage = 50
+      product.total_persons = 5
+      product.duration = 1
+    end
+
+    puts "* Create product (2)"
+    Product.populate 1 do |product|
+      product.name = "Intermediate"
+      product.price = 825
+      product.total_sessions = 15
+      product.storage = 50
+      product.total_usage = 350
+      product.total_persons = 15
+      product.duration = 6
+    end
+
+    puts "* Create product (3)"
+    Product.populate 1 do |product|
+      product.name = "Advanced"
+      product.price = 1750
+      product.total_sessions = 45
+      product.storage = 250
+      product.total_usage = 750
+      product.total_persons = 35
+      product.duration = 12
+    end
+
     puts "* Create spaces: webconference rooms"
     Space.all.each do |space|
       if space.bigbluebutton_room.nil?

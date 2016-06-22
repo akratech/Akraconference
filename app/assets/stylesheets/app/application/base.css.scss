@@ -366,7 +366,7 @@ ul#navbar-left-links {
   margin: 0 10px;
 
   a, .icon-awesome {
-    @include link-colors($navbar-font-color, $navbar-font-color-hover, $navbar-font-color-hover);
+    @include link-colors($navbar-font-color, #008ed6, #008ed6);
   }
 
   .icon-awesome {
@@ -636,6 +636,7 @@ ul#navbar-left-links {
           @include text-shadow(none);
           background-color: $transparent;
           background-image: none;
+          color: black;
         }
       }
     }

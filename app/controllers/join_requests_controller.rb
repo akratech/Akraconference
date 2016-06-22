@@ -40,6 +40,7 @@ class JoinRequestsController < ApplicationController
   end
 
   def new
+    session[:paypal_success_url] = join_bigbluebutton_room_path(current_user.bigbluebutton_room)
     @pending_request = nil
     if @space.users.include?(current_user)
       redirect_to space_path(@space)

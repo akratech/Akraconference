@@ -9036,7 +9036,7 @@
          }
          .jm-pricing .title {
              background: #292929;
-             padding-top: 83px;
+             padding-top: 80px;
              padding-left: 30px;
              padding-right: 30px;
              padding-bottom: 20px;
@@ -9704,7 +9704,7 @@
              text-align: center;
              cursor: pointer;
              position: relative;
-             font-size: 16px;
+             font-size: 14px;
              color: #ffffff;
          }
          .dj-main li a.dj-up_a > span {
@@ -9997,5 +9997,28 @@
              #dj-main98select {
                  display: inline-block;
              }
+         }
+
+         a.enter {
+              display: inline-block;
+              margin: 10px 0 0;
+             line-height: 20px;
+             font-weight: 700;
+             padding: 16px 30px;
+             -webkit-border-radius: 3px;
+             -moz-border-radius: 3px;
+             border-radius: 3px;
+             background: #008ed6;
+             color: #ffffff;
+             border: none;
+             text-transform: uppercase;
+         }
+         a.enter:hover {
+             color: #ffffff;
+             background: #0aadff;
+             text-decoration: none;
+         }
+         a.enter:after {
+             display: none;
          }
          

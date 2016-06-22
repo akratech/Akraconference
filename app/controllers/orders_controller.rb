@@ -48,6 +48,7 @@ class OrdersController < ApplicationController
     @order = Order.find_by(id: params["format"])
     @order.paypal_payer_id = params["PayerID"] # Paypal return payerid if success. Save it to db
     @order.save
+    redirect_to session[:paypal_success_url]
     # Your success code - here & view
   end
 

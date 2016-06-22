@@ -105,6 +105,11 @@ gem "logstash-event"
 gem 'fineuploader-rails', git: 'https://github.com/mconf/fineuploader-rails.git'
 gem 'filesize'
 
+group :production do
+  gem 'pg',             '0.17.1'
+  gem 'rails_12factor', '0.0.2'
+end
+
 #
 # TODO: Gems to review if we can remove/update
 #
