@@ -21,7 +21,7 @@ default:
   #
   # Configurations that are used only by db:seeds.
   # These can be changed later on in the website's management interface.
-  #
+  
 
   # The first admin you will use to login and setup the application.
   admin:
