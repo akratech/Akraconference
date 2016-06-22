@@ -58,6 +58,7 @@ class User < ActiveRecord::Base
   has_one :bigbluebutton_room, :as => :owner, :dependent => :destroy
   has_one :ldap_token, :dependent => :destroy
   has_one :shib_token, :dependent => :destroy
+  has_many :subscriptions
 
   after_initialize :init
 
@@ -80,6 +81,7 @@ class User < ActiveRecord::Base
 
   after_create :create_webconf_room
   after_update :update_webconf_room
+  after_create :setup_trial_version
 
   before_destroy :before_disable_and_destroy, prepend: true
 
@@ -133,6 +135,25 @@ class User < ActiveRecord::Base
 
   def require_approval?
     Site.current.require_registration_approval
+  end
+
+  def setup_trial_version
+    subscription = Subscription.new
+    subscription.user_id = self.id
+    subscription.product_id = 4
+    subscription.price = 0
+    subscription.start_date = Time.current
+    subscription.end_date = Time.current + 1.day
+    subscription.save
+  end
+
+  def eligible?
+    if subscriptions.present?
+      sub = subscriptions.last
+      sub.start_date < Time.current && sub.end_date > Time.current
+    else
+      true
+    end
   end
 
   def create_webconf_room

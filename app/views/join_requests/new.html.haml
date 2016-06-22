@@ -5,7 +5,12 @@
     - else
       .alert.alert-danger= t(".already_requested")
   %h3= t('.message_title')
-  = form_tag(orders_path, :method => :post, :class => "form-group") do
-    = hidden_field_tag :price, 5000
-    = hidden_field_tag :user_id, @current_user.id
-    = image_submit_tag "btn_xpressCheckout.gif"
+  - if @space.public == false
+    = form_tag(orders_path, :method => :post, :class => "form-group") do
+      = hidden_field_tag :price, 5000
+      = hidden_field_tag :user_id, @current_user.id
+      = image_submit_tag "btn_xpressCheckout.gif"
+  - else
+    = simple_form_for(:join_request, url: space_join_requests_path(@space), html: { class: 'single-column' }) do |f|
+      = f.input :comment, as: :text, label: false, disabled: !@pending_request.nil?, input_html: { maxlength: 255, rows: 2 }
+      = f.button :wrapped, value: t("_other.send"), disabled: !@pending_request.nil?

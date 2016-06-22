@@ -120,7 +120,6 @@ gem 'prism'
 
 group :development do
   gem 'translate-rails3', :require => 'translate', :git => 'https://github.com/mconf/translate.git'
-  gem 'rails-footnotes'
   gem 'quiet_assets'
   gem 'brakeman', :require => false
   gem 'librarian-chef'

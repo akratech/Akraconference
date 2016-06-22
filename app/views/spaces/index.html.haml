@@ -4,10 +4,12 @@
 
 = content_for :sidebar do
 
-  - if user_signed_in? && can?(:create, Space)
+  - if user_signed_in? && can?(:create, Space) && current_user.eligible?
     .sidebar-top-action-button
       = link_to t('.create_new_space'), new_space_path, :class => "btn btn-primary btn-large btn-block"
-
+  - elsif !current_user.eligible?
+    .disabled.webconf-not-allowed-create.tooltipped.upwards
+      = link_to t('.create_new_space'), new_space_path, :class => "btn btn-primary btn-large btn-block"
   - elsif !user_signed_in?
     .sidebar-top-action-button
       - if current_site.registration_enabled?
