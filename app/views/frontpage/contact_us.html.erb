@@ -178,12 +178,23 @@
               <h3 class="jm-title "><span>Main</span> Menu</h3>
               <div class="jm-module-content clearfix ">
                 <ul class="nav menu">
-                  <li class="item-435 parent"><a href="/" >Home</a></li>
-                  <li class="item-502 parent"><a href="#features" >Features</a></li>
-                  <li class="item-479 active parent"><a href="/stats/stats/index.php/pages" >Pages</a></li>
-                  <li class="item-499 parent"><a href="/stats/stats/" >Languages</a></li>
-                  <li class="item-514 parent"><a href="/stats/stats/index.php/homepage/home1" >Style</a></li>
-                  <li class="item-516"><a href="/stats/stats/index.php/contact" >Contact Us</a></li>
+                  <li class="dj-up itemid435">
+                              <a href="/home" class="dj-up_a "><span class="dj-drop">Home</span></a>
+                              
+                           </li>
+                           <li class="dj-up itemid502">
+                              <a href="#features" class="dj-up_a"><span class="dj-drop">Features</span></a>
+                              
+                           </li>
+                           <li class="dj-up itemid479">
+                              <a href="/spaces" class="dj-up_a"><span class="dj-drop">Events</span></a>
+                              
+                           </li>
+                           <li class="dj-up itemid499">
+                              <a href="/pricing" class="dj-up_a"><span class="dj-drop">Pricing</span></a>
+                              
+                           </li>
+                           <li class="dj-up itemid516  first active"><a href="/contact_us" class="dj-up_a active"><span>Contact Us</span></a></li>
                 </ul>
               </div>
             </div>
@@ -290,19 +301,20 @@
                </div>
             </section>
         <section id="jm-header-wrapper">
-               <div id="jm-logo-nav" class="container-fluid">
-                  <div id="jm-logo-sitedesc" class="pull-left">
-                     <h1 id="jm-logo">
+          <div id="jm-logo-nav" class="container-fluid">
+            <div id="jm-logo-sitedesc" class="pull-left">
+              <h1 id="jm-logo">
                         <a href="/" onfocus="blur()">
                         <%= image_tag "logo.png" %>
                         </a>
                      </h1>
-                  </div>
-                  <nav id="jm-top-menu-nav" class="pull-right">
+            </div>
+            <nav id="jm-top-menu-nav" class="pull-right">
+               <nav id="jm-top-menu-nav" class="pull-right">
                      <div class="jm-module-raw ">
                         <ul id="dj-main98" class="dj-main allowHide normal">
-                           <li class="dj-up itemid435 first active">
-                              <a href="/home" class="dj-up_a active"><span class="dj-drop">Home</span></a>
+                           <li class="dj-up itemid435">
+                              <a href="/home" class="dj-up_a "><span class="dj-drop">Home</span></a>
                               
                            </li>
                            <li class="dj-up itemid502">
@@ -317,97 +329,125 @@
                               <a href="/pricing" class="dj-up_a"><span class="dj-drop">Pricing</span></a>
                               
                            </li>
-                           <li class="dj-up itemid516 last"><a href="/contact_us" class="dj-up_a"><span>Contact Us</span></a></li>
+                           <li class="dj-up itemid516  first active"><a href="/contact_us" class="dj-up_a active"><span>Contact Us</span></a></li>
                         </ul>
                      </div>
                   </nav>
-               </div>
-               
-            </section>
+          </div>
+        </section>
         <section id="jm-main">
           <div class="container-fluid">
             <div class="row-fluid">
-              
+              <div id="jm-breadcrumbs" class="span12">
+                <div class="jm-module ">
+                  <div  class="jm-module-in">
+                    <div class="jm-module-content clearfix notitle">
+                      <ul class="breadcrumb">
+                        <li class="active">You are here: &#160;</li>
+                        <li><a href="/stats/stats/index.php" class="pathway">Home</a><span class="divider"><img src="/stats/stats/templates/jm-internet/images/system/arrow.png" alt="" /></span></li>
+                        <li class="active"><span>Contact Us</span></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="row-fluid">
               <div id="jm-content" class="span12" data-xtablet="span12" data-tablet="span12" data-mobile="span12">
-                <div id="jm-maincontent">
-                  <div class="item-page" itemscope itemtype="http://schema.org/Article">
-                    <meta itemprop="inLanguage" content="en-GB" />
-                    <div class="page-header">
-                      <h2 itemprop="name">
-                        <a href="/stats/stats/index.php/pages/joomla-other-pages/pricing" itemprop="url">Our Prices </a>
-                      </h2>
-                    </div>
-                    <div class="icons">
-                    </div>
-                    <div itemprop="articleBody">
-                      <div class="jm-pricing clearfix col3">
-                        <div class="box">
-                        <% sub1 = Product.find_by(id: 1) %>
-
-                          <div class="box-in">
-                            <div class="price"><span class="up">as low as</span> <span class="middle">$<%= sub1.price.to_i %></span> <span class="down">MONTHLY</span></div>
-                            <div class="title"><%= sub1.name %></div>
-                            <!-- <div class="bottom" style = "background-color: #f8f8f8"><span style="font-size:25px;font-weight:bold">$ <%= sub1.price %></span>  MONTHLY</div> -->
-                            <div class="content" style="text-align:center">
-                              <!-- <div class="subtitle">step up to earthlink cable internet at the speed of life</div> -->
-                              <ul>
-                                <li style="padding:10px;">Recording Sessions = <%= sub1.total_sessions%></li>
-                                <li style="padding:10px;">Storage Capacity = <%= sub1.storage%> GB</li>
-                                <li style="padding:10px;">Total Usage in Hours = <%= sub1.total_usage%></li>
-                                <li style="padding:10px;">Number of Users per session = <%= sub1.total_persons%></li>
-                              </ul>
+                <div id="jm-content-top">
+                  <div class="row-fluid">
+                    <div class="span0">
+                      <div class="jm-module  blank-ms">
+                        <div  class="jm-module-in">
+                          <div class="jm-module-content clearfix notitle">
+                            <div class="custom blank-ms"  >
+                              <p>
+                              <script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script><div style='overflow:hidden;height:450px;width:100%;'><div id='gmap_canvas' style='height:450px;width:100%;'></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div> <a href='https://embedmaps.net'>Embedmaps</a> <script type='text/javascript' src='https://embedmaps.com/google-maps-authorization/script.js?id=2d6aa3f1287ccf3a2497391f8ee55aa3dc467955'></script><script type='text/javascript'>function init_map(){var myOptions = {zoom:12,center:new google.maps.LatLng(13.0826802,80.27071840000008),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(13.0826802,80.27071840000008)});infowindow = new google.maps.InfoWindow({content:'<strong></strong><br><br> chennai<br>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script></p>
                             </div>
-                            <div class="bottom">
-                            <%= form_tag(subscriptions_path, :method => :post, :class => "form-group") do %>
-                              <%= hidden_field_tag :price, 175 %>
-                              <%= hidden_field_tag :user_id, @current_user.id %>
-                              <%= hidden_field_tag :product_id, 1 %>
-                              <%= image_submit_tag "btn_xpressCheckout.gif" %>
-                            <% end %>
-
-                              
-                            </div>
-                          </div>
-                        </div>
-                        <div class="box">
-                        <% sub2 = Product.find_by(id: 2) %>
-                          <div class="box-in">
-                            <div class="price"><span class="up">as low as</span> <span class="middle">$<%= sub2.price.to_i %></span> <span class="down">HALF-YEARLY</span></div>
-                            <div class="title"">INTERMEDIATE</div>
-                            <!-- <div class="bottom" style = "background-color: #f8f8f8"><span style="font-size:25px;font-weight:bold">$ <%= sub2.price %></span> HALF-YEARLY</div> -->
-                            <div class="content" style="text-align:center">
-                              <!-- <div class="subtitle">step up to incredible dsl cable internet</div> -->
-                              <ul>
-                                <li style="padding:10px;">Recording Sessions = <%= sub2.total_sessions%></li>
-                                <li style="padding:10px;">Storage Capacity = <%= sub2.storage%> GB</li>
-                                <li style="padding:10px;">Total Usage in Hours = <%= sub2.total_usage%></li>
-                                <li style="padding:10px;">Number of Users per session = <%= sub2.total_persons%></li>
-                              </ul>
-                            </div>
-                            <div class="bottom"><%= image_tag "btn_xpressCheckout.gif" %></div>
-                          </div>
-                        </div>
-                        <div class="box">
-                        <% sub3 = Product.find_by(id: 3) %>
-                          <div class="box-in">
-                            <div class="price"><span class="up">as low as</span> <span class="middle">$<%= sub3.price.to_i %></span> <span class="down">YEARLY</span></div>
-                            <div class="title">ADVANCED</div>
-                            <!-- <div class="bottom" style = "background-color: #f8f8f8"><span style="font-size:25px;font-weight:bold">$ <%= sub3.price %></span> YEARLY</div> -->
-                            <div class="content" style="text-align:center">
-                              <!-- <div class="subtitle">No dsl or cable in your area? get satellite internet</div> -->
-                              <ul>
-                                <li style="padding:10px;">Recording Sessions = <%= sub3.total_sessions%></li>
-                                <li style="padding:10px;">Storage Capacity = <%= sub3.storage%> GB</li>
-                                <li style="padding:10px;">Total Usage in Hours = <%= sub3.total_usage%></li>
-                                <li style="padding:10px;">Number of Users per session = <%= sub3.total_persons%></li>
-                              </ul>
-                            </div>
-                            <div class="bottom"><%= image_tag "btn_xpressCheckout.gif" %></div>
                           </div>
                         </div>
                       </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="jm-maincontent">
+                  <div class="contact" itemscope itemtype="http://schema.org/Person">
+                    <h3>Contact</h3>
+                    <dl class="contact-address dl-horizontal" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                      <dt>
+                        <span class="jicons-text" >
+                        Address: 				</span>
+                      </dt>
+                      <dd>
+                        <span class="contact-street" itemprop="streetAddress">
+                        Chennai, IN<br />				</span>
+                      </dd>
+                      <dt>
+                        <span class="jicons-text" >
+                        Email:        </span>
+                      </dt>
+                      <dd>
+                        <span class="contact-postcode" itemprop="postalCode">
+                        contact@akra-tech.com<br />				</span>
+                      </dd>
+                      <dt>
+                        <span class="jicons-text" >
+                        Phone: 		</span>
+                      </dt>
+                      <dd>
+                        <span class="contact-telephone" itemprop="telephone">
+                        +91 95661 08835		</span>
+                      </dd>
+                    </dl>
+                    <h3>Contact Form</h3>
+                    <div class="contact-form">
+                      <form id="contact-form" action="/stats/stats/index.php/contact" method="post" class="form-validate form-horizontal">
+                        <fieldset>
+                          <legend>Send an Email. All fields with an asterisk (*) are required.</legend>
+                          <div class="control-group">
+                            <div class="control-label"><label id="jform_contact_name-lbl" for="jform_contact_name" class="hasTooltip required" title="&lt;strong&gt;Name&lt;/strong&gt;&lt;br /&gt;Your name.">
+                              Name<span class="star">&#160;*</span></label>
+                            </div>
+                            <div class="controls"><input type="text" name="jform[contact_name]" id="jform_contact_name" value="" class="required" size="30" required aria-required="true" /></div>
+                          </div>
+                          <div class="control-group">
+                            <div class="control-label"><label id="jform_contact_email-lbl" for="jform_contact_email" class="hasTooltip required" title="&lt;strong&gt;Email&lt;/strong&gt;&lt;br /&gt;Email Address for contact.">
+                              Email<span class="star">&#160;*</span></label>
+                            </div>
+                            <div class="controls"><input type="email" name="jform[contact_email]" class="validate-email required" id="jform_contact_email" value="" size="30" required aria-required="true" /></div>
+                          </div>
+                          <div class="control-group">
+                            <div class="control-label"><label id="jform_contact_emailmsg-lbl" for="jform_contact_emailmsg" class="hasTooltip required" title="&lt;strong&gt;Subject&lt;/strong&gt;&lt;br /&gt;Enter the subject of your message here.">
+                              Subject<span class="star">&#160;*</span></label>
+                            </div>
+                            <div class="controls"><input type="text" name="jform[contact_subject]" id="jform_contact_emailmsg" value="" class="required" size="60" required aria-required="true" /></div>
+                          </div>
+                          <div class="control-group">
+                            <div class="control-label"><label id="jform_contact_message-lbl" for="jform_contact_message" class="hasTooltip required" title="&lt;strong&gt;Message&lt;/strong&gt;&lt;br /&gt;Enter your message here.">
+                              Message<span class="star">&#160;*</span></label>
+                            </div>
+                            <div class="controls"><textarea name="jform[contact_message]" id="jform_contact_message" cols="50" rows="10" class="required" required aria-required="true" ></textarea></div>
+                          </div>
+                          <div class="control-group">
+                            <div class="control-label"><label id="jform_contact_email_copy-lbl" for="jform_contact_email_copy" class="hasTooltip" title="&lt;strong&gt;Send Copy to Yourself&lt;/strong&gt;&lt;br /&gt;Sends a copy of the message to the address you have supplied.">
+                              Send Copy to Yourself</label>
+                            </div>
+                            <div class="controls"><input type="checkbox" name="jform[contact_email_copy]" id="jform_contact_email_copy" value="1" /></div>
+                          </div>
+                          <div class="control-group">
+                            <div class="controls">
+                            </div>
+                          </div>
+                          <div class="form-actions">
+                            <button class="btn btn-primary validate" type="submit">Send Email</button>
+                            <input type="hidden" name="option" value="com_contact" />
+                            <input type="hidden" name="task" value="contact.submit" />
+                            <input type="hidden" name="return" value="" />
+                            <input type="hidden" name="id" value="9:contact" />
+                            <input type="hidden" name="8e205643ad9e813ae5edb8f11b3c5b91" value="1" />			
+                          </div>
+                        </fieldset>
+                      </form>
                     </div>
                   </div>
                 </div>
@@ -420,11 +460,11 @@
             <div class="row-fluid">
               <div id="jm-copyrights" class="span6 ">
                 <div class="custom"  >
-                  <p>AKRA Confrencing @ Copyright 2016</p>
+                  <p>JM Internet All Rights Reserved.</p>
                 </div>
               </div>
               <div id="jm-poweredby" class="span6 text-right pull-right">
-                <p>Virtual Conference Learning Environment</p> 
+                <a href="http://www.joomla-monster.com/" onfocus="blur()" target="_blank" title="Joomla Templates">Joomla Templates</a> by Joomla-Monster.com
               </div>
               <div id="jm-back-top">
                 <a href="#top"><span>&nbsp;</span></a>

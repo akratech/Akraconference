@@ -179,11 +179,11 @@
                       <div class="jm-module-content clearfix ">
                          <ul class="nav menu">
                             <li class="item-435 current active parent"><a href="/stats/stats/index.php">Home</a></li>
-                            <li class="item-502 parent"><a href="http://www.joomla-monster.com/knowledge-base-area/templates-documentation/general-info-ef4-framework-for-joomla-3-x/settings">Features</a></li>
+                            <li class="item-502 parent"><a href="#features">Features</a></li>
                             <li class="item-479 parent"><a href="/stats/stats/index.php/pages">Pages</a></li>
                             <li class="item-499 parent"><a href="/stats/stats/">Languages</a></li>
                             <li class="item-514 parent"><a href="/stats/stats/index.php/homepage/home1">Style</a></li>
-                            <li class="item-516"><a href="/stats/stats/index.php/contact">Contact Us</a></li>
+                            <li class="item-516"><a href="/contact_us">Contact Us</a></li>
                          </ul>
                       </div>
                    </div>
@@ -318,18 +318,18 @@
                               
                            </li>
                            <li class="dj-up itemid502">
-                              <a href="http://www.joomla-monster.com/knowledge-base-area/templates-documentation/general-info-ef4-framework-for-joomla-3-x/settings" class="dj-up_a"><span class="dj-drop">Features</span></a>
+                              <a href="#features" class="dj-up_a"><span class="dj-drop">Features</span></a>
                               
                            </li>
                            <li class="dj-up itemid479">
-                              <a href="http://www.akratech.com/stats/stats/index.php/pages" class="dj-up_a"><span class="dj-drop">Events</span></a>
+                              <a href="/spaces" class="dj-up_a"><span class="dj-drop">Events</span></a>
                               
                            </li>
                            <li class="dj-up itemid499">
                               <a href="/pricing" class="dj-up_a"><span class="dj-drop">Pricing</span></a>
                               
                            </li>
-                           <li class="dj-up itemid516 last"><a href="http://www.akratech.com/stats/stats/index.php/contact" class="dj-up_a"><span>Contact Us</span></a></li>
+                           <li class="dj-up itemid516 last"><a href="/contact_us" class="dj-up_a"><span>Contact Us</span></a></li>
                         </ul>
                      </div>
                   </nav>
@@ -528,12 +528,12 @@
                               <meta itemprop="inLanguage" content="en-GB">
                               <div class="icons">
                               </div>
-                              <div itemprop="articleBody">
+                              <div itemprop="articleBody" id="features">
                                  <div class="jm-custom-content clearfix">
                                     <div class="jm-icon">
                                        <div class="jm-icon-in"><span class="up hidden ">Up to</span> <span class="middle"><%= image_tag "feature.png" %></span> <span class="down"></span></div>
                                     </div>
-                                    <div style="height:520px;width:560px;overflow:auto;">
+                                    <div style="height:520px;width:560px;overflow:auto;" >
                                       <div class="jm-description">
                                          <span class="title">Features</span>
                                          <p>We help nurture effective use of webconferencing features to enhance collaboration and research. Our aim is to build an e-learning community and share knowledge and experience spanning across individuals and institutions.</p>
@@ -631,32 +631,15 @@
                                  <div class="jm-module  blank-ms">
                                     <div class="jm-module-in">
                                        <h3 class="jm-title "><span>Tags</span></h3>
+                                       <% spaces = Space.where(public: true).limit(5) %>
+                                       
                                        <div class="jm-module-content clearfix ">
                                           <div class="tagspopular blank-ms tagscloud blank-ms">
+                                          <% spaces.each do |s| %>
                                              <span class="tag">
-                                             <a class="tag-name" style="font-size: 1em" href="http://www.akratech.com/stats/stats/index.php/component/tags/tag/10-amet">
-                                             amet              </a>
+                                              <%=link_to s.name[0..5], space_path(s),{class: "tag-name","style"=>"font-size: 1em"} %>
                                              </span>
-                                             <span class="tag">
-                                             <a class="tag-name" style="font-size: 1em" href="http://www.akratech.com/stats/stats/index.php/component/tags/tag/9-sit">
-                                             sit             </a>
-                                             </span>
-                                             <span class="tag">
-                                             <a class="tag-name" style="font-size: 1em" href="http://www.akratech.com/stats/stats/index.php/component/tags/tag/8-dolor">
-                                             dolor             </a>
-                                             </span>
-                                             <span class="tag">
-                                             <a class="tag-name" style="font-size: 1em" href="http://www.akratech.com/stats/stats/index.php/component/tags/tag/7-ipsum">
-                                             ipsum             </a>
-                                             </span>
-                                             <span class="tag">
-                                             <a class="tag-name" style="font-size: 1em" href="http://www.akratech.com/stats/stats/index.php/component/tags/tag/11-nec">
-                                             nec             </a>
-                                             </span>
-                                             <span class="tag">
-                                             <a class="tag-name" style="font-size: 1em" href="http://www.akratech.com/stats/stats/index.php/component/tags/tag/12-quis">
-                                             quis              </a>
-                                             </span>
+                                           <% end %>  
                                           </div>
                                        </div>
                                     </div>
@@ -669,19 +652,19 @@
                               <div class="span0">
                                  <div class="jm-module  blank-ms">
                                     <div class="jm-module-in">
-                                       <h3 class="jm-title "><span>Latest</span> News</h3>
+                                       <h3 class="jm-title "><span>Reach Out to</span>Us</h3>
                                        <div class="jm-module-content clearfix ">
                                           <div class="newsflash blank-ms">
                                              <h4 class="newsflash-title blank-ms">
-                                                <a href="http://www.akratech.com/stats/stats/index.php/newsflash/109-lorem-ipsum">
-                                                Lorem Ipsum   </a>
+                                                <a href="/contact_us">
+                                                Email: </a>
                                              </h4>
-                                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
+                                             <p>contact@akra-tech.com</p>
                                              <h4 class="newsflash-title blank-ms">
-                                                <a href="http://www.akratech.com/stats/stats/index.php/newsflash/110-praesent-vehicula">
-                                                Praesent Vehicula   </a>
+                                                <a href="/contact_us">
+                                                Phone: </a>
                                              </h4>
-                                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
+                                             <p>+91 95661 08835</p>
                                           </div>
                                        </div>
                                     </div>

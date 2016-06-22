@@ -64,6 +64,7 @@ Mconf::Application.routes.draw do
   post '/secure/associate', to: 'shibboleth#create_association', as: "shibboleth_create_association"
   post '/get_in_touch', to: 'frontpage#get_in_touch', as: :get_in_touch
   get '/pricing', to: 'frontpage#pricing', as: :pricing
+  get '/contact_us', to: 'frontpage#contact_us', as: :contact_us
 
   # to crop images
   get "logo_images/crop", to: 'logo_images#crop'
