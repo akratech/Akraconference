@@ -150,7 +150,11 @@ class User < ActiveRecord::Base
   def eligible?
     if subscriptions.present?
       sub = subscriptions.last
-      sub.start_date < Time.current && sub.end_date > Time.current
+      if sub.start_date.present? && sub.end_date.present?
+        sub.start_date < Time.current && sub.end_date > Time.current
+      else
+        true
+      end
     else
       true
     end

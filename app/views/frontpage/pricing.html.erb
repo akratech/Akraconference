@@ -362,7 +362,9 @@
                             <div class="bottom">
                             <%= form_tag(subscriptions_path, :method => :post, :class => "form-group") do %>
                               <%= hidden_field_tag :price, 175 %>
-                              <%= hidden_field_tag :user_id, @current_user.id %>
+                              <% if @current_user.present?%>
+                                <%= hidden_field_tag :user_id, @current_user.id %>
+                              <% end %>
                               <%= hidden_field_tag :product_id, 1 %>
                               <%= image_submit_tag "btn_xpressCheckout.gif" %>
                             <% end %>

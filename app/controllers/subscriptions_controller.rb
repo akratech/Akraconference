@@ -1,4 +1,11 @@
 class SubscriptionsController < ApplicationController
+  before_filter :authenticate_user!
+
+
+
+  def index
+    redirect_to pricing_path
+  end
 
   # def express_checkout
   #   response = EXPRESS_GATEWAY.setup_purchase(5000,
