@@ -71,44 +71,6 @@
                       %li= link_to t('.register'), main_app.register_path
 
 
-              / - if user_signed_in?
-              /   %form#login-form.form-inline{:action => "http://www.akratech.com/stats/stats/index.php/pages/joomla-other-pages/registration-form", :method => "post"}
-              /     .userdata
-              /       #form-login-username.control-group
-              /         .controls
-              /           .input-prepend
-              /             %span.add-on
-              /               %span.icon-user.hasTooltip{"data-original-title" => "Username", :title => ""}
-              /               %label.element-invisible{:for => "modlgn-username"} Username
-              /             %input#modlgn-username.input-small{:name => "username", :placeholder => "Username", :size => "18", :tabindex => "0", :type => "text"}
-              /       #form-login-password.control-group
-              /         .controls
-              /           .input-prepend
-              /             %span.add-on
-              /               %span.icon-lock.hasTooltip{"data-original-title" => "Password", :title => ""}
-              /               %label.element-invisible{:for => "modlgn-passwd"} Password
-              /             %input#modlgn-passwd.input-small{:name => "password", :placeholder => "Password", :size => "18", :tabindex => "0", :type => "password"}
-              /       #form-login-remember.control-group.checkbox
-              /         %label.control-label{:for => "modlgn-remember"} Remember Me
-              /         %input#modlgn-remember.inputbox{:name => "remember", :type => "checkbox", :value => "yes"}
-              /       #form-login-submit.control-group
-              /         .controls
-              /           %button.btn.btn-primary{:name => "Submit", :tabindex => "0", :type => "submit"} Log in
-              /     %ul.unstyled
-              /       %li
-              /         %a{:href => "/stats/stats/index.php/pages/joomla-other-pages/registration-form"}
-              /           Create an account
-              /           %span.icon-arrow-right
-              /       %li
-              /         %a{:href => "/stats/stats/index.php/pages/joomla-other-pages/registration-form?view=remind"}
-              /           Forgot your username?
-              /       %li
-              /         %a{:href => "/stats/stats/index.php/pages/joomla-other-pages/registration-form?view=reset"}
-              /           Forgot your password?
-              /     %input{:name => "option", :type => "hidden", :value => "com_users"}
-              /       %input{:name => "task", :type => "hidden", :value => "user.login"}
-              /         %input{:name => "return", :type => "hidden", :value => "aHR0cDovL3d3dy5ha3JhdGVjaC5jb20vc3RhdHMvc3RhdHMvaW5kZXgucGhwL3BhZ2VzL2pvb21sYS1vdGhlci1wYWdlcy9yZWdpc3RyYXRpb24tZm9ybQ=="}
-              /           %input{:name => "a62a62c91d0af731491f5c9fe4002e45", :type => "hidden", :value => "1"}
 
 
     %section#jm-header-wrapper
