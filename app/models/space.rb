@@ -62,6 +62,8 @@ class Space < ActiveRecord::Base
   has_many :events, -> { where(:owner_type => 'Space')}, class_name: Event,
            foreign_key: "owner_id", dependent: :destroy
 
+  has_many :invitations
+
   # for the associated BigbluebuttonRoom
   # attr_accessible :bigbluebutton_room_attributes
   accepts_nested_attributes_for :bigbluebutton_room
@@ -152,6 +154,15 @@ class Space < ActiveRecord::Base
     else
       joins(:bigbluebutton_room).joins(join_sql)
     end
+  end
+
+  def event_price
+   invitations.present? ? invitations.last.invite_price : 10
+  end
+
+  def update_conf_account
+    user = users.last
+    user.update_conf_account(total_sessions=true)
   end
 
   def self.calculate_last_activity_indexes!

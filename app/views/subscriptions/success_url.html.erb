@@ -1,3 +1,6 @@
-Name <b><%= @current_user.name %><b><br>
-
-You Paid:  <b>$175<b>
+<div style="margin-left:350px; font-size:15px">
+    <b>Payment Successful!</b><br>
+    Name: <b><%= @current_user.name.upcase %></b><br>
+    You Paid: $<b><%= @subscription.price %></br>
+    <%=link_to("Start creating you events from here",spaces_path) %>
+</div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160620160822) do
+ActiveRecord::Schema.define(version: 20160728152314) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -166,6 +166,17 @@ ActiveRecord::Schema.define(version: 20160620160822) do
     t.string   "param"
   end
 
+  create_table "conf_accounts", force: true do |t|
+    t.integer "user_id"
+    t.integer "product_id"
+    t.float   "credits",        limit: 24
+    t.integer "total_sessions"
+    t.float   "storage",        limit: 24
+    t.string  "total_usage"
+    t.integer "total_persons"
+    t.integer "duration"
+  end
+
   create_table "db_files", force: true do |t|
     t.binary "data"
   end
@@ -209,6 +220,7 @@ ActiveRecord::Schema.define(version: 20160620160822) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.float    "invite_price",    limit: 24
+    t.integer  "space_id"
   end
 
   add_index "invitations", ["target_id", "target_type"], name: "index_invitations_on_target_id_and_target_type", using: :btree

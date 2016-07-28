@@ -1,9 +1,9 @@
-class CreateProducts < ActiveRecord::Migration
-
+class CreateConfAccount < ActiveRecord::Migration
   def change
-    create_table :products do |t|
-      t.string :name
-      t.float :price
+    create_table :conf_accounts do |t|
+    	t.integer :user_id
+    	t.integer :product_id
+      t.float :credits
       t.integer :total_sessions
       t.float :storage
       t.string :total_usage
@@ -11,6 +11,4 @@ class CreateProducts < ActiveRecord::Migration
       t.integer :duration
     end
   end
-
 end
-

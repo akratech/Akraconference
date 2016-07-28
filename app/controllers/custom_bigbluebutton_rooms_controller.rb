@@ -91,13 +91,20 @@ class CustomBigbluebuttonRoomsController < Bigbluebutton::RoomsController
         url: join_webconf_url(@room),
         description: params[:invite][:message],
         invite_price: params[:invite][:invite_price],
+        space_id: Space.find_by(:permalink=>params[:id]).id,
         ready: true
 
       # we do a check just to give a better response to the user, since the invitations will
       # only be sent in background later on
+      invitations.each do |invite|
+        invite.send_invitation
+      end
       succeeded, failed = WebConferenceInvitation.check_invitations(invitations)
-      flash[:success] = WebConferenceInvitation.build_flash(
-        succeeded, t('custom_bigbluebutton_rooms.send_invitation.success')) unless succeeded.empty?
+      if !succeeded.empty?
+        flash[:success] = WebConferenceInvitation.build_flash(
+          succeeded, t('custom_bigbluebutton_rooms.send_invitation.success'))
+        current_user.update_conf_account(nil,total_persons=true)
+      end
       flash[:error] = WebConferenceInvitation.build_flash(
         failed, t('custom_bigbluebutton_rooms.send_invitation.error')) unless failed.empty?
     end

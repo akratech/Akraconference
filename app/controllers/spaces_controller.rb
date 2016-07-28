@@ -78,6 +78,7 @@ class SpacesController < InheritedResources::Base
           t('space.created_waiting_moderation')
         end
 
+        @space.update_conf_account
         format.html { redirect_to action: "show", id: @space }
       end
     else

@@ -323,16 +323,14 @@
                               </ul>
                             </div>
                             <div class="bottom">
-                            <%= form_tag(subscriptions_path, :method => :post, :class => "form-group") do %>
-                              <%= hidden_field_tag :price, 175 %>
-                              <% if @current_user.present?%>
-                                <%= hidden_field_tag :user_id, @current_user.id %>
+                              <%= form_tag(subscriptions_path, :method => :post, :class => "form-group") do %>
+                                <%= hidden_field_tag :price, 175 %>
+                                <% if @current_user.present?%>
+                                  <%= hidden_field_tag :user_id, @current_user.id %>
+                                <% end %>
+                                <%= hidden_field_tag :product_id, 1 %>
+                                <%= image_submit_tag "btn_xpressCheckout.gif" %>
                               <% end %>
-                              <%= hidden_field_tag :product_id, 1 %>
-                              <%= image_submit_tag "btn_xpressCheckout.gif" %>
-                            <% end %>
-
-                              
                             </div>
                           </div>
                         </div>
@@ -351,7 +349,16 @@
                                 <li style="padding:10px;">Number of Users per session = <%= sub2.total_persons%></li>
                               </ul>
                             </div>
-                            <div class="bottom"><%= image_tag "btn_xpressCheckout.gif" %></div>
+                            <div class="bottom">
+                              <%= form_tag(subscriptions_path, :method => :post, :class => "form-group") do %>
+                                <%= hidden_field_tag :price, 875 %>
+                                <% if @current_user.present?%>
+                                  <%= hidden_field_tag :user_id, @current_user.id %>
+                                <% end %>
+                                <%= hidden_field_tag :product_id, 2 %>
+                                <%= image_submit_tag "btn_xpressCheckout.gif" %>
+                              <% end %>
+                            </div>
                           </div>
                         </div>
                         <div class="box">
@@ -369,7 +376,16 @@
                                 <li style="padding:10px;">Number of Users per session = <%= sub3.total_persons%></li>
                               </ul>
                             </div>
-                            <div class="bottom"><%= image_tag "btn_xpressCheckout.gif" %></div>
+                            <div class="bottom">
+                              <%= form_tag(subscriptions_path, :method => :post, :class => "form-group") do %>
+                                <%= hidden_field_tag :price, 1750 %>
+                                <% if @current_user.present?%>
+                                  <%= hidden_field_tag :user_id, @current_user.id %>
+                                <% end %>
+                                <%= hidden_field_tag :product_id, 3 %>
+                                <%= image_submit_tag "btn_xpressCheckout.gif" %>
+                              <% end %>
+                            </div>
                           </div>
                         </div>
                       </div>

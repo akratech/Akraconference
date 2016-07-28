@@ -44,11 +44,24 @@ class SubscriptionsController < ApplicationController
 
   def create
     @subscription = Subscription.new({user_id: params["user_id"], price: params["price"], product_id: params["product_id"]})
+    @subscription.start_date = Date.current
+    if params["product_id"] == 1
+      @subscription.end_date = Date.current + 1.month
+    elsif params["product_id"] == 2
+      @subscription.end_date = Date.current + 6.months
+    else
+      @subscription.end_date = Date.current + 12.months
+    end
     if @subscription.save
+      create_conf_account
       checkout_paypal(@subscription)
     else
       render 'new'
     end
+  end
+
+  def create_conf_account
+    ConfAccount.create_account(params["product_id"],params["user_id"])
   end
 
   def success_url

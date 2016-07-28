@@ -59,6 +59,7 @@ class User < ActiveRecord::Base
   has_one :ldap_token, :dependent => :destroy
   has_one :shib_token, :dependent => :destroy
   has_many :subscriptions
+  has_many :conf_accounts
 
   after_initialize :init
 
@@ -151,10 +152,23 @@ class User < ActiveRecord::Base
     if subscriptions.present?
       sub = subscriptions.last
       if sub.start_date.present? && sub.end_date.present?
-        sub.start_date < Time.current && sub.end_date > Time.current
+        within_subsription_period(sub) && account_active?
       else
         true
       end
+    else
+      true
+    end
+  end
+
+  def within_subsription_period(sub)
+    sub.start_date.present? && sub.end_date.present?
+  end
+
+  def account_active?
+    account = conf_accounts.last
+    if account.present?
+      account.credits > 0 && account.total_sessions > 0 && account.total_sessions > 0
     else
       true
     end
@@ -177,6 +191,19 @@ class User < ActiveRecord::Base
     if self.username_changed?
       params = { param: self.username }
       bigbluebutton_room.update_attributes(params)
+    end
+  end
+
+  def update_conf_account(total_sessions=nil,total_persons=nil)
+    conf_account = conf_accounts.last
+    if conf_account.present?
+      if total_sessions.present?
+        remaining_session = conf_account.total_sessions - 1
+        conf_account.update_attributes(total_sessions: remaining_session)
+      elsif total_persons.present?
+        remaining_person = conf_account.total_persons - 1
+        conf_account.update_attributes(total_persons: remaining_person)
+      end
     end
   end
 

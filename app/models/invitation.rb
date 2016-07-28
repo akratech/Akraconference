@@ -10,6 +10,7 @@ class Invitation < ActiveRecord::Base
   belongs_to :target, :polymorphic => true
   belongs_to :sender, :class_name => "User"
   belongs_to :recipient, :class_name => "User"
+  belongs_to :space
 
   # Sends the invitation to the recipient.
   # Respects the preferences of the user, sending the notification
