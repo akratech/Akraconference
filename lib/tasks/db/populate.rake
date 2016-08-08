@@ -116,7 +116,7 @@ namespace :db do
       product.total_sessions = 5
       product.storage = 10
       product.total_usage = 50
-      product.total_persons = 5
+      product.total_persons = 25
       product.duration = 1
     end
 
@@ -127,7 +127,7 @@ namespace :db do
       product.total_sessions = 15
       product.storage = 50
       product.total_usage = 350
-      product.total_persons = 15
+      product.total_persons = 225
       product.duration = 6
     end
 
@@ -138,7 +138,18 @@ namespace :db do
       product.total_sessions = 45
       product.storage = 250
       product.total_usage = 750
-      product.total_persons = 35
+      product.total_persons = 1575
+      product.duration = 12
+    end
+
+    puts "* Create product (4)"
+    Product.populate 1 do |product|
+      product.name = "Free"
+      product.price = 10
+      product.total_sessions = 2
+      product.storage = 25
+      product.total_usage = 1
+      product.total_persons = 1
       product.duration = 12
     end
 

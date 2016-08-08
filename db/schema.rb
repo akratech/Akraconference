@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160728152314) do
+ActiveRecord::Schema.define(version: 20160808155053) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -464,6 +464,7 @@ ActiveRecord::Schema.define(version: 20160728152314) do
     t.string   "unconfirmed_email"
     t.boolean  "can_record"
     t.boolean  "approved",                          default: false, null: false
+    t.string   "adaptive_payment_email"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

@@ -18,11 +18,7 @@ class ApplicationMailer < BaseMailer
     end
   end
 
-  def get_in_touch(name,email,number)
-      subject = "Query from #{name}"
-      @body = "Query from #{name} phone number: #{number}"
-      create_email(Site.current.smtp_sender, email, subject)
-  end
+  
 
   def digest_email(receiver_id, posts, attachments, events)
     receiver = User.find(receiver_id)

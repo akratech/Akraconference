@@ -318,6 +318,11 @@ GEM
       systemu (~> 2.6.4)
       wmi-lite (~> 1.0)
     orm_adapter (0.5.0)
+    paypal-sdk-adaptivepayments (1.117.1)
+      paypal-sdk-core (~> 0.3.0)
+    paypal-sdk-core (0.3.4)
+      multi_json (~> 1.0)
+      xml-simple
     pg (0.17.1)
     plist (3.1.0)
     populator (1.0.0)
@@ -585,6 +590,7 @@ DEPENDENCIES
   mysql2 (~> 0.3.0)
   net-ldap
   nokogiri
+  paypal-sdk-adaptivepayments
   pg (= 0.17.1)
   populator
   premailer-rails

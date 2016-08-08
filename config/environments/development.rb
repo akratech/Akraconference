@@ -24,7 +24,7 @@ Mconf::Application.configure do
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = false
 
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.default_url_options = {:host => '127.0.0.1', :port => 3000}
 
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
@@ -40,6 +40,24 @@ Mconf::Application.configure do
   config.assets.debug = true # Expands the lines which load the assets
 
   config.eager_load = false
+
+#   config.action_mailer.smtp_settings = {
+#       :address              => "smtp.gmail.com",
+#       :port                 => 587,
+#       :domain               => "gmail.com",
+#       :user_name            => "toarvindmehra@gmail.com",
+#       :password             => "September@21",
+#       :authentication       => 'plain'
+# }
+
+config.action_mailer.smtp_settings = {
+    :authentication => :plain,
+    :address => "smtp.mailgun.org",
+    :port => 587,
+    :domain               => "sandboxf14437bb35d64b75bb0cf5a5b5f901cf.mailgun.org",
+    :user_name            => "postmaster@sandboxf14437bb35d64b75bb0cf5a5b5f901cf.mailgun.org",
+    :password             => "b0732e57958cc0e068baa61503aa06e1"
+  }
 
   config.after_initialize do
     ActiveMerchant::Billing::Base.mode = :test

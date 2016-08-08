@@ -83,6 +83,7 @@ class User < ActiveRecord::Base
   after_create :create_webconf_room
   after_update :update_webconf_room
   after_create :setup_trial_version
+  after_create :setup_conf_account
 
   before_destroy :before_disable_and_destroy, prepend: true
 
@@ -146,6 +147,10 @@ class User < ActiveRecord::Base
     subscription.start_date = Time.current
     subscription.end_date = Time.current + 1.day
     subscription.save
+  end
+
+  def setup_conf_account
+    ConfAccount.create_account(4,self.id)
   end
 
   def eligible?

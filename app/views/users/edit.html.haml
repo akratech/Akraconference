@@ -38,6 +38,7 @@
       %h3= t('.account_info')
       = f.input :email, :required => false, :disabled => true
       = f.input :username, :required => false, :disabled => true
+      = f.input :adaptive_payment_email, :required => false
     - if can?(:update_password, @user)
       #change-password
         %h3= t('.change_password')

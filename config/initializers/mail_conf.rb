@@ -14,18 +14,16 @@ ActiveSupport.on_load(:after_initialize) do
     ActionMailer::Base.perform_deliveries = true
     ActionMailer::Base.raise_delivery_errors = true
 
-    ActionMailer::Base.default_url_options = { protocol: "http#{site.ssl? ? 's' : ''}" }
+    # ActionMailer::Base.default_url_options = { protocol: "http#{site.ssl? ? 's' : ''}" }
 
     # default settings
     settings = {
-      :address => nil,
-      :port => 25,
-      :domain => nil,
-      :enable_starttls_auto => false,
-      :authentication => nil,
-      :tls => false,
-      :user_name => nil,
-      :password => nil
+      :authentication => :plain,
+      :address => "smtp.mailgun.org",
+      :port => 587,
+      :domain     => "sandboxf14437bb35d64b75bb0cf5a5b5f901cf.mailgun.org",
+      :user_name  => "postmaster@sandboxf14437bb35d64b75bb0cf5a5b5f901cf.mailgun.org",
+      :password   => "b0732e57958cc0e068baa61503aa06e1"
     }
 
     if site.respond_to?(:smtp_server) and not site.smtp_server.blank?
@@ -53,6 +51,6 @@ ActiveSupport.on_load(:after_initialize) do
       settings[:password] = site.smtp_password
     end
 
-    ActionMailer::Base.smtp_settings = settings
+    # ActionMailer::Base.smtp_settings = settings
   end
 end

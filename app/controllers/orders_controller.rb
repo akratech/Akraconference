@@ -1,40 +1,5 @@
 class OrdersController < ApplicationController
 
-  # def express_checkout
-  #   response = EXPRESS_GATEWAY.setup_purchase(5000,
-  #     ip: request.remote_ip,
-  #     return_url: "http://localhost:4000/orders/success_url",
-  #     cancel_return_url: "http://localhost:4000/",
-  #     currency: "USD",
-  #     allow_guest_checkout: true,
-  #     items: [{name: "Order", description: "Order description", quantity: "1", amount: 5000}]
-  #   )
-  #   redirect_to EXPRESS_GATEWAY.redirect_url_for(response.token)
-  # end
-
-  # def new
-  #   @order = Order.new(:express_token => params[:token])
-  # end
-
-  # def success_url
-  #   params
-  # end
-
-  # def create
-  #   @order = Order.build_order(order_params)
-  #   @order.ip = request.remote_ip
-
-  #   if @order.save
-  #     if @order.purchase # this is where we purchase the order. refer to the model method below
-  #       redirect_to order_url(@order)
-  #     else
-  #       render :action => "failure"
-  #     end
-  #   else
-  #     render :action => 'new'
-  #   end
-  # end
-
   def create
     @order = Order.new({user_id: params["user_id"], price: params["price"]})
     if @order.save
@@ -57,21 +22,67 @@ class OrdersController < ApplicationController
     @s = EXPRESS_GATEWAY.details_for(@order.paypal_token) # To get details of payment
     # @s.params['message'] gives you error
   end
-
   
   private
     def checkout_paypal(order)
-      paypal_response = EXPRESS_GATEWAY.setup_purchase(
-        (order.price * 100).round, # paypal amount is in cents
-        ip: request.remote_ip,
-        return_url: success_url_orders_url(order), # return here if payment success
-        cancel_return_url: error_url_orders_url(order) # return here if payment failed
-      )
-      order.paypal_token = paypal_response.token # save paypal token to db
-      order.save
-      redirect_to EXPRESS_GATEWAY.redirect_url_for(paypal_response.token) and return  # redirect to paypal for payment
+      cut_amount = commision(order.price)
+      real_amount = fee_amount(order.price)
+      PayPal::SDK.configure(
+        :mode      => "sandbox",  # Set "live" for production
+        :app_id    => "APP-80W284485P519543T",
+        username: "jb-us-seller_api1.paypal.com",
+        password: "WX4WTU3S8MY44S7F",
+        signature: "AFcWxV21C7fd0v3bYYYRCpSSRl31A7yDhhsPUU2XhtMoZXsWHFxu-RWy")
+
+      @api = PayPal::SDK::AdaptivePayments.new
+
+      # Build request object
+      @pay = @api.build_pay({
+        :actionType => "PAY",
+        :cancelUrl => error_url_orders_url(order),
+        :currencyCode => "USD",
+        :feesPayer => "SENDER",
+        :ipnNotificationUrl => success_url_orders_url(order),
+        :receiverList => {
+          :receiver => [{
+            :amount => cut_amount.round(1),
+            :email => "buyer@gopapa.com" },{
+            :amount => real_amount.round(1),
+            email: "adapt@ive.com"}] },
+        :returnUrl => success_url_orders_url(order) })
+
+      # Make API call & get response
+      @response = @api.pay(@pay)
+
+      # Access response
+      if @response.success?
+        puts "[url:] #{success_url_orders_url(order)}"
+        @response.payKey
+        redirect_to @api.payment_url(@response)  # Url to complete payment
+      else
+        @response.error[0].message
+      end
     end
 
+    def commision(amount)
+      (amount * 12.5)/100
+    end
+
+    def fee_amount(amount)
+      amount - commision(amount)
+    end
+
+      # paypal_response = EXPRESS_GATEWAY.setup_purchase(
+      #   (order.price * 100).round, # paypal amount is in cents
+      #   ip: request.remote_ip,
+      #   return_url: success_url_orders_url(order), # return here if payment success
+      #   cancel_return_url: error_url_orders_url(order) # return here if payment failed
+      # )
+      # order.paypal_token = paypal_response.token # save paypal token to db
+      # order.save
+      # redirect_to EXPRESS_GATEWAY.redirect_url_for(paypal_response.token) and return  # redirect to paypal for payment
 
 
 end
+
+
