@@ -3,10 +3,7 @@
 <% running = @room.is_running? %>
 <% active_cls = running ? "active" : "" %>
 <%= content_for :page_header do %>
-
-  <div class="right-column">
-      <div class="<%= active_cls %>" id="webconference-room">
-        <div class="header">
+<div class="header" style="margin-left: -160px;padding: 40px;">
           <h1>
             <% if running %>
               <% if @room.participant_count == 0 %>
@@ -20,29 +17,32 @@
             <%= status %>
           </h1>
         </div>
+  <div class="right-column">
+      <div class="<%= active_cls %>" id="webconference-room">
+        
         <div class="invite-url">
           <%= copyable_field 'invite-url-text', join_webconf_url(@room), :label => "Your On Demand URL", :readonly => true %>
-          <div class="btn-group webconf-join-group">
-          <% if running %>
-            <%= link_to t('.join'), join_bigbluebutton_room_path(@room), :class => "btn webconf-join-link btn-success" %>
-            <% if can?(:end, @room) %>
-              <%= link_to t('.end'), end_bigbluebutton_room_path(@room, :redir_url => my_home_path), options_for_tooltip(t('.end_tooltip'), :data => { :confirm => t('are_you_sure') }, :class => 'btn btn-small btn-danger') %>
+          <div class="btn-group webconf-join-group" style="margin-top:13px">
+            <% if running %>
+              <%= link_to t('.join'), join_bigbluebutton_room_path(@room), :class => "btn webconf-join-link btn-success" %>
+              <% if can?(:end, @room) %>
+                <%= link_to t('.end'), end_bigbluebutton_room_path(@room, :redir_url => my_home_path), options_for_tooltip(t('.end_tooltip'), :data => { :confirm => t('are_you_sure') }, :class => 'btn btn-small btn-danger') %>
+              <% end %>
+            <% else %>
+              <%= link_to "Start a new meeting", join_bigbluebutton_room_path(@room), :class => "btn btn-primary webconf-join-link" %>
             <% end %>
-          <% else %>
-            <%= link_to "Start a new meeting", join_bigbluebutton_room_path(@room), :class => "btn btn-primary webconf-join-link" %>
-          <% end %>
-        </div>
+          </div>
           <% if running %>
             <li><%= icon_in_progress %></li>
           <% end %>
         </div>
        
         <div class="btn-group">
-          <div class="btn-group webconf-join-group">
+          <div class="btn-group webconf-join-group" style = "margin-left:70px">
              <%= link_to t('.invite'), invitation_bigbluebutton_room_path(@room), :class => 'open-modal btn btn-primary ' %>
           </div>
              
-          <div class="btn-group webconf-join-group" style="margin-left:166px;">
+          <div class="btn-group webconf-join-group" style="margin-left:30px;">
                 <%= link_to t('.preferences'), edit_my_room_path, :class => 'open-modal btn btn-primary ', :'data-modal-width' => 'small',style: "float:left" %>
           </div>
         </div>

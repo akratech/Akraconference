@@ -35,6 +35,7 @@ class OrdersController < ApplicationController
         signature: "AFcWxV21C7fd0v3bYYYRCpSSRl31A7yDhhsPUU2XhtMoZXsWHFxu-RWy")
 
       @api = PayPal::SDK::AdaptivePayments.new
+      adaptive_email = params["adaptive_email"].present? ? params["adaptive_email"] : "adapt@ive.com"
 
       # Build request object
       @pay = @api.build_pay({
@@ -45,10 +46,10 @@ class OrdersController < ApplicationController
         :ipnNotificationUrl => success_url_orders_url(order),
         :receiverList => {
           :receiver => [{
-            :amount => cut_amount.round(1),
+            :amount => cut_amount,
             :email => "buyer@gopapa.com" },{
-            :amount => real_amount.round(1),
-            email: "adapt@ive.com"}] },
+            :amount => real_amount,
+            :email =>  adaptive_email}] },
         :returnUrl => success_url_orders_url(order) })
 
       # Make API call & get response
@@ -61,6 +62,7 @@ class OrdersController < ApplicationController
         redirect_to @api.payment_url(@response)  # Url to complete payment
       else
         @response.error[0].message
+        redirect_to error_url_orders_url(order)
       end
     end
 

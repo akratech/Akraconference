@@ -11,7 +11,7 @@ class FrontpageController < ApplicationController
 
 
   def show
-    @spaces = Space.all.order('name ASC').limit 6
+    @spaces = Space.all.order('id DESC').limit 6
   end
 
   # Helper methods for devise
