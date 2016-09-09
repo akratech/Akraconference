@@ -15,9 +15,9 @@ Mconf::Application.configure do
   config.action_controller.perform_caching = true
 
   # Disable Rails's static asset server (Apache or nginx will already do this)
-  config.serve_static_assets = false
+  # config.serve_static_assets = false
   # Set to false to test the production env locally using rails s -e production
-  # config.serve_static_assets = true
+  config.serve_static_assets = true
 
   # Compress JavaScripts and CSS
   config.assets.compress = true
@@ -26,7 +26,7 @@ Mconf::Application.configure do
   config.assets.css_compressor = :yui
 
   # Don't fallback to assets pipeline if a precompiled asset is missed
-  config.assets.compile = false
+  config.assets.compile = true
 
   # Generate digests for assets URLs
   config.assets.digest = true
@@ -76,6 +76,25 @@ Mconf::Application.configure do
   config.active_support.deprecation = :notify
 
   config.eager_load = true
+
+  config.action_mailer.smtp_settings = {
+    :authentication => :plain,
+    :address => "smtp.mailgun.org",
+    :port => 587,
+    :domain               => "sandboxf14437bb35d64b75bb0cf5a5b5f901cf.mailgun.org",
+    :user_name            => "postmaster@sandboxf14437bb35d64b75bb0cf5a5b5f901cf.mailgun.org",
+    :password             => "b0732e57958cc0e068baa61503aa06e1"
+  }
+
+  config.after_initialize do
+    ActiveMerchant::Billing::Base.mode = :test
+    paypal_options = {
+      login: "jb-us-seller_api1.paypal.com",
+      password: "WX4WTU3S8MY44S7F",
+      signature: "AFcWxV21C7fd0v3bYYYRCpSSRl31A7yDhhsPUU2XhtMoZXsWHFxu-RWy"
+    }
+    ::EXPRESS_GATEWAY = ActiveMerchant::Billing::PaypalExpressGateway.new(paypal_options)
+  end
 
   # Configs for lograge
   config.lograge.enabled = true
