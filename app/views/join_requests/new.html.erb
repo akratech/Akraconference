@@ -1,0 +1,29 @@
+<div id="new-join-request">
+  <% unless @pending_request.nil? %>
+    <% if @pending_request.is_invite? %>
+      <div class="alert alert-danger">
+        <%= t(".already_invited") %>
+      </div>
+    <% else %>
+      <div class="alert alert-danger">
+        <%= t(".already_requested") %>
+      </div>
+    <% end %>
+  <% end %>
+  <h3>
+    <%= t('.message_title') %>
+  </h3>
+  <%= simple_form_for(:join_request, url: space_join_requests_path(@space), html: { class: 'single-column' }) do |f| %>
+    <%= f.input :comment, as: :text, label: false, disabled: !@pending_request.nil?, input_html: { maxlength: 255, rows: 2 } %>
+    <%= f.button :wrapped, value: t("_other.send"), disabled: !@pending_request.nil? %>
+  <% end %>
+  <%= form_tag(orders_path, :method => :post, :class => "form-group") do %>
+    <%= hidden_field_tag :price, @space.event_price %>
+    <%= hidden_field_tag :user_id, @current_user.id %>
+    <%= hidden_field_tag :adaptive_email, @space.admins.first.adaptive_payment_email %>
+    <%= image_submit_tag "btn_xpressCheckout.gif" %>
+    <h3>
+      <%= "Price: $" + @space.event_price.to_s %>
+    </h3>
+  <% end %>
+</div>
