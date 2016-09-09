@@ -81,17 +81,17 @@ Mconf::Application.configure do
     :authentication => :plain,
     :address => "smtp.mailgun.org",
     :port => 587,
-    :domain               => "sandboxf14437bb35d64b75bb0cf5a5b5f901cf.mailgun.org",
-    :user_name            => "postmaster@sandboxf14437bb35d64b75bb0cf5a5b5f901cf.mailgun.org",
-    :password             => "b0732e57958cc0e068baa61503aa06e1"
+    :domain               => "atconference.online",
+    :user_name            => "postmaster@atconference.online",
+    :password             => "13885d4abd5775d1e404154cd37c3d42"
   }
 
   config.after_initialize do
     ActiveMerchant::Billing::Base.mode = :test
     paypal_options = {
-      login: "jb-us-seller_api1.paypal.com",
-      password: "WX4WTU3S8MY44S7F",
-      signature: "AFcWxV21C7fd0v3bYYYRCpSSRl31A7yDhhsPUU2XhtMoZXsWHFxu-RWy"
+      login: "ashraf-facilitator_api1.akra-tech.com",
+      password: "9GCBAVPFEPQRZH7K",
+      signature: "AFcWxV21C7fd0v3bYYYRCpSSRl31ALOZ1dxQ.SKKmJA-vZXAQ-Jh1sH1"
     }
     ::EXPRESS_GATEWAY = ActiveMerchant::Billing::PaypalExpressGateway.new(paypal_options)
   end
