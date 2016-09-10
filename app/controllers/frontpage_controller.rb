@@ -35,7 +35,7 @@ class FrontpageController < ApplicationController
   end
 
   def get_in_touch
-    if QueryMailer.get_in_touch(params["name"],params["email"],params["number"]).deliver!
+    if QueryMailer.get_in_touch(params["name"],params["email"],params["number"],params["message"]).deliver!
       redirect_to root_path
     else
       redirect_to root_path
