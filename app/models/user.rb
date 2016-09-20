@@ -167,7 +167,7 @@ class User < ActiveRecord::Base
   end
 
   def within_subsription_period(sub)
-    sub.start_date.present? && sub.end_date.present?
+    sub.start_date.present? && sub.end_date.present? && sub.end_date > Date.today
   end
 
   def account_active?
