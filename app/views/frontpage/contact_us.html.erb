@@ -302,17 +302,16 @@
                 <div id="jm-content-top">
                   <div class="row-fluid">
                     <div class="span0">
-                      
                     </div>
                   </div>
                 </div>
                 <div id="jm-maincontent">
-                  <div class="contact" itemscope itemtype="http://schema.org/Person">
-                    
-                    
+                  <%= render 'layouts/flash_notice' %>
+                  <div class="contact">
                     <h3>Enquiry Form</h3>
                     <div class="contact-form">
-                      <form id="contact-form" action="#" method="post" class="form-validate form-horizontal">
+                      <form id="contact-form" action="contact_us_mail" method="post" class="form-validate form-horizontal">
+                      <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
                         <fieldset>
                           <legend>Send an Email. All fields with an asterisk (*) are required.</legend>
                           <div class="control-group">
@@ -346,11 +345,6 @@
                           </div>
                           <div class="form-actions">
                             <button class="btn btn-primary validate" type="submit">Send Email</button>
-                            <input type="hidden" name="option" value="com_contact" />
-                            <input type="hidden" name="task" value="contact.submit" />
-                            <input type="hidden" name="return" value="" />
-                            <input type="hidden" name="id" value="9:contact" />
-                            <input type="hidden" name="8e205643ad9e813ae5edb8f11b3c5b91" value="1" />			
                           </div>
                         </fieldset>
                       </form>

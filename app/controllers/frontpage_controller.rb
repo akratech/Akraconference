@@ -35,10 +35,29 @@ class FrontpageController < ApplicationController
   end
 
   def get_in_touch
-    if QueryMailer.get_in_touch(params["name"],params["email"],params["number"],params["message"]).deliver!
-      redirect_to root_path
+    if params["email"].present?
+      if QueryMailer.get_in_touch(params["name"],params["email"],params["number"],params["message"]).deliver!
+        flash[:notice] = "Thanks We will get back to you."
+        redirect_to root_path
+      else
+        redirect_to root_path
+      end
     else
       redirect_to root_path
+    end
+  end
+
+  def contact_us_mail
+    form_params = params["jform"]
+    if form_params["contact_email"].present?
+      if QueryMailer.contact_us(form_params["contact_name"],form_params["contact_email"],form_params["contact_subject"],form_params["contact_message"]).deliver!
+        flash[:notice] = "Thanks We will get back to you."
+        redirect_to contact_us_path
+      else
+        render contact_us_path
+      end
+    else
+      redirect_to contact_us_path
     end
   end
 
