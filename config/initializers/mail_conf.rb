@@ -21,9 +21,9 @@ ActiveSupport.on_load(:after_initialize) do
       :authentication => :plain,
       :address => "smtp.mailgun.org",
       :port => 587,
-      :domain     => "sandboxf14437bb35d64b75bb0cf5a5b5f901cf.mailgun.org",
-      :user_name  => "postmaster@sandboxf14437bb35d64b75bb0cf5a5b5f901cf.mailgun.org",
-      :password   => "b0732e57958cc0e068baa61503aa06e1"
+      :domain               => "atconference.online",
+      :user_name            => "postmaster@atconference.online",
+      :password             => "13885d4abd5775d1e404154cd37c3d42"
     }
 
     if site.respond_to?(:smtp_server) and not site.smtp_server.blank?
