@@ -91,7 +91,7 @@ class CustomBigbluebuttonRoomsController < Bigbluebutton::RoomsController
         url: join_webconf_url(@room),
         description: params[:invite][:message],
         invite_price: params[:invite][:invite_price],
-        space_id: Space.find_by(:permalink=>params[:id]).id,
+        space_id: Space.find_by(:permalink=>params[:id]).try(:id),
         ready: true
 
       # we do a check just to give a better response to the user, since the invitations will
