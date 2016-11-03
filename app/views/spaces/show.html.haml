@@ -22,3 +22,9 @@
   = render :partial => 'latest_posts'
 
 = render :partial => 'latest_users'
+
+-if !current_user.eligible?
+  .content-block-footer.content-block-footer-fancy
+    Your 1 day trial has expired. Please click
+    %a{:href => '/pricing'}> &nbsp; here &nbsp;
+    to subscribe to any of our pricing packages to continue using our services!

@@ -119,6 +119,8 @@ gem 'rubyzip', '>= 1.0.0' # will load new rubyzip version
 gem 'zip-zip' # will load compatibility for old rubyzip API.
 gem 'prism'
 
+gem 'byebug'
+
 group :development do
   gem 'translate-rails3', :require => 'translate', :git => 'https://github.com/mconf/translate.git'
   gem 'quiet_assets'
@@ -126,7 +128,6 @@ group :development do
   gem 'librarian-chef'
   gem 'mailcatcher'
   gem 'xray-rails'
-  gem 'byebug'
 
   # to show better error pages, with more information
   gem 'better_errors'

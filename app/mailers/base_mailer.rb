@@ -19,7 +19,7 @@ class BaseMailer < ActionMailer::Base
     I18n.with_locale(locale) do
       mail(:to => to,
            :subject => "[#{Site.current.name}] #{subject}",
-           :from => "toarvindmehra@gmail.com",
+           :from => "admin@atconference.online",
            :headers => headers,
            :reply_to => from) do |format|
         format.html { render layout: 'mailers' }
