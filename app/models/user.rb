@@ -154,6 +154,7 @@ class User < ActiveRecord::Base
   end
 
   def eligible?
+    return true if superuser
     if subscriptions.present?
       sub = subscriptions.last
       if sub.start_date.present? && sub.end_date.present?

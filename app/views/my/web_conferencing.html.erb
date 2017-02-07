@@ -1,22 +1,21 @@
-
-
 <% running = @room.is_running? %>
 <% active_cls = running ? "active" : "" %>
 <%= content_for :page_header do %>
 <div class="header" style="margin-left: -160px;padding: 40px;">
-          <h1>
-            <% if running %>
-              <% if @room.participant_count == 0 %>
-              <!--   <% status = t('.running_with.no_participants') %> -->
-              <% else %>
-                <% status = t('.running_with.participants', :count => @room.participant_count) %>
-              <% end %>
-            <% else %>
-              <% status = "Your OnDemand Session is not in progress." %>
-            <% end %>
-            <%= status %>
-          </h1>
-        </div>
+  <h1 style="margin-left: 155px">
+    <% if running %>
+      <% if @room.participant_count == 0 %>
+      <!--   <% status = t('.running_with.no_participants') %> -->
+      <% else %>
+        <% status = t('.running_with.participants', :count => @room.participant_count) %>
+      <% end %>
+    <% else %>
+      <% status = "On Demand Session" %>
+    <% end %>
+    <%= status %>
+  </h1>
+  <h3>Provide users to quickly launch video conferencing sessions on click of a button</h3>
+</div>
   <div class="right-column">
       <div class="<%= active_cls %>" id="webconference-room">
         
@@ -29,37 +28,42 @@
                 <%= link_to t('.end'), end_bigbluebutton_room_path(@room, :redir_url => my_home_path), options_for_tooltip(t('.end_tooltip'), :data => { :confirm => t('are_you_sure') }, :class => 'btn btn-small btn-danger') %>
               <% end %>
             <% else %>
-              <%= link_to "Start a new meeting", join_bigbluebutton_room_path(@room), :class => "btn btn-primary webconf-join-link" %>
+              <% if  current_user.present? && !current_user.eligible? %>
+                <div class="disabled webconf-not-allowed-create tooltipped upwards">
+                  <%= button_to "Start a new meeting", join_bigbluebutton_room_path(@room), :class => "btn btn-small btn-primary webconf-join-link" %>
+                </div>
+              <% else %>
+                <%= link_to "Start a new meeting", join_bigbluebutton_room_path(@room), :class => "btn btn-primary webconf-join-link" %>
+              <% end %>
             <% end %>
           </div>
           <% if running %>
             <li><%= icon_in_progress %></li>
           <% end %>
         </div>
-       
         <div class="btn-group">
           <div class="btn-group webconf-join-group" style = "margin-left:160px">
              <%= link_to t('.invite'), invitation_bigbluebutton_room_path(@room), :class => 'open-modal btn btn-primary ' %>
           </div>
-             
           <div class="btn-group webconf-join-group">
-                <%= link_to t('.preferences'), edit_my_room_path, :class => 'open-modal btn btn-primary ', :'data-modal-width' => 'small',style: "float:left" %>
+              <%= link_to t('.preferences'), edit_my_room_path, :class => 'open-modal btn btn-primary ', :'data-modal-width' => 'small',style: "float:left" %>
           </div>
         </div>
-
-        
-        </div>  
-      </div>
     </div>
   </div>
 <% end %>
+<% if current_user.present? && !current_user.eligible? %>
+  <div class="" style="color: red; margin-left: 120px;">
+    Your 1 day trial has expired. Please click <a href="/pricing"> here </a>to subscribe to any of our pricing packages to continue using our services!
+  </div>
+<% end %>  
 <style type="text/css">
   #invite-url-text {
     float: left;
     font-size: 16px !important;
     padding: 10px;
     /*size: 100;*/  
-    width: 260px !important;
+    width: 360px !important;
     height: 20px !important;
   }
   #page-header {

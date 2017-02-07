@@ -9081,7 +9081,7 @@
              min-height: 40px;
          }
          .jm-block span {
-             background: #999999;
+             background: #000;
              display: block;
              position: absolute;
              top: 3px;
@@ -10086,7 +10086,7 @@
             line-height: 1.2em;
             margin-left: 5px;
             padding: 2px 4px 2px;
-            width: 75px
+            width: 90px
         }
         @media screen and (max-width: 991px) {
             .btn-request-demo .text-demo {

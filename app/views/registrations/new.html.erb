@@ -1,0 +1,18 @@
+<%= render_page_title t('register.one') %>
+<div id="page-header">
+  <img alt="1daytrial" src="/assets/1daytrial.png" style="float: right; margin-top: -122px; width: 118px;"/>
+</div>
+<div id="register-wrapper">
+  <%= render :partial => 'signup_form' %>
+  <div class="extra-links">
+    <div class="comments">
+      <span>
+        <%= t('register.confirmation') %>
+      </span>
+    </div>
+    <%= render "devise/shared/links" %>
+  </div>
+
+</div>
+<div>
+  	<b><span style="color:red"> * </span> - 1 day trial package gives you access to all our features with ability to launch video conferencing sessions free for a day.</b></div>

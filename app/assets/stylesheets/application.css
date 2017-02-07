@@ -1973,9 +1973,10 @@ h3.jm-typo-title ~ div pre {
   padding: 0 0 0 60px;
   position: relative;
   min-height: 40px;
+  line-height: 35px;
 }
 .jm-block span {
-  background: #999999;
+  background: #000;
   display: block;
   position: absolute;
   top: 3px;

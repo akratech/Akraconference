@@ -28,7 +28,7 @@ body.profiles.edit, body.profiles.update {
     margin-left: 10px;
 
     input { width: $edit-area-width - 20px; }
-    input[type=radio] { width: auto; }
+    input[type=radio] { width: auto; margin-right:10px; margin-top: 2px; }
   }
 
   .visibility-options {
@@ -45,7 +45,7 @@ body.profiles.edit, body.profiles.update {
       // labels at the right
       label {
         width: $edit-area-width - 60px;
-        float: left;
+        
         margin-left: 5px;
       }
     }
